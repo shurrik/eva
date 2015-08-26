@@ -25,18 +25,18 @@
 	
 		<!-- 用户详细信息管理：数据源、用户缓存（通过数据库管理用户、角色、权限、资源） -->
 	<beans:bean id="userDetailsManager"
-		class="com.yunji.oa.security.XaUserDetailsService">
+		class="com.eden.eva.security.XaUserDetailsService">
 	</beans:bean>
 
 
 	<!-- 访问决策器，决定某个用户具有的角色，是否有足够的权限去访问某个资源。 -->
 	<beans:bean id="myAccessDecisionManager"
-		class="com.yunji.oa.security.XaAccessDecisionManagerService" />
+		class="com.eden.eva.security.XaAccessDecisionManagerService" />
 
 
 	<!-- 资源源数据定义，将所有的资源和权限对应关系建立起来，即定义某一资源可以被哪些角色去访问。 -->
 	<beans:bean id="mySecurityMetadataSource" init-method="loadResourceDefine"
-		class="com.yunji.oa.security.XaSecurityMetadataSourceService">
+		class="com.eden.eva.security.XaSecurityMetadataSourceService">
 	</beans:bean>
 
 	<!-- 1.URL过滤器或方法拦截器：用来拦截URL或者方法资源对其进行验证，其抽象基类为AbstractSecurityInterceptor 
@@ -44,7 +44,7 @@
 		调用顺序为：AbstractSecurityInterceptor调用SecurityMetadataSource取得资源的所有可访问权限， 然后再调用AccessDecisionManager来实现决策，确定用户是否有权限访问该资源。 -->
 	<!-- 自定义的filter, 必须包含authenticationManager, accessDecisionManager, securityMetadataSource三个属性 -->
 	<beans:bean id="mySecurityFilter"
-		class="com.yunji.oa.security.XaFilterSecurityInterceptor">
+		class="com.eden.eva.security.XaFilterSecurityInterceptor">
 		<beans:property name="authenticationManager" ref="myAuthenticationManager" />
 		<beans:property name="accessDecisionManager" ref="myAccessDecisionManager" />
 		<beans:property name="securityMetadataSource" ref="mySecurityMetadataSource" />

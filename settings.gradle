@@ -6,3 +6,5 @@ rootProject.name = 'eva'
 include 'eva-common'
 include 'eva-business'
 include 'eva-web'
+include 'eva-domain'
+

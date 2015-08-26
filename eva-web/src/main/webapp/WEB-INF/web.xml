@@ -5,19 +5,19 @@
     <param-name>contextConfigLocation</param-name>
     <param-value>
     	/WEB-INF/spring/application-context.xml,
-    	/WEB-INF/spring/applicationContext-security.xml,
-		/WEB-INF/spring/application-content-schedule.xml    	
+    	/WEB-INF/spring/applicationContext-security.xml
+		<!--/WEB-INF/spring/application-content-schedule.xml    	-->
     </param-value>
   </context-param>
   <listener>
-    <listener-class>com.yunji.install.listener.InstallContextLoaderListener</listener-class>
+    <listener-class>com.eden.install.listener.InstallContextLoaderListener</listener-class>
   </listener>  
   <listener>
     <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
   </listener>
   <servlet>
     <servlet-name>installServlet</servlet-name>
-    <servlet-class>com.yunji.install.servlet.InstallDispatchServlet</servlet-class>
+    <servlet-class>com.eden.install.servlet.InstallDispatchServlet</servlet-class>
     <init-param>
       <param-name>contextConfigLocation</param-name>
       <param-value>/WEB-INF/spring/installServlet/install-context.xml</param-value>
@@ -30,7 +30,7 @@
   </servlet-mapping>  
   <servlet>
     <servlet-name>appServlet</servlet-name>
-	<servlet-class>com.yunji.install.servlet.YunDispatcherServlet</servlet-class>    
+	<servlet-class>com.eden.install.servlet.YunDispatcherServlet</servlet-class>
     <init-param>
       <param-name>contextConfigLocation</param-name>
       <param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
@@ -105,28 +105,6 @@
 		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
-<!-- 	<context-param>
-		<param-name>kissoConfigLocation</param-name>
-		<param-value>classpath:properties/sso.properties</param-value>
-	</context-param>
-    <listener>
-        <listener-class>com.yunji.sso.web.KissoConfigListener</listener-class>
-    </listener>
-    	
-	<filter>
-		<filter-name>SSOFilter</filter-name>
-		<filter-class>com.yunji.sso.filter.SSOFilter</filter-class>
-		<init-param>
-			<param-name>over.url</param-name>
-			<param-value>/login;/verify;/static/;/resources/</param-value>
-		</init-param>
-	</filter>
-	<filter-mapping>
-		<filter-name>SSOFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping> -->	
-	
 	
 
 	

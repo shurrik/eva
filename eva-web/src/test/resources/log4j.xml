@@ -11,7 +11,7 @@
 	</appender>
 
 	<!-- Application Loggers -->
-	<logger name="com.yunji.oa">
+	<logger name="com.eden.eva">
 		<level value="info" />
 	</logger>
 

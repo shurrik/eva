@@ -19,7 +19,7 @@
        http://www.springframework.org/schema/mvc
        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
   
-	<context:component-scan base-package="com.yunji"></context:component-scan>
+	<context:component-scan base-package="com.eden"></context:component-scan>
 	
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
         <!-- 基本属性 url、user、password -->
@@ -66,63 +66,19 @@
     <bean id="SessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <!-- 自动扫描domain目录, 省掉Configuration.xml里的手工配置 -->
-        <property name="typeAliasesPackage" value="com.yunji.oa.model" />
+        <property name="typeAliasesPackage" value="com.eden.eva.model" />
         <!-- 显式指定Mapper文件位置 -->
         <property name="mapperLocations" value="classpath:/mybatis/*.xml" />
     </bean> 
     
     <!-- 扫描basePackage下接口 自动生成代理实现类 -->
-    <mybatis:scan base-package="com.yunji.oa.dao" factory-ref="SessionFactory" />    
+    <mybatis:scan base-package="com.eden.eva.dao" factory-ref="SessionFactory" />
     
     <bean id="SqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
     	<constructor-arg index="0" ref="SessionFactory"></constructor-arg>
     </bean>
     
-    
-	
-	<!-- 注册单个  mybatisGenerator  自动生成的 接口文件-->
-	<!-- 
-	<bean id="TestMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">  
-        <property name="mapperInterface" value="com.weshare.common.generated.dao.TestMapper" />
-        <property name="sqlSessionTemplate" ref="weshareSqlSessionTemplate" ></property>  
-    </bean>
-     -->
-     <!-- 扫描mybatisGenerator 自动生成的  所有接口-->
-<!-- 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer" > -->
-<!-- 		<property name="basePackage" value="com.weshare.common.generated.dao" ></property> -->
-<!-- 	</bean> -->
-	
-	
-	<!-- 数据库事务策略-->
-<!-- 	<bean id="TransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource">
-            <ref bean="DataSource" />
-        </property>
-    </bean>
-	
-	<tx:annotation-driven />  
-  
-	<tx:advice id="TxAdvice" transaction-manager="TransactionManager">
-		<tx:attributes>
-			
-			<tx:method name="save*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
-			<tx:method name="ins*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
-			<tx:method name="del*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
-			<tx:method name="update*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
-			<tx:method name="find*" read-only="true" read-only="true" rollback-for="java.lang.Exception"/>
-			<tx:method name="get*" read-only="true" read-only="true" rollback-for="java.lang.Exception"/>
-			<tx:method name="select*" read-only="true" read-only="true" rollback-for="java.lang.Exception"/>
-			
-			<tx:method name="*" propagation="REQUIRED" />
-		</tx:attributes>
-	</tx:advice>
 
-	<aop:config proxy-target-class="true">
-		<aop:advisor pointcut="execution( * com..web.service..*Service.*(..))" advice-ref="TxAdvice" />
-		<aop:advisor pointcut="execution( * com.yunji.oa.service..*Service.*(..))" advice-ref="TxAdvice" />
-	</aop:config> -->
-	
-	
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
         <qualifier value="platform" />

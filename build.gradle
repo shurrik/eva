@@ -332,6 +332,7 @@ subprojects { subproj ->
 
             //mybatis
             libraries.'mybatis',
+            libraries.'mybatis-spring',
             libraries.'plexus-utils',
             libraries.'freemarker',
             libraries.'jackson-mapper-asl',

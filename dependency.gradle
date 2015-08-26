@@ -120,6 +120,8 @@ ext.libraries = [
         "mail": "javax.mail:mail:1.4",
         //mybatis
         "mybatis": "org.mybatis:mybatis:3.2.2",
+        //mybatis
+        "mybatis-spring": "org.mybatis:mybatis-spring:1.2.0",
         //plexus-utils
         "plexus-utils": "org.codehaus.plexus:plexus-utils:1.5.7",
         //freemarker

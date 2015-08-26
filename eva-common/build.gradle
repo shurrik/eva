@@ -22,6 +22,6 @@ dependencies {
 // 重载 compileJava 方法，在java编译之后做 ebean 增强操作
 //
 compileJava.doLast {
-    ebeanEnhance(destinationDir, "com.example.model.*")
+//    ebeanEnhance(destinationDir, "com.example.model.*")
 }
 

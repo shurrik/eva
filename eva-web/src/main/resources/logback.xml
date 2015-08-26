@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright (c) 2013-2015, yunji Inc. All Rights Reserved.
+  ~ Copyright (c) 2013-2015, eden Inc. All Rights Reserved.
   ~
   ~ Project Name: samples
   ~ $$Id: logback.xml 14-7-27 下午6:18 $$
@@ -75,7 +75,7 @@
     </logger>
 
     <!-- 这里平时的level为WARN，跟踪问题时才设置为DEBUG -->
-    <logger name="com.yunji" level="DEBUG">
+    <logger name="com.eden" level="DEBUG">
         <appender-ref ref="DEBUG-FILE-APPENDER"/>
         <appender-ref ref="WARN-FILE-APPENDER" />
     </logger>

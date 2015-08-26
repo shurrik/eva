@@ -37,7 +37,7 @@
     <!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射   请求映射-->
 	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
 		<property name="webBindingInitializer">
-			<bean class="com.yunji.common.web.BindingInitializer"/>
+			<bean class="com.eden.common.web.BindingInitializer"/>
 		</property >
 	</bean>
 
@@ -60,7 +60,7 @@
   	<mvc:resources location="/resources/" mapping="/resources/**" />      
 
     <!-- @Controller, @Service, @Configuration, etc. -->
-    <context:component-scan base-package="com.yunji.install.action" />
+    <context:component-scan base-package="com.eden.install.action" />
 
 
     <!-- freemarker的配置 -->
