@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.yunji.oa.dao.IDocRecDeptDAO">
+
+    <sql id="Base_Column_List">
+      id,
+	  dep_id depId,
+	  dep_name depName,
+	  form_id formId,
+	  read_flag readFlag,
+	  create_date createDate,
+	  update_date updateDate
+    </sql>
+    <sql id="Query_condition">
+      <trim prefix="WHERE" prefixOverrides="AND | OR">
+              <if test="condition.depId!=null">
+			  	AND dep_id Like '%${condition.depId}%'
+			  </if>
+              <if test="condition.depName!=null">
+			  	AND dep_name Like '%${condition.depName}%'
+			  </if>
+              <if test="condition.formId!=null">
+			  	AND form_id Like '%${condition.formId}%'
+			  </if>
+              <if test="condition.readFlag!=null">
+			  	AND read_flag Like '%${condition.readFlag}%'
+			  </if>
+              <if test="condition.createDate!=null">
+			  	AND create_date Like '%${condition.createDate}%'
+			  </if>
+              <if test="condition.updateDate!=null">
+			  	AND update_date Like '%${condition.updateDate}%'
+			  </if>
+        </trim>        
+    </sql>
+    <insert id="insert" parameterType="DocRecDept">
+        INSERT INTO t_oa_docrecdept (
+	        id,
+		    dep_id,
+		    dep_name,
+		    form_id,
+		    read_flag,
+		    create_date,
+		    update_date
+        ) VALUES (
+         	#{id},
+       		#{depId},
+       		#{depName},
+       		#{formId},
+       		#{readFlag},
+       		sysdate(),
+       		sysdate()
+        )
+    </insert>
+
+    <!-- 更新 -->
+   	<update id="update" parameterType="DocRecDept">
+        UPDATE t_oa_docrecdept
+        <trim prefix="SET" suffixOverrides=",">
+          <if test="depId!=null">
+           dep_id=#{depId},
+          </if>
+          <if test="depName!=null">
+           dep_name=#{depName},
+          </if>
+          <if test="formId!=null">
+           form_id=#{formId},
+          </if>
+          <if test="readFlag!=null">
+           read_flag=#{readFlag},
+          </if>
+          <if test="createDate!=null">
+           create_date=#{createDate},
+          </if>
+          <if test="updateDate!=null">
+           update_date=#{updateDate},
+          </if>
+        </trim>
+        WHERE
+        id =#{id}
+    </update>
+
+   	<update id="updateMap">
+        UPDATE t_oa_docrecdept
+        <trim prefix="SET" suffixOverrides=",">
+          <if test="map.depId!=null">        
+           dep_id=#{map.depId},
+          </if>
+          <if test="map.depName!=null">        
+           dep_name=#{map.depName},
+          </if>
+          <if test="map.formId!=null">        
+           form_id=#{map.formId},
+          </if>
+          <if test="map.readFlag!=null">        
+           read_flag=#{map.readFlag},
+          </if>
+          <if test="map.createDate!=null">        
+           create_date=#{map.createDate},
+          </if>
+          <if test="map.updateDate!=null">        
+           update_date=#{map.updateDate},
+          </if>
+        </trim>
+        WHERE
+       id = #{ map.id }
+	</update>
+
+
+     <insert id="insertMap" >
+        INSERT INTO t_oa_docrecdept (
+             	id,
+			 	dep_id,
+			 	dep_name,
+			 	form_id,
+			 	read_flag,
+			 	create_date,
+			 	update_date,
+        ) VALUES (
+              	#{map.id},
+		    	#{map.depId},
+		    	#{map.depName},
+		    	#{map.formId},
+		    	#{map.readFlag},
+		    	#{map.createDate},
+		    	#{map.updateDate},
+        )
+    </insert>
+
+
+  	<update id="updateNull" parameterType="DocRecDept">
+        UPDATE t_oa_docrecdept
+        <trim prefix="SET" suffixOverrides=","> 
+			    dep_id=#{depId},
+			    dep_name=#{depName},
+			    form_id=#{formId},
+			    read_flag=#{readFlag},
+			    create_date=#{createDate},
+			    update_date=#{updateDate},
+        </trim>
+        WHERE
+        id =#{id}
+    </update>
+
+   	<delete id="deleteById" parameterType="java.lang.Integer">
+        DELETE FROM t_oa_docrecdept
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            AND id=#{id}
+        </trim>
+    </delete>
+
+
+ 	<delete id="deleteByCondition" parameterType="java.util.Map">
+        DELETE FROM  t_oa_docrecdept 
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+				<if test="id!=null">
+					AND id =#{id},
+				</if>        
+			    <if test="depId!=null">
+					AND dep_id=#{depId},
+				</if>
+			    <if test="depName!=null">
+					AND dep_name=#{depName},
+				</if>
+			    <if test="formId!=null">
+					AND form_id=#{formId},
+				</if>
+			    <if test="readFlag!=null">
+					AND read_flag=#{readFlag},
+				</if>
+			    <if test="createDate!=null">
+					AND create_date=#{createDate},
+				</if>
+			    <if test="updateDate!=null">
+					AND update_date=#{updateDate},
+				</if>
+        </trim>
+    </delete>
+
+    <delete id="deleteByProperty" parameterType="java.util.Map">
+        DELETE FROM t_oa_docrecdept WHERE
+        ${column}=#{value}
+    </delete>
+
+    <select id="fetch" parameterType="java.lang.Integer" resultType="DocRecDept">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_docrecdept
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            AND id =#{id}
+        </trim>
+    </select>
+
+    <select id="findOne" parameterType="java.util.Map" resultType="DocRecDept">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_docrecdept WHERE
+        ${column}=#{value} 
+        LIMIT 0,1
+    </select>
+
+    <select id="findList" parameterType="java.util.Map" resultType="DocRecDept">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_docrecdept WHERE
+       	${column} =#{value}
+    </select>
+
+    <select id="findAll" resultType="DocRecDept">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_docrecdept
+    </select>
+
+    <select id="queryPage" resultType="DocRecDept">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_docrecdept
+        <include refid="Query_condition" />       
+        <if test="condition.sort != null">
+			order by ${condition.sort}
+		</if>
+        <if test="offset != null">
+            limit ${offset}, ${rows}
+        </if>
+    </select>
+
+    <select id="like" parameterType="java.util.Map" resultType="DocRecDept">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_docrecdept
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+			<if test="id!=null">
+				AND id like '%#{id}%'
+			</if>
+			<if test="depId!=null">
+				AND dep_id Like '%$ {condition.depId}%'
+			</if>
+			<if test="depName!=null">
+				AND dep_name Like '%$ {condition.depName}%'
+			</if>
+			<if test="formId!=null">
+				AND form_id Like '%$ {condition.formId}%'
+			</if>
+			<if test="readFlag!=null">
+				AND read_flag Like '%$ {condition.readFlag}%'
+			</if>
+			<if test="createDate!=null">
+				AND create_date Like '%$ {condition.createDate}%'
+			</if>
+			<if test="updateDate!=null">
+				AND update_date Like '%$ {condition.updateDate}%'
+			</if>
+        </trim>
+    </select>
+
+
+ 	<select id="queryList" parameterType="java.util.Map" resultType="DocRecDept">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_docrecdept
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="id!=null">
+                AND id =#{id}
+            </if>
+			<if test="depId!=null">
+				AND dep_id = #{depId}
+			</if>
+			<if test="depName!=null">
+				AND dep_name = #{depName}
+			</if>
+			<if test="formId!=null">
+				AND form_id = #{formId}
+			</if>
+			<if test="readFlag!=null">
+				AND read_flag = #{readFlag}
+			</if>
+			<if test="createDate!=null">
+				AND create_date = #{createDate}
+			</if>
+			<if test="updateDate!=null">
+				AND update_date = #{updateDate}
+			</if>
+        </trim>
+        ORDER BY ${orderBy} ${sortBy}
+    </select>
+
+   	<select id="queryOne" parameterType="java.util.Map" resultType="DocRecDept">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_docrecdept
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="id!=null">
+                AND id =#{id}
+            </if>
+			<if test="depId!=null">
+				AND dep_id = #{depId}
+			</if>
+			<if test="depName!=null">
+				AND dep_name = #{depName}
+			</if>
+			<if test="formId!=null">
+				AND form_id = #{formId}
+			</if>
+			<if test="readFlag!=null">
+				AND read_flag = #{readFlag}
+			</if>
+			<if test="createDate!=null">
+				AND create_date = #{createDate}
+			</if>
+			<if test="updateDate!=null">
+				AND update_date = #{updateDate}
+			</if>
+        </trim>
+        limit 0,1
+    </select>
+
+  	<select id="count" resultType="java.lang.Integer">
+        SELECT count(id) FROM t_oa_docrecdept
+         <include refid="Query_condition" /> 
+    </select>
+
+	<select id="selectMaxId" resultType="java.lang.Integer">
+	    SELECT
+	    MAX(id)
+	    FROM t_oa_docrecdept
+	</select>
+
+</mapper>
+

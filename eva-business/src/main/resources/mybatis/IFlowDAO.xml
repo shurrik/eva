@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.yunji.oa.dao.IFlowDAO">
+
+    <sql id="Base_Column_List">
+      id,
+	  name name,
+	  table_name tableName,
+	  start_status startStatus,
+	  end_status endStatus,
+	  modify_status modifyStatus,
+	  modify_flag modifyFlag,
+	  create_date createDate,
+	  update_date updateDate,
+	  name_space nameSpace
+    </sql>
+    
+    <sql id="Query_condition">
+      <trim prefix="WHERE" prefixOverrides="AND | OR">
+              <if test="condition.name!=null">
+			  	AND name Like '%${condition.name}%'
+			  </if>
+              <if test="condition.tableName!=null">
+			  	AND table_name Like '%${condition.tableName}%'
+			  </if>
+              <if test="condition.startStatus!=null">
+			  	AND start_status Like '%${condition.startStatus}%'
+			  </if>
+              <if test="condition.endStatus!=null">
+			  	AND end_status Like '%${condition.endStatus}%'
+			  </if>
+              <if test="condition.modifyStatus!=null">
+			  	AND modify_status Like '%${condition.modifyStatus}%'
+			  </if>
+              <if test="condition.modifyFlag!=null">
+			  	AND modify_flag Like '%${condition.modifyFlag}%'
+			  </if>
+              <if test="condition.createDate!=null">
+			  	AND create_date Like '%${condition.createDate}%'
+			  </if>
+              <if test="condition.updateDate!=null">
+			  	AND update_date Like '%${condition.updateDate}%'
+			  </if>
+              <if test="condition.nameSpace!=null">
+			  	AND name_space Like '%${condition.nameSpace}%'
+			  </if>
+        </trim>
+    </sql>
+    
+    <insert id="insert" parameterType="Flow">
+        INSERT INTO t_oa_flow (
+	        id,
+		    name,
+		    table_name,
+		    start_status,
+		    end_status,
+		    modify_status,
+		    modify_flag,
+		    create_date,
+		    update_date,
+		    name_space
+        ) VALUES (
+         	#{id},
+       		#{name},
+       		#{tableName},
+       		#{startStatus},
+       		#{endStatus},
+       		#{modifyStatus},
+       		#{modifyFlag},
+       		sysdate(),
+       		sysdate(),
+       		#{nameSpace}
+        )
+    </insert>
+
+    <!-- 更新 -->
+   	<update id="update" parameterType="Flow">
+        UPDATE t_oa_flow
+        <trim prefix="SET" suffixOverrides=",">
+          <if test="name!=null">
+           name=#{name},
+          </if>
+          <if test="tableName!=null">
+           table_name=#{tableName},
+          </if>
+          <if test="startStatus!=null">
+           start_status=#{startStatus},
+          </if>
+          <if test="endStatus!=null">
+           end_status=#{endStatus},
+          </if>
+          <if test="modifyStatus!=null">
+           modify_status=#{modifyStatus},
+          </if>
+          <if test="modifyFlag!=null">
+           modify_flag=#{modifyFlag},
+          </if>
+          <if test="createDate!=null">
+           create_date=#{createDate},
+          </if>
+          <if test="updateDate!=null">
+           update_date=#{updateDate},
+          </if>
+          <if test="nameSpace!=null">
+           name_space=#{nameSpace},
+          </if>
+        </trim>
+        WHERE
+        id =#{id}
+    </update>
+
+   	<update id="updateMap">
+        UPDATE t_oa_flow
+        <trim prefix="SET" suffixOverrides=",">
+          <if test="map.name!=null">        
+           name=#{map.name},
+          </if>
+          <if test="map.tableName!=null">        
+           table_name=#{map.tableName},
+          </if>
+          <if test="map.startStatus!=null">        
+           start_status=#{map.startStatus},
+          </if>
+          <if test="map.endStatus!=null">        
+           end_status=#{map.endStatus},
+          </if>
+          <if test="map.modifyStatus!=null">        
+           modify_status=#{map.modifyStatus},
+          </if>
+          <if test="map.modifyFlag!=null">        
+           modify_flag=#{map.modifyFlag},
+          </if>
+          <if test="map.createDate!=null">        
+           create_date=#{map.createDate},
+          </if>
+          <if test="map.updateDate!=null">        
+           update_date=#{map.updateDate},
+          </if>
+          <if test="map.nameSpace!=null">        
+           name_space=#{map.nameSpace},
+          </if>
+        </trim>
+        WHERE
+       id = #{ map.id }
+	</update>
+
+
+     <insert id="insertMap" >
+        INSERT INTO t_oa_flow (
+             	id,
+			 	name,
+			 	table_name,
+			 	start_status,
+			 	end_status,
+			 	modify_status,
+			 	modify_flag,
+			 	create_date,
+			 	update_date,
+			 	name_space,
+        ) VALUES (
+              	#{map.id},
+		    	#{map.name},
+		    	#{map.tableName},
+		    	#{map.startStatus},
+		    	#{map.endStatus},
+		    	#{map.modifyStatus},
+		    	#{map.modifyFlag},
+		    	#{map.createDate},
+		    	#{map.updateDate},
+		    	#{map.nameSpace},
+        )
+    </insert>
+
+
+  	<update id="updateNull" parameterType="Flow">
+        UPDATE t_oa_flow
+        <trim prefix="SET" suffixOverrides=","> 
+			    name=#{name},
+			    table_name=#{tableName},
+			    start_status=#{startStatus},
+			    end_status=#{endStatus},
+			    modify_status=#{modifyStatus},
+			    modify_flag=#{modifyFlag},
+			    create_date=#{createDate},
+			    update_date=#{updateDate},
+			    name_space=#{nameSpace},
+        </trim>
+        WHERE
+        id =#{id}
+    </update>
+
+   	<delete id="deleteById" parameterType="java.lang.Integer">
+        DELETE FROM t_oa_flow
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            AND id=#{id}
+        </trim>
+    </delete>
+
+
+ 	<delete id="deleteByCondition" parameterType="java.util.Map">
+        DELETE FROM  t_oa_flow 
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="map.id!=null">
+                AND id = #{map.id}
+            </if>				        
+			<if test="map.name!=null">
+				AND name = #{map.name}
+			</if>				
+			<if test="map.tableName!=null">
+				AND table_name = #{map.tableName}
+			</if>				
+			<if test="map.startStatus!=null">
+				AND start_status = #{map.startStatus}
+			</if>				
+			<if test="map.endStatus!=null">
+				AND end_status = #{map.endStatus}
+			</if>				
+			<if test="map.modifyStatus!=null">
+				AND modify_status = #{map.modifyStatus}
+			</if>				
+			<if test="map.modifyFlag!=null">
+				AND modify_flag = #{map.modifyFlag}
+			</if>				
+			<if test="map.createDate!=null">
+				AND create_date = #{map.createDate}
+			</if>				
+			<if test="map.updateDate!=null">
+				AND update_date = #{map.updateDate}
+			</if>				
+			<if test="map.nameSpace!=null">
+				AND name_space = #{map.nameSpace}
+			</if>				
+        </trim>
+    </delete>
+
+    <delete id="deleteByProperty" parameterType="java.util.Map">
+        DELETE FROM t_oa_flow WHERE
+        ${property}=#{value}
+    </delete>
+
+    <select id="fetch" parameterType="java.lang.Integer" resultType="Flow">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_flow
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            AND id =#{id}
+        </trim>
+    </select>
+
+    <select id="findOne" parameterType="java.util.Map" resultType="Flow">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_flow WHERE
+        ${property}=#{value} 
+        LIMIT 0,1
+    </select>
+
+    <select id="findList" parameterType="java.util.Map" resultType="Flow">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_flow WHERE
+       	${property} =#{value}
+    </select>
+
+    <select id="findAll" resultType="Flow">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_flow
+    </select>
+
+    <select id="queryPage" resultType="Flow">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_flow
+        <include refid="Query_condition" />    
+        <if test="condition.sort != null">
+			order by ${condition.sort}
+		</if>
+        <if test="offset != null">
+            limit ${offset}, ${rows}
+        </if>
+    </select>
+
+    <select id="like" parameterType="java.util.Map" resultType="Flow">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_flow
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+			<if test="id!=null">
+				AND id like '%#{id}%'
+			</if>
+			<if test="name!=null">
+				AND name Like '%$ {condition.name}%'
+			</if>
+			<if test="tableName!=null">
+				AND table_name Like '%$ {condition.tableName}%'
+			</if>
+			<if test="startStatus!=null">
+				AND start_status Like '%$ {condition.startStatus}%'
+			</if>
+			<if test="endStatus!=null">
+				AND end_status Like '%$ {condition.endStatus}%'
+			</if>
+			<if test="modifyStatus!=null">
+				AND modify_status Like '%$ {condition.modifyStatus}%'
+			</if>
+			<if test="modifyFlag!=null">
+				AND modify_flag Like '%$ {condition.modifyFlag}%'
+			</if>
+			<if test="createDate!=null">
+				AND create_date Like '%$ {condition.createDate}%'
+			</if>
+			<if test="updateDate!=null">
+				AND update_date Like '%$ {condition.updateDate}%'
+			</if>
+			<if test="nameSpace!=null">
+				AND name_space Like '%$ {condition.nameSpace}%'
+			</if>
+        </trim>
+    </select>
+
+
+ 	<select id="queryList" parameterType="java.util.Map" resultType="Flow">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_flow
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="map.id!=null">
+                AND id = #{map.id}
+            </if>
+			<if test="map.name!=null">
+				AND name = #{map.name}
+			</if>
+			<if test="map.tableName!=null">
+				AND table_name = #{map.tableName}
+			</if>
+			<if test="map.startStatus!=null">
+				AND start_status = #{map.startStatus}
+			</if>
+			<if test="map.endStatus!=null">
+				AND end_status = #{map.endStatus}
+			</if>
+			<if test="map.modifyStatus!=null">
+				AND modify_status = #{map.modifyStatus}
+			</if>
+			<if test="map.modifyFlag!=null">
+				AND modify_flag = #{map.modifyFlag}
+			</if>
+			<if test="map.createDate!=null">
+				AND create_date = #{map.createDate}
+			</if>
+			<if test="map.updateDate!=null">
+				AND update_date = #{map.updateDate}
+			</if>
+			<if test="map.nameSpace!=null">
+				AND name_space = #{map.nameSpace}
+			</if>
+        </trim>
+        ORDER BY ${orderBy} ${sortBy}
+    </select>
+
+   	<select id="queryOne" parameterType="java.util.Map" resultType="Flow">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_flow
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="map.id!=null">
+                AND id = #{map.id}
+            </if>
+			<if test="map.name!=null">
+				AND name = #{map.name}
+			</if>
+			<if test="map.tableName!=null">
+				AND table_name = #{map.tableName}
+			</if>
+			<if test="map.startStatus!=null">
+				AND start_status = #{map.startStatus}
+			</if>
+			<if test="map.endStatus!=null">
+				AND end_status = #{map.endStatus}
+			</if>
+			<if test="map.modifyStatus!=null">
+				AND modify_status = #{map.modifyStatus}
+			</if>
+			<if test="map.modifyFlag!=null">
+				AND modify_flag = #{map.modifyFlag}
+			</if>
+			<if test="map.createDate!=null">
+				AND create_date = #{map.createDate}
+			</if>
+			<if test="map.updateDate!=null">
+				AND update_date = #{map.updateDate}
+			</if>
+			<if test="map.nameSpace!=null">
+				AND name_space = #{map.nameSpace}
+			</if>
+        </trim>
+        limit 0,1
+    </select>
+
+  	<select id="count" resultType="java.lang.Integer">
+        SELECT count(id) FROM t_oa_flow
+        <include refid="Query_condition" />
+    </select>
+
+	<select id="selectMaxId" resultType="java.lang.Integer">
+	    SELECT
+	    MAX(id)
+	    FROM t_oa_flow
+	</select>
+	
+   	<update id="updateTableStatus" parameterType="java.util.Map">
+        UPDATE ${tableName}
+        SET status=#{status}
+        WHERE
+        id =#{id}
+    </update>	
+
+</mapper>
+
+

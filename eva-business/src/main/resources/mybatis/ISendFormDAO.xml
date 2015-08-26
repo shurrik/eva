@@ -1,0 +1,1300 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.yunji.oa.dao.ISendFormDAO">
+
+    <sql id="Base_Column_List">
+      id,
+	  title title,
+	  no no,
+	  draft_dep_id draftDepId,
+	  draft_dep draftDep,
+	  draftor_id draftorId,
+	  draftor_name draftorName,
+	  main_dep_id mainDepId,
+	  main_dep mainDep,
+	  sub_dep_id subDepId,
+	  sub_dep subDep,
+	  print_count printCount,
+	  secret_class secretClass,
+	  urgent_class urgentClass,
+	  year year,
+	  month month,
+	  quarter quarter,
+	  status status,
+	  create_date createDate,
+	  update_date updateDate,
+	  comment comment,
+	  type type,
+	  content content,
+	  remark remark,
+	  charge_man_id chargeManId,
+	  charge_man chargeMan,
+	  contractor_id contractorId,
+	  contractor contractor,
+	  draft_advice draftAdvice,
+	  submit_advice submitAdvice,
+	  deadline deadline,
+	  doc_legality docLegality,
+	  attachment attachment,
+	  confidential_review confidentialReview,
+	  lead_instructions leadInstructions,
+	  sign_unit signUnit,
+	  issuer_instructions issuerInstructions,
+	  creator_id creatorId,
+	  log_flag logFlag,
+	  nuclear_draft nuclearDraft,
+	  office_nuclear officeNuclear,
+	  mobile mobile,
+	  open open
+    </sql>
+    
+    <insert id="insert" parameterType="SendForm">
+        INSERT INTO t_oa_sendform (
+	        id,
+		    title,
+		    no,
+		    draft_dep_id,
+		    draft_dep,
+		    draftor_id,
+		    draftor_name,
+		    main_dep_id,
+		    main_dep,
+		    sub_dep_id,
+		    sub_dep,
+		    print_count,
+		    secret_class,
+		    urgent_class,
+		    year,
+		    month,
+		    quarter,
+		    status,
+		    create_date,
+		    update_date,
+		    comment,
+		    type,
+		    content,
+		    remark,
+		    charge_man_id,
+		    charge_man,
+		    contractor_id,
+		    contractor,
+		    draft_advice,
+		    submit_advice,
+		    deadline,
+		    doc_legality,
+		    attachment,
+		    confidential_review,
+		    lead_instructions,
+		    sign_unit,
+		    issuer_instructions,
+		    creator_id,
+		    log_flag,
+		    nuclear_draft,
+		    office_nuclear,
+		    mobile,
+		    open
+        ) VALUES (
+         	#{id},
+       		#{title},
+       		#{no},
+       		#{draftDepId},
+       		#{draftDep},
+       		#{draftorId},
+       		#{draftorName},
+       		#{mainDepId},
+       		#{mainDep},
+       		#{subDepId},
+       		#{subDep},
+       		#{printCount},
+       		#{secretClass},
+       		#{urgentClass},
+       		#{year},
+       		#{month},
+       		#{quarter},
+       		#{status},
+       	    sysdate(),
+       		sysdate(),<!-- 默认第一添加时为系统时间 -->
+       		#{comment},
+       		#{type},
+       		#{content},
+       		#{remark},
+       		#{chargeManId},
+       		#{chargeMan},
+       		#{contractorId},
+       		#{contractor},
+       		#{draftAdvice},
+       		#{submitAdvice},
+       		#{deadline},
+       		#{docLegality},
+       		#{attachment},
+       		#{confidentialReview},
+       		#{leadInstructions},
+       		#{signUnit},
+       		#{issuerInstructions},
+       		#{creatorId},
+       		0,<!-- 默认值为0 -->
+       		#{nuclearDraft},
+       		#{officeNuclear},
+       		#{mobile},
+       		#{open}
+        )
+    </insert>
+
+    <!-- 更新 -->
+   	<update id="update" parameterType="SendForm">
+        UPDATE t_oa_sendform
+        <trim prefix="SET" suffixOverrides=",">
+          <if test="title!=null">
+           title=#{title},
+          </if>
+          <if test="no!=null">
+           no=#{no},
+          </if>
+          <if test="draftDepId!=null">
+           draft_dep_id=#{draftDepId},
+          </if>
+          <if test="draftDep!=null">
+           draft_dep=#{draftDep},
+          </if>
+          <if test="draftorId!=null">
+           draftor_id=#{draftorId},
+          </if>
+          <if test="draftorName!=null">
+           draftor_name=#{draftorName},
+          </if>
+          <if test="mainDepId!=null">
+           main_dep_id=#{mainDepId},
+          </if>
+          <if test="mainDep!=null">
+           main_dep=#{mainDep},
+          </if>
+          <if test="subDepId!=null">
+           sub_dep_id=#{subDepId},
+          </if>
+          <if test="subDep!=null">
+           sub_dep=#{subDep},
+          </if>
+          <if test="printCount!=null">
+           print_count=#{printCount},
+          </if>
+          <if test="secretClass!=null">
+           secret_class=#{secretClass},
+          </if>
+          <if test="urgentClass!=null">
+           urgent_class=#{urgentClass},
+          </if>
+          <if test="year!=null">
+           year=#{year},
+          </if>
+          <if test="month!=null">
+           month=#{month},
+          </if>
+          <if test="quarter!=null">
+           quarter=#{quarter},
+          </if>
+          <if test="status!=null">
+           status=#{status},
+          </if>
+          <if test="createDate!=null">
+           create_date=#{createDate},
+          </if>
+          <if test="updateDate!=null">
+           update_date=#{updateDate},
+          </if>
+          <if test="comment!=null">
+           comment=#{comment},
+          </if>
+          <if test="type!=null">
+           type=#{type},
+          </if>
+          <if test="content!=null">
+           content=#{content},
+          </if>
+          <if test="remark!=null">
+           remark=#{remark},
+          </if>
+          <if test="chargeManId!=null">
+           charge_man_id=#{chargeManId},
+          </if>
+          <if test="chargeMan!=null">
+           charge_man=#{chargeMan},
+          </if>
+          <if test="contractorId!=null">
+           contractor_id=#{contractorId},
+          </if>
+          <if test="contractor!=null">
+           contractor=#{contractor},
+          </if>
+          <if test="draftAdvice!=null">
+           draft_advice=#{draftAdvice},
+          </if>
+          <if test="submitAdvice!=null">
+           submit_advice=#{submitAdvice},
+          </if>
+          <if test="deadline!=null">
+           deadline=#{deadline},
+          </if>
+          <if test="docLegality!=null">
+           doc_legality=#{docLegality},
+          </if>
+          <if test="attachment!=null">
+           attachment=#{attachment},
+          </if>
+          <if test="confidentialReview!=null">
+           confidential_review=#{confidentialReview},
+          </if>
+          <if test="leadInstructions!=null">
+           lead_instructions=#{leadInstructions},
+          </if>
+          <if test="signUnit!=null">
+           sign_unit=#{signUnit},
+          </if>
+          <if test="issuerInstructions!=null">
+           issuer_instructions=#{issuerInstructions},
+          </if>
+          <if test="creatorId!=null">
+           creator_id=#{creatorId},
+          </if>
+          <if test="logFlag!=null">
+           log_flag=#{logFlag},
+          </if>
+          <if test="nuclearDraft!=null">
+           nuclear_draft=#{nuclearDraft},
+          </if>
+          <if test="officeNuclear!=null">
+           office_nuclear=#{officeNuclear},
+          </if>
+          <if test="mobile!=null">
+           mobile=#{mobile},
+          </if>
+          <if test="open!=null">
+           open=#{open},
+          </if>
+        </trim>
+        WHERE
+        id =#{id}
+    </update>
+
+   	<update id="updateMap">
+        UPDATE t_oa_sendform
+        <trim prefix="SET" suffixOverrides=",">
+          <if test="map.title!=null">        
+           title=#{map.title},
+          </if>
+          <if test="map.no!=null">        
+           no=#{map.no},
+          </if>
+          <if test="map.draftDepId!=null">        
+           draft_dep_id=#{map.draftDepId},
+          </if>
+          <if test="map.draftDep!=null">        
+           draft_dep=#{map.draftDep},
+          </if>
+          <if test="map.draftorId!=null">        
+           draftor_id=#{map.draftorId},
+          </if>
+          <if test="map.draftorName!=null">        
+           draftor_name=#{map.draftorName},
+          </if>
+          <if test="map.mainDepId!=null">        
+           main_dep_id=#{map.mainDepId},
+          </if>
+          <if test="map.mainDep!=null">        
+           main_dep=#{map.mainDep},
+          </if>
+          <if test="map.subDepId!=null">        
+           sub_dep_id=#{map.subDepId},
+          </if>
+          <if test="map.subDep!=null">        
+           sub_dep=#{map.subDep},
+          </if>
+          <if test="map.printCount!=null">        
+           print_count=#{map.printCount},
+          </if>
+          <if test="map.secretClass!=null">        
+           secret_class=#{map.secretClass},
+          </if>
+          <if test="map.urgentClass!=null">        
+           urgent_class=#{map.urgentClass},
+          </if>
+          <if test="map.year!=null">        
+           year=#{map.year},
+          </if>
+          <if test="map.month!=null">        
+           month=#{map.month},
+          </if>
+          <if test="map.quarter!=null">        
+           quarter=#{map.quarter},
+          </if>
+          <if test="map.status!=null">        
+           status=#{map.status},
+          </if>
+          <if test="map.createDate!=null">        
+           create_date=#{map.createDate},
+          </if>
+          <if test="map.updateDate!=null">        
+           update_date=#{map.updateDate},
+          </if>
+          <if test="map.comment!=null">        
+           comment=#{map.comment},
+          </if>
+          <if test="map.type!=null">        
+           type=#{map.type},
+          </if>
+          <if test="map.content!=null">        
+           content=#{map.content},
+          </if>
+          <if test="map.remark!=null">        
+           remark=#{map.remark},
+          </if>
+          <if test="map.chargeManId!=null">        
+           charge_man_id=#{map.chargeManId},
+          </if>
+          <if test="map.chargeMan!=null">        
+           charge_man=#{map.chargeMan},
+          </if>
+          <if test="map.contractorId!=null">        
+           contractor_id=#{map.contractorId},
+          </if>
+          <if test="map.contractor!=null">        
+           contractor=#{map.contractor},
+          </if>
+          <if test="map.draftAdvice!=null">        
+           draft_advice=#{map.draftAdvice},
+          </if>
+          <if test="map.submitAdvice!=null">        
+           submit_advice=#{map.submitAdvice},
+          </if>
+          <if test="map.deadline!=null">        
+           deadline=#{map.deadline},
+          </if>
+          <if test="map.docLegality!=null">        
+           doc_legality=#{map.docLegality},
+          </if>
+          <if test="map.attachment!=null">        
+           attachment=#{map.attachment},
+          </if>
+          <if test="map.confidentialReview!=null">        
+           confidential_review=#{map.confidentialReview},
+          </if>
+          <if test="map.leadInstructions!=null">        
+           lead_instructions=#{map.leadInstructions},
+          </if>
+          <if test="map.signUnit!=null">        
+           sign_unit=#{map.signUnit},
+          </if>
+          <if test="map.issuerInstructions!=null">        
+           issuer_instructions=#{map.issuerInstructions},
+          </if>
+          <if test="map.creatorId!=null">        
+           creator_id=#{map.creatorId},
+          </if>
+          <if test="map.logFlag!=null">        
+           log_flag=#{map.logFlag},
+          </if>
+          <if test="map.nuclearDraft!=null">        
+           nuclear_draft=#{map.nuclearDraft},
+          </if>
+          <if test="map.officeNuclear!=null">        
+           office_nuclear=#{map.officeNuclear},
+          </if>
+          <if test="map.mobile!=null">        
+           mobile=#{map.mobile},
+          </if>
+          <if test="map.open!=null">        
+           open=#{map.open},
+          </if>
+        </trim>
+        WHERE
+       id = #{ map.id }
+	</update>
+
+
+     <insert id="insertMap" >
+        INSERT INTO t_oa_sendform (
+             	id,
+			 	title,
+			 	no,
+			 	draft_dep_id,
+			 	draft_dep,
+			 	draftor_id,
+			 	draftor_name,
+			 	main_dep_id,
+			 	main_dep,
+			 	sub_dep_id,
+			 	sub_dep,
+			 	print_count,
+			 	secret_class,
+			 	urgent_class,
+			 	year,
+			 	month,
+			 	quarter,
+			 	status,
+			 	create_date,
+			 	update_date,
+			 	comment,
+			 	type,
+			 	content,
+			 	remark,
+			 	charge_man_id,
+			 	charge_man,
+			 	contractor_id,
+			 	contractor,
+			 	draft_advice,
+			 	submit_advice,
+			 	deadline,
+			 	doc_legality,
+			 	attachment,
+			 	confidential_review,
+			 	lead_instructions,
+			 	sign_unit,
+			 	issuer_instructions,
+			 	creator_id,
+			 	log_flag,
+			 	nuclear_draft,
+			 	office_nuclear,
+			 	mobile,
+			 	open,
+        ) VALUES (
+              	#{map.id},
+		    	#{map.title},
+		    	#{map.no},
+		    	#{map.draftDepId},
+		    	#{map.draftDep},
+		    	#{map.draftorId},
+		    	#{map.draftorName},
+		    	#{map.mainDepId},
+		    	#{map.mainDep},
+		    	#{map.subDepId},
+		    	#{map.subDep},
+		    	#{map.printCount},
+		    	#{map.secretClass},
+		    	#{map.urgentClass},
+		    	#{map.year},
+		    	#{map.month},
+		    	#{map.quarter},
+		    	#{map.status},
+		    	#{map.createDate},
+		    	#{map.updateDate},
+		    	#{map.comment},
+		    	#{map.type},
+		    	#{map.content},
+		    	#{map.remark},
+		    	#{map.chargeManId},
+		    	#{map.chargeMan},
+		    	#{map.contractorId},
+		    	#{map.contractor},
+		    	#{map.draftAdvice},
+		    	#{map.submitAdvice},
+		    	#{map.deadline},
+		    	#{map.docLegality},
+		    	#{map.attachment},
+		    	#{map.confidentialReview},
+		    	#{map.leadInstructions},
+		    	#{map.signUnit},
+		    	#{map.issuerInstructions},
+		    	#{map.creatorId},
+		    	#{map.logFlag},
+		    	#{map.nuclearDraft},
+		    	#{map.officeNuclear},
+		    	#{map.mobile},
+		    	#{map.open},
+        )
+    </insert>
+
+
+  	<update id="updateNull" parameterType="SendForm">
+        UPDATE t_oa_sendform
+        <trim prefix="SET" suffixOverrides=","> 
+			    title=#{title},
+			    no=#{no},
+			    draft_dep_id=#{draftDepId},
+			    draft_dep=#{draftDep},
+			    draftor_id=#{draftorId},
+			    draftor_name=#{draftorName},
+			    main_dep_id=#{mainDepId},
+			    main_dep=#{mainDep},
+			    sub_dep_id=#{subDepId},
+			    sub_dep=#{subDep},
+			    print_count=#{printCount},
+			    secret_class=#{secretClass},
+			    urgent_class=#{urgentClass},
+			    year=#{year},
+			    month=#{month},
+			    quarter=#{quarter},
+			    status=#{status},
+			    create_date=#{createDate},
+			    update_date=#{updateDate},
+			    comment=#{comment},
+			    type=#{type},
+			    content=#{content},
+			    remark=#{remark},
+			    charge_man_id=#{chargeManId},
+			    charge_man=#{chargeMan},
+			    contractor_id=#{contractorId},
+			    contractor=#{contractor},
+			    draft_advice=#{draftAdvice},
+			    submit_advice=#{submitAdvice},
+			    deadline=#{deadline},
+			    doc_legality=#{docLegality},
+			    attachment=#{attachment},
+			    confidential_review=#{confidentialReview},
+			    lead_instructions=#{leadInstructions},
+			    sign_unit=#{signUnit},
+			    issuer_instructions=#{issuerInstructions},
+			    creator_id=#{creatorId},
+			    log_flag=#{logFlag},
+			    nuclear_draft=#{nuclearDraft},
+			    office_nuclear=#{officeNuclear},
+			    mobile=#{mobile},
+			    open=#{open},
+        </trim>
+        WHERE
+        id =#{id}
+    </update>
+
+   	<delete id="deleteById" parameterType="java.lang.Integer">
+        DELETE FROM t_oa_sendform
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            AND id=#{id}
+        </trim>
+    </delete>
+
+
+ 	<delete id="deleteByCondition" parameterType="java.util.Map">
+        DELETE FROM  t_oa_sendform 
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="map.id!=null">
+                AND id = #{map.id}
+            </if>				        
+			<if test="map.title!=null">
+				AND title = #{map.title}
+			</if>				
+			<if test="map.no!=null">
+				AND no = #{map.no}
+			</if>				
+			<if test="map.draftDepId!=null">
+				AND draft_dep_id = #{map.draftDepId}
+			</if>				
+			<if test="map.draftDep!=null">
+				AND draft_dep = #{map.draftDep}
+			</if>				
+			<if test="map.draftorId!=null">
+				AND draftor_id = #{map.draftorId}
+			</if>				
+			<if test="map.draftorName!=null">
+				AND draftor_name = #{map.draftorName}
+			</if>				
+			<if test="map.mainDepId!=null">
+				AND main_dep_id = #{map.mainDepId}
+			</if>				
+			<if test="map.mainDep!=null">
+				AND main_dep = #{map.mainDep}
+			</if>				
+			<if test="map.subDepId!=null">
+				AND sub_dep_id = #{map.subDepId}
+			</if>				
+			<if test="map.subDep!=null">
+				AND sub_dep = #{map.subDep}
+			</if>				
+			<if test="map.printCount!=null">
+				AND print_count = #{map.printCount}
+			</if>				
+			<if test="map.secretClass!=null">
+				AND secret_class = #{map.secretClass}
+			</if>				
+			<if test="map.urgentClass!=null">
+				AND urgent_class = #{map.urgentClass}
+			</if>				
+			<if test="map.year!=null">
+				AND year = #{map.year}
+			</if>				
+			<if test="map.month!=null">
+				AND month = #{map.month}
+			</if>				
+			<if test="map.quarter!=null">
+				AND quarter = #{map.quarter}
+			</if>				
+			<if test="map.status!=null">
+				AND status = #{map.status}
+			</if>				
+			<if test="map.createDate!=null">
+				AND create_date = #{map.createDate}
+			</if>				
+			<if test="map.updateDate!=null">
+				AND update_date = #{map.updateDate}
+			</if>				
+			<if test="map.comment!=null">
+				AND comment = #{map.comment}
+			</if>				
+			<if test="map.type!=null">
+				AND type = #{map.type}
+			</if>				
+			<if test="map.content!=null">
+				AND content = #{map.content}
+			</if>				
+			<if test="map.remark!=null">
+				AND remark = #{map.remark}
+			</if>				
+			<if test="map.chargeManId!=null">
+				AND charge_man_id = #{map.chargeManId}
+			</if>				
+			<if test="map.chargeMan!=null">
+				AND charge_man = #{map.chargeMan}
+			</if>				
+			<if test="map.contractorId!=null">
+				AND contractor_id = #{map.contractorId}
+			</if>				
+			<if test="map.contractor!=null">
+				AND contractor = #{map.contractor}
+			</if>				
+			<if test="map.draftAdvice!=null">
+				AND draft_advice = #{map.draftAdvice}
+			</if>				
+			<if test="map.submitAdvice!=null">
+				AND submit_advice = #{map.submitAdvice}
+			</if>				
+			<if test="map.deadline!=null">
+				AND deadline = #{map.deadline}
+			</if>				
+			<if test="map.docLegality!=null">
+				AND doc_legality = #{map.docLegality}
+			</if>				
+			<if test="map.attachment!=null">
+				AND attachment = #{map.attachment}
+			</if>				
+			<if test="map.confidentialReview!=null">
+				AND confidential_review = #{map.confidentialReview}
+			</if>				
+			<if test="map.leadInstructions!=null">
+				AND lead_instructions = #{map.leadInstructions}
+			</if>				
+			<if test="map.signUnit!=null">
+				AND sign_unit = #{map.signUnit}
+			</if>				
+			<if test="map.issuerInstructions!=null">
+				AND issuer_instructions = #{map.issuerInstructions}
+			</if>				
+			<if test="map.creatorId!=null">
+				AND creator_id = #{map.creatorId}
+			</if>				
+			<if test="map.logFlag!=null">
+				AND log_flag = #{map.logFlag}
+			</if>				
+			<if test="map.nuclearDraft!=null">
+				AND nuclear_draft = #{map.nuclearDraft}
+			</if>				
+			<if test="map.officeNuclear!=null">
+				AND office_nuclear = #{map.officeNuclear}
+			</if>				
+			<if test="map.mobile!=null">
+				AND mobile = #{map.mobile}
+			</if>				
+			<if test="map.open!=null">
+				AND open = #{map.open}
+			</if>				
+        </trim>
+    </delete>
+
+    <delete id="deleteByProperty" parameterType="java.util.Map">
+        DELETE FROM t_oa_sendform WHERE
+        ${property}=#{value}
+    </delete>
+
+    <select id="fetch" parameterType="java.lang.Integer" resultType="SendForm">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_sendform
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            AND id =#{id}
+        </trim>
+    </select>
+
+    <select id="findOne" parameterType="java.util.Map" resultType="SendForm">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_sendform WHERE
+        ${property}=#{value} 
+        LIMIT 0,1
+    </select>
+
+    <select id="findList" parameterType="java.util.Map" resultType="SendForm">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_sendform WHERE
+       	${property} =#{value}
+    </select>
+
+    <select id="findAll" resultType="SendForm">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_sendform
+    </select>
+
+    <select id="queryPage" resultType="SendForm">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_sendform
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+              <if test="condition.title!=null">
+			  	AND title Like '%${condition.title}%'
+			  </if>
+              <if test="condition.no!=null">
+			  	AND no Like '%${condition.no}%'
+			  </if>
+              <if test="condition.draftDepId!=null">
+			  	AND draft_dep_id Like '%${condition.draftDepId}%'
+			  </if>
+              <if test="condition.draftDep!=null">
+			  	AND draft_dep Like '%${condition.draftDep}%'
+			  </if>
+              <if test="condition.draftorId!=null">
+			  	AND draftor_id Like '%${condition.draftorId}%'
+			  </if>
+              <if test="condition.draftorName!=null">
+			  	AND draftor_name Like '%${condition.draftorName}%'
+			  </if>
+              <if test="condition.mainDepId!=null">
+			  	AND main_dep_id Like '%${condition.mainDepId}%'
+			  </if>
+              <if test="condition.mainDep!=null">
+			  	AND main_dep Like '%${condition.mainDep}%'
+			  </if>
+              <if test="condition.subDepId!=null">
+			  	AND sub_dep_id Like '%${condition.subDepId}%'
+			  </if>
+              <if test="condition.subDep!=null">
+			  	AND sub_dep Like '%${condition.subDep}%'
+			  </if>
+              <if test="condition.printCount!=null">
+			  	AND print_count Like '%${condition.printCount}%'
+			  </if>
+              <if test="condition.secretClass!=null">
+			  	AND secret_class Like '%${condition.secretClass}%'
+			  </if>
+              <if test="condition.urgentClass!=null">
+			  	AND urgent_class Like '%${condition.urgentClass}%'
+			  </if>
+              <if test="condition.year!=null">
+			  	AND year Like '%${condition.year}%'
+			  </if>
+              <if test="condition.month!=null">
+			  	AND month Like '%${condition.month}%'
+			  </if>
+              <if test="condition.quarter!=null">
+			  	AND quarter Like '%${condition.quarter}%'
+			  </if>
+              <if test="condition.status!=null">
+			  	AND status Like '%${condition.status}%'
+			  </if>
+              <if test="condition.createDate!=null">
+			  	AND create_date Like '%${condition.createDate}%'
+			  </if>
+              <if test="condition.updateDate!=null">
+			  	AND update_date Like '%${condition.updateDate}%'
+			  </if>
+              <if test="condition.comment!=null">
+			  	AND comment Like '%${condition.comment}%'
+			  </if>
+              <if test="condition.type!=null">
+			  	AND type Like '%${condition.type}%'
+			  </if>
+              <if test="condition.content!=null">
+			  	AND content Like '%${condition.content}%'
+			  </if>
+              <if test="condition.remark!=null">
+			  	AND remark Like '%${condition.remark}%'
+			  </if>
+              <if test="condition.chargeManId!=null">
+			  	AND charge_man_id Like '%${condition.chargeManId}%'
+			  </if>
+              <if test="condition.chargeMan!=null">
+			  	AND charge_man Like '%${condition.chargeMan}%'
+			  </if>
+              <if test="condition.contractorId!=null">
+			  	AND contractor_id Like '%${condition.contractorId}%'
+			  </if>
+              <if test="condition.contractor!=null">
+			  	AND contractor Like '%${condition.contractor}%'
+			  </if>
+              <if test="condition.draftAdvice!=null">
+			  	AND draft_advice Like '%${condition.draftAdvice}%'
+			  </if>
+              <if test="condition.submitAdvice!=null">
+			  	AND submit_advice Like '%${condition.submitAdvice}%'
+			  </if>
+              <if test="condition.deadline!=null">
+			  	AND deadline Like '%${condition.deadline}%'
+			  </if>
+              <if test="condition.docLegality!=null">
+			  	AND doc_legality Like '%${condition.docLegality}%'
+			  </if>
+              <if test="condition.attachment!=null">
+			  	AND attachment Like '%${condition.attachment}%'
+			  </if>
+              <if test="condition.confidentialReview!=null">
+			  	AND confidential_review Like '%${condition.confidentialReview}%'
+			  </if>
+              <if test="condition.leadInstructions!=null">
+			  	AND lead_instructions Like '%${condition.leadInstructions}%'
+			  </if>
+              <if test="condition.signUnit!=null">
+			  	AND sign_unit Like '%${condition.signUnit}%'
+			  </if>
+              <if test="condition.issuerInstructions!=null">
+			  	AND issuer_instructions Like '%${condition.issuerInstructions}%'
+			  </if>
+              <if test="condition.creatorId!=null">
+			  	AND creator_id Like '%${condition.creatorId}%'
+			  </if>
+              <if test="condition.logFlag!=null">
+			  	AND log_flag Like '%${condition.logFlag}%'
+			  </if>
+              <if test="condition.nuclearDraft!=null">
+			  	AND nuclear_draft Like '%${condition.nuclearDraft}%'
+			  </if>
+              <if test="condition.officeNuclear!=null">
+			  	AND office_nuclear Like '%${condition.officeNuclear}%'
+			  </if>
+              <if test="condition.mobile!=null">
+			  	AND mobile Like '%${condition.mobile}%'
+			  </if>
+              <if test="condition.open!=null">
+			  	AND open Like '%${condition.open}%'
+			  </if>
+        </trim>        
+        <if test="condition.sort != null">
+			order by ${condition.sort}
+		</if>
+        <if test="offset != null">
+            limit ${offset}, ${rows}
+        </if>
+    </select>
+
+    <select id="like" parameterType="java.util.Map" resultType="SendForm">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_sendform
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+			<if test="id!=null">
+				AND id like '%#{id}%'
+			</if>
+			<if test="title!=null">
+				AND title Like '%$ {condition.title}%'
+			</if>
+			<if test="no!=null">
+				AND no Like '%$ {condition.no}%'
+			</if>
+			<if test="draftDepId!=null">
+				AND draft_dep_id Like '%$ {condition.draftDepId}%'
+			</if>
+			<if test="draftDep!=null">
+				AND draft_dep Like '%$ {condition.draftDep}%'
+			</if>
+			<if test="draftorId!=null">
+				AND draftor_id Like '%$ {condition.draftorId}%'
+			</if>
+			<if test="draftorName!=null">
+				AND draftor_name Like '%$ {condition.draftorName}%'
+			</if>
+			<if test="mainDepId!=null">
+				AND main_dep_id Like '%$ {condition.mainDepId}%'
+			</if>
+			<if test="mainDep!=null">
+				AND main_dep Like '%$ {condition.mainDep}%'
+			</if>
+			<if test="subDepId!=null">
+				AND sub_dep_id Like '%$ {condition.subDepId}%'
+			</if>
+			<if test="subDep!=null">
+				AND sub_dep Like '%$ {condition.subDep}%'
+			</if>
+			<if test="printCount!=null">
+				AND print_count Like '%$ {condition.printCount}%'
+			</if>
+			<if test="secretClass!=null">
+				AND secret_class Like '%$ {condition.secretClass}%'
+			</if>
+			<if test="urgentClass!=null">
+				AND urgent_class Like '%$ {condition.urgentClass}%'
+			</if>
+			<if test="year!=null">
+				AND year Like '%$ {condition.year}%'
+			</if>
+			<if test="month!=null">
+				AND month Like '%$ {condition.month}%'
+			</if>
+			<if test="quarter!=null">
+				AND quarter Like '%$ {condition.quarter}%'
+			</if>
+			<if test="status!=null">
+				AND status Like '%$ {condition.status}%'
+			</if>
+			<if test="createDate!=null">
+				AND create_date Like '%$ {condition.createDate}%'
+			</if>
+			<if test="updateDate!=null">
+				AND update_date Like '%$ {condition.updateDate}%'
+			</if>
+			<if test="comment!=null">
+				AND comment Like '%$ {condition.comment}%'
+			</if>
+			<if test="type!=null">
+				AND type Like '%$ {condition.type}%'
+			</if>
+			<if test="content!=null">
+				AND content Like '%$ {condition.content}%'
+			</if>
+			<if test="remark!=null">
+				AND remark Like '%$ {condition.remark}%'
+			</if>
+			<if test="chargeManId!=null">
+				AND charge_man_id Like '%$ {condition.chargeManId}%'
+			</if>
+			<if test="chargeMan!=null">
+				AND charge_man Like '%$ {condition.chargeMan}%'
+			</if>
+			<if test="contractorId!=null">
+				AND contractor_id Like '%$ {condition.contractorId}%'
+			</if>
+			<if test="contractor!=null">
+				AND contractor Like '%$ {condition.contractor}%'
+			</if>
+			<if test="draftAdvice!=null">
+				AND draft_advice Like '%$ {condition.draftAdvice}%'
+			</if>
+			<if test="submitAdvice!=null">
+				AND submit_advice Like '%$ {condition.submitAdvice}%'
+			</if>
+			<if test="deadline!=null">
+				AND deadline Like '%$ {condition.deadline}%'
+			</if>
+			<if test="docLegality!=null">
+				AND doc_legality Like '%$ {condition.docLegality}%'
+			</if>
+			<if test="attachment!=null">
+				AND attachment Like '%$ {condition.attachment}%'
+			</if>
+			<if test="confidentialReview!=null">
+				AND confidential_review Like '%$ {condition.confidentialReview}%'
+			</if>
+			<if test="leadInstructions!=null">
+				AND lead_instructions Like '%$ {condition.leadInstructions}%'
+			</if>
+			<if test="signUnit!=null">
+				AND sign_unit Like '%$ {condition.signUnit}%'
+			</if>
+			<if test="issuerInstructions!=null">
+				AND issuer_instructions Like '%$ {condition.issuerInstructions}%'
+			</if>
+			<if test="creatorId!=null">
+				AND creator_id Like '%$ {condition.creatorId}%'
+			</if>
+			<if test="logFlag!=null">
+				AND log_flag Like '%$ {condition.logFlag}%'
+			</if>
+			<if test="nuclearDraft!=null">
+				AND nuclear_draft Like '%$ {condition.nuclearDraft}%'
+			</if>
+			<if test="officeNuclear!=null">
+				AND office_nuclear Like '%$ {condition.officeNuclear}%'
+			</if>
+			<if test="mobile!=null">
+				AND mobile Like '%$ {condition.mobile}%'
+			</if>
+			<if test="open!=null">
+				AND open Like '%$ {condition.open}%'
+			</if>
+        </trim>
+    </select>
+
+
+ 	<select id="queryList" parameterType="java.util.Map" resultType="SendForm">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_sendform
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="map.id!=null">
+                AND id = #{map.id}
+            </if>
+			<if test="map.title!=null">
+				AND title = #{map.title}
+			</if>
+			<if test="map.no!=null">
+				AND no = #{map.no}
+			</if>
+			<if test="map.draftDepId!=null">
+				AND draft_dep_id = #{map.draftDepId}
+			</if>
+			<if test="map.draftDep!=null">
+				AND draft_dep = #{map.draftDep}
+			</if>
+			<if test="map.draftorId!=null">
+				AND draftor_id = #{map.draftorId}
+			</if>
+			<if test="map.draftorName!=null">
+				AND draftor_name = #{map.draftorName}
+			</if>
+			<if test="map.mainDepId!=null">
+				AND main_dep_id = #{map.mainDepId}
+			</if>
+			<if test="map.mainDep!=null">
+				AND main_dep = #{map.mainDep}
+			</if>
+			<if test="map.subDepId!=null">
+				AND sub_dep_id = #{map.subDepId}
+			</if>
+			<if test="map.subDep!=null">
+				AND sub_dep = #{map.subDep}
+			</if>
+			<if test="map.printCount!=null">
+				AND print_count = #{map.printCount}
+			</if>
+			<if test="map.secretClass!=null">
+				AND secret_class = #{map.secretClass}
+			</if>
+			<if test="map.urgentClass!=null">
+				AND urgent_class = #{map.urgentClass}
+			</if>
+			<if test="map.year!=null">
+				AND year = #{map.year}
+			</if>
+			<if test="map.month!=null">
+				AND month = #{map.month}
+			</if>
+			<if test="map.quarter!=null">
+				AND quarter = #{map.quarter}
+			</if>
+			<if test="map.status!=null">
+				AND status = #{map.status}
+			</if>
+			<if test="map.createDate!=null">
+				AND create_date = #{map.createDate}
+			</if>
+			<if test="map.updateDate!=null">
+				AND update_date = #{map.updateDate}
+			</if>
+			<if test="map.comment!=null">
+				AND comment = #{map.comment}
+			</if>
+			<if test="map.type!=null">
+				AND type = #{map.type}
+			</if>
+			<if test="map.content!=null">
+				AND content = #{map.content}
+			</if>
+			<if test="map.remark!=null">
+				AND remark = #{map.remark}
+			</if>
+			<if test="map.chargeManId!=null">
+				AND charge_man_id = #{map.chargeManId}
+			</if>
+			<if test="map.chargeMan!=null">
+				AND charge_man = #{map.chargeMan}
+			</if>
+			<if test="map.contractorId!=null">
+				AND contractor_id = #{map.contractorId}
+			</if>
+			<if test="map.contractor!=null">
+				AND contractor = #{map.contractor}
+			</if>
+			<if test="map.draftAdvice!=null">
+				AND draft_advice = #{map.draftAdvice}
+			</if>
+			<if test="map.submitAdvice!=null">
+				AND submit_advice = #{map.submitAdvice}
+			</if>
+			<if test="map.deadline!=null">
+				AND deadline = #{map.deadline}
+			</if>
+			<if test="map.docLegality!=null">
+				AND doc_legality = #{map.docLegality}
+			</if>
+			<if test="map.attachment!=null">
+				AND attachment = #{map.attachment}
+			</if>
+			<if test="map.confidentialReview!=null">
+				AND confidential_review = #{map.confidentialReview}
+			</if>
+			<if test="map.leadInstructions!=null">
+				AND lead_instructions = #{map.leadInstructions}
+			</if>
+			<if test="map.signUnit!=null">
+				AND sign_unit = #{map.signUnit}
+			</if>
+			<if test="map.issuerInstructions!=null">
+				AND issuer_instructions = #{map.issuerInstructions}
+			</if>
+			<if test="map.creatorId!=null">
+				AND creator_id = #{map.creatorId}
+			</if>
+			<if test="map.logFlag!=null">
+				AND log_flag = #{map.logFlag}
+			</if>
+			<if test="map.nuclearDraft!=null">
+				AND nuclear_draft = #{map.nuclearDraft}
+			</if>
+			<if test="map.officeNuclear!=null">
+				AND office_nuclear = #{map.officeNuclear}
+			</if>
+			<if test="map.mobile!=null">
+				AND mobile = #{map.mobile}
+			</if>
+			<if test="map.open!=null">
+				AND open = #{map.open}
+			</if>
+        </trim>
+        ORDER BY ${orderBy} ${sortBy}
+    </select>
+
+   	<select id="queryOne" parameterType="java.util.Map" resultType="SendForm">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_sendform
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="map.id!=null">
+                AND id = #{map.id}
+            </if>
+			<if test="map.title!=null">
+				AND title = #{map.title}
+			</if>
+			<if test="map.no!=null">
+				AND no = #{map.no}
+			</if>
+			<if test="map.draftDepId!=null">
+				AND draft_dep_id = #{map.draftDepId}
+			</if>
+			<if test="map.draftDep!=null">
+				AND draft_dep = #{map.draftDep}
+			</if>
+			<if test="map.draftorId!=null">
+				AND draftor_id = #{map.draftorId}
+			</if>
+			<if test="map.draftorName!=null">
+				AND draftor_name = #{map.draftorName}
+			</if>
+			<if test="map.mainDepId!=null">
+				AND main_dep_id = #{map.mainDepId}
+			</if>
+			<if test="map.mainDep!=null">
+				AND main_dep = #{map.mainDep}
+			</if>
+			<if test="map.subDepId!=null">
+				AND sub_dep_id = #{map.subDepId}
+			</if>
+			<if test="map.subDep!=null">
+				AND sub_dep = #{map.subDep}
+			</if>
+			<if test="map.printCount!=null">
+				AND print_count = #{map.printCount}
+			</if>
+			<if test="map.secretClass!=null">
+				AND secret_class = #{map.secretClass}
+			</if>
+			<if test="map.urgentClass!=null">
+				AND urgent_class = #{map.urgentClass}
+			</if>
+			<if test="map.year!=null">
+				AND year = #{map.year}
+			</if>
+			<if test="map.month!=null">
+				AND month = #{map.month}
+			</if>
+			<if test="map.quarter!=null">
+				AND quarter = #{map.quarter}
+			</if>
+			<if test="map.status!=null">
+				AND status = #{map.status}
+			</if>
+			<if test="map.createDate!=null">
+				AND create_date = #{map.createDate}
+			</if>
+			<if test="map.updateDate!=null">
+				AND update_date = #{map.updateDate}
+			</if>
+			<if test="map.comment!=null">
+				AND comment = #{map.comment}
+			</if>
+			<if test="map.type!=null">
+				AND type = #{map.type}
+			</if>
+			<if test="map.content!=null">
+				AND content = #{map.content}
+			</if>
+			<if test="map.remark!=null">
+				AND remark = #{map.remark}
+			</if>
+			<if test="map.chargeManId!=null">
+				AND charge_man_id = #{map.chargeManId}
+			</if>
+			<if test="map.chargeMan!=null">
+				AND charge_man = #{map.chargeMan}
+			</if>
+			<if test="map.contractorId!=null">
+				AND contractor_id = #{map.contractorId}
+			</if>
+			<if test="map.contractor!=null">
+				AND contractor = #{map.contractor}
+			</if>
+			<if test="map.draftAdvice!=null">
+				AND draft_advice = #{map.draftAdvice}
+			</if>
+			<if test="map.submitAdvice!=null">
+				AND submit_advice = #{map.submitAdvice}
+			</if>
+			<if test="map.deadline!=null">
+				AND deadline = #{map.deadline}
+			</if>
+			<if test="map.docLegality!=null">
+				AND doc_legality = #{map.docLegality}
+			</if>
+			<if test="map.attachment!=null">
+				AND attachment = #{map.attachment}
+			</if>
+			<if test="map.confidentialReview!=null">
+				AND confidential_review = #{map.confidentialReview}
+			</if>
+			<if test="map.leadInstructions!=null">
+				AND lead_instructions = #{map.leadInstructions}
+			</if>
+			<if test="map.signUnit!=null">
+				AND sign_unit = #{map.signUnit}
+			</if>
+			<if test="map.issuerInstructions!=null">
+				AND issuer_instructions = #{map.issuerInstructions}
+			</if>
+			<if test="map.creatorId!=null">
+				AND creator_id = #{map.creatorId}
+			</if>
+			<if test="map.logFlag!=null">
+				AND log_flag = #{map.logFlag}
+			</if>
+			<if test="map.nuclearDraft!=null">
+				AND nuclear_draft = #{map.nuclearDraft}
+			</if>
+			<if test="map.officeNuclear!=null">
+				AND office_nuclear = #{map.officeNuclear}
+			</if>
+			<if test="map.mobile!=null">
+				AND mobile = #{map.mobile}
+			</if>
+			<if test="map.open!=null">
+				AND open = #{map.open}
+			</if>
+        </trim>
+        limit 0,1
+    </select>
+
+  	<select id="count" resultType="java.lang.Integer">
+        SELECT count(id) FROM t_oa_sendform
+    </select>
+
+	<select id="selectMaxId" resultType="java.lang.Integer">
+	    SELECT
+	    MAX(id)
+	    FROM t_oa_sendform
+	</select>
+
+</mapper>
+

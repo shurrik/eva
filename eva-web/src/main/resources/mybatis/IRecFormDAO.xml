@@ -1,0 +1,1126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.yunji.oa.dao.IRecFormDAO">
+
+    <sql id="Base_Column_List">
+      id,
+	  dep_id depId,
+	  dep_name depName,
+	  no no,
+	  doc_no docNo,	  
+	  title title,
+	  content content,
+	  remark remark,
+	  charge_man_id chargeManId,
+	  charge_man chargeMan,
+	  contractor_id contractorId,
+	  contractor contractor,
+	  draft_advice draftAdvice,
+	  submit_advice submitAdvice,
+	  year year,
+	  month month,
+	  quarter quarter,
+	  progress progress,
+	  status status,
+	  secret_class secretClass,
+	  deadline deadline,
+	  receiver_id receiverId,
+	  receiver receiver,
+	  rec_type recType,
+	  create_date createDate,
+	  update_date updateDate,
+	  creator_id creatorId,
+	  press_handle pressHandle,
+	  rec_count recCount,
+	  log_flag logFlag,
+	  do_time doTime,
+	  do_status doStatus,
+	  report_leader reportLeader,
+	  do_department doDepartment
+    </sql>
+
+    <sql id="Query_condition">
+      <trim prefix="WHERE" prefixOverrides="AND | OR">
+              <if test="condition.depId!=null">
+			  	AND dep_id Like '%${condition.depId}%'
+			  </if>
+              <if test="condition.depName!=null">
+			  	AND dep_name Like '%${condition.depName}%'
+			  </if>
+              <if test="condition.no!=null">
+			  	AND no Like '%${condition.no}%'
+			  </if>
+              <if test="condition.docNo!=null">
+			  	AND doc_no Like '%${condition.docNo}%'
+			  </if>			  
+              <if test="condition.title!=null">
+			  	AND title Like '%${condition.title}%'
+			  </if>
+              <if test="condition.content!=null">
+			  	AND content Like '%${condition.content}%'
+			  </if>
+              <if test="condition.remark!=null">
+			  	AND remark Like '%${condition.remark}%'
+			  </if>
+              <if test="condition.chargeManId!=null">
+			  	AND charge_man_id Like '%${condition.chargeManId}%'
+			  </if>
+              <if test="condition.chargeMan!=null">
+			  	AND charge_man Like '%${condition.chargeMan}%'
+			  </if>
+              <if test="condition.contractorId!=null">
+			  	AND contractor_id Like '%${condition.contractorId}%'
+			  </if>
+              <if test="condition.contractor!=null">
+			  	AND contractor Like '%${condition.contractor}%'
+			  </if>
+              <if test="condition.draftAdvice!=null">
+			  	AND draft_advice Like '%${condition.draftAdvice}%'
+			  </if>
+              <if test="condition.submitAdvice!=null">
+			  	AND submit_advice Like '%${condition.submitAdvice}%'
+			  </if>
+              <if test="condition.year!=null">
+			  	AND year Like '%${condition.year}%'
+			  </if>
+              <if test="condition.month!=null">
+			  	AND month Like '%${condition.month}%'
+			  </if>
+              <if test="condition.quarter!=null">
+			  	AND quarter Like '%${condition.quarter}%'
+			  </if>
+              <if test="condition.progress!=null">
+			  	AND progress Like '%${condition.progress}%'
+			  </if>
+              <if test="condition.status!=null">
+			  	AND status Like '%${condition.status}%'
+			  </if>
+              <if test="condition.secretClass!=null">
+			  	AND secret_class Like '%${condition.secretClass}%'
+			  </if>
+              <if test="condition.deadline!=null">
+			  	AND deadline Like '%${condition.deadline}%'
+			  </if>
+              <if test="condition.receiverId!=null">
+			  	AND receiver_id Like '%${condition.receiverId}%'
+			  </if>
+              <if test="condition.receiver!=null">
+			  	AND receiver Like '%${condition.receiver}%'
+			  </if>
+              <if test="condition.recType!=null">
+			  	AND rec_type Like '%${condition.recType}%'
+			  </if>
+              <if test="condition.createDate!=null">
+			  	AND create_date Like '%${condition.createDate}%'
+			  </if>
+              <if test="condition.updateDate!=null">
+			  	AND update_date Like '%${condition.updateDate}%'
+			  </if>
+              <if test="condition.creatorId!=null">
+			  	AND creator_id Like '%${condition.creatorId}%'
+			  </if>
+              <if test="condition.pressHandle!=null">
+			  	AND press_handle = ${condition.pressHandle}
+			  </if>
+              <if test="condition.recCount!=null">
+			  	AND rec_count Like '%${condition.recCount}%'
+			  </if>
+              <if test="condition.logFlag!=null">
+			  	AND log_flag Like '%${condition.logFlag}%'
+			  </if>
+              <if test="condition.doTime!=null">
+			  	AND do_time Like '%${condition.doTime}%'
+			  </if>
+              <if test="condition.doStatus!=null">
+			  	AND do_status Like '%${condition.doStatus}%'
+			  </if>
+              <if test="condition.reportLeader!=null">
+			  	AND report_leader Like '%${condition.reportLeader}%'
+			  </if>
+              <if test="condition.doDepartment!=null">
+			  	AND do_department Like '%${condition.doDepartment}%'
+			  </if>
+		        <if test="condition.startDate != null">
+					AND create_date <![CDATA[>=]]> #{condition.startDate}
+				</if>
+		        <if test="condition.endDate != null">
+					AND create_date <![CDATA[<=]]> #{condition.endDate}
+				</if>			  
+        </trim>
+    </sql>
+    
+    
+    <insert id="insert" parameterType="RecForm">
+        INSERT INTO t_oa_recform (
+	        id,
+		    dep_id,
+		    dep_name,
+		    no,
+			doc_no,		    
+		    title,
+		    content,
+		    remark,
+		    charge_man_id,
+		    charge_man,
+		    contractor_id,
+		    contractor,
+		    draft_advice,
+		    submit_advice,
+		    year,
+		    month,
+		    quarter,
+		    progress,
+		    status,
+		    secret_class,
+		    deadline,
+		    receiver_id,
+		    receiver,
+		    rec_type,
+		    create_date,
+		    update_date,
+		    creator_id,
+		    press_handle,
+		    rec_count,
+		    log_flag,
+		    do_time,
+		    do_status,
+		    report_leader,
+		    do_department
+        ) VALUES (
+         	#{id},
+       		#{depId},
+       		#{depName},
+       		#{no},
+       		#{docNo},
+       		#{title},
+       		#{content},
+       		#{remark},
+       		#{chargeManId},
+       		#{chargeMan},
+       		#{contractorId},
+       		#{contractor},
+       		#{draftAdvice},
+       		#{submitAdvice},
+       		#{year},
+       		#{month},
+       		#{quarter},
+       		#{progress},
+       		#{status},
+       		#{secretClass},
+       		#{deadline},
+       		#{receiverId},
+       		#{receiver},
+       		#{recType},
+       		sysdate(),
+       		sysdate(),
+       		#{creatorId},
+       		0,
+       		#{recCount},
+       		0,
+       		#{doTime},
+       		#{doStatus},
+       		#{reportLeader},
+       		#{doDepartment}
+        )
+    </insert>
+
+    <!-- 更新 -->
+   	<update id="update" parameterType="RecForm">
+        UPDATE t_oa_recform
+        <trim prefix="SET" suffixOverrides=",">
+          <if test="depId!=null">
+           dep_id=#{depId},
+          </if>
+          <if test="depName!=null">
+           dep_name=#{depName},
+          </if>
+          <if test="no!=null">
+           no=#{no},
+          </if>
+          <if test="docNo!=null">
+           doc_no=#{docNo},
+          </if>          
+          <if test="title!=null">
+           title=#{title},
+          </if>
+          <if test="content!=null">
+           content=#{content},
+          </if>
+          <if test="remark!=null">
+           remark=#{remark},
+          </if>
+          <if test="chargeManId!=null">
+           charge_man_id=#{chargeManId},
+          </if>
+          <if test="chargeMan!=null">
+           charge_man=#{chargeMan},
+          </if>
+          <if test="contractorId!=null">
+           contractor_id=#{contractorId},
+          </if>
+          <if test="contractor!=null">
+           contractor=#{contractor},
+          </if>
+          <if test="draftAdvice!=null">
+           draft_advice=#{draftAdvice},
+          </if>
+          <if test="submitAdvice!=null">
+           submit_advice=#{submitAdvice},
+          </if>
+          <if test="year!=null">
+           year=#{year},
+          </if>
+          <if test="month!=null">
+           month=#{month},
+          </if>
+          <if test="quarter!=null">
+           quarter=#{quarter},
+          </if>
+          <if test="progress!=null">
+           progress=#{progress},
+          </if>
+          <if test="status!=null">
+           status=#{status},
+          </if>
+          <if test="secretClass!=null">
+           secret_class=#{secretClass},
+          </if>
+          <if test="deadline!=null">
+           deadline=#{deadline},
+          </if>
+          <if test="receiverId!=null">
+           receiver_id=#{receiverId},
+          </if>
+          <if test="receiver!=null">
+           receiver=#{receiver},
+          </if>
+          <if test="recType!=null">
+           rec_type=#{recType},
+          </if>
+          <if test="createDate!=null">
+           create_date=#{createDate},
+          </if>
+          <if test="updateDate!=null">
+           update_date=#{updateDate},
+          </if>
+          <if test="creatorId!=null">
+           creator_id=#{creatorId},
+          </if>
+          <if test="pressHandle!=null">
+           press_handle=#{pressHandle},
+          </if>
+          <if test="recCount!=null">
+           rec_count=#{recCount},
+          </if>
+          <if test="logFlag!=null">
+           log_flag=#{logFlag},
+          </if>
+          <if test="doTime!=null">
+           do_time=#{doTime},
+          </if>
+          <if test="doStatus!=null">
+           do_status=#{doStatus},
+          </if>
+          <if test="reportLeader!=null">
+           report_leader=#{reportLeader},
+          </if>
+          <if test="doDepartment!=null">
+           do_department=#{doDepartment},
+          </if>
+        </trim>
+        WHERE
+        id =#{id}
+    </update>
+
+   	<update id="updateMap">
+        UPDATE t_oa_recform
+        <trim prefix="SET" suffixOverrides=",">
+          <if test="map.depId!=null">        
+           dep_id=#{map.depId},
+          </if>
+          <if test="map.depName!=null">        
+           dep_name=#{map.depName},
+          </if>
+          <if test="map.no!=null">        
+           no=#{map.no},
+          </if>
+          <if test="map.docNo!=null">        
+           doc_no=#{map.docNo},
+          </if>          
+          <if test="map.title!=null">        
+           title=#{map.title},
+          </if>
+          <if test="map.content!=null">        
+           content=#{map.content},
+          </if>
+          <if test="map.remark!=null">        
+           remark=#{map.remark},
+          </if>
+          <if test="map.chargeManId!=null">        
+           charge_man_id=#{map.chargeManId},
+          </if>
+          <if test="map.chargeMan!=null">        
+           charge_man=#{map.chargeMan},
+          </if>
+          <if test="map.contractorId!=null">        
+           contractor_id=#{map.contractorId},
+          </if>
+          <if test="map.contractor!=null">        
+           contractor=#{map.contractor},
+          </if>
+          <if test="map.draftAdvice!=null">        
+           draft_advice=#{map.draftAdvice},
+          </if>
+          <if test="map.submitAdvice!=null">        
+           submit_advice=#{map.submitAdvice},
+          </if>
+          <if test="map.year!=null">        
+           year=#{map.year},
+          </if>
+          <if test="map.month!=null">        
+           month=#{map.month},
+          </if>
+          <if test="map.quarter!=null">        
+           quarter=#{map.quarter},
+          </if>
+          <if test="map.progress!=null">        
+           progress=#{map.progress},
+          </if>
+          <if test="map.status!=null">        
+           status=#{map.status},
+          </if>
+          <if test="map.secretClass!=null">        
+           secret_class=#{map.secretClass},
+          </if>
+          <if test="map.deadline!=null">        
+           deadline=#{map.deadline},
+          </if>
+          <if test="map.receiverId!=null">        
+           receiver_id=#{map.receiverId},
+          </if>
+          <if test="map.receiver!=null">        
+           receiver=#{map.receiver},
+          </if>
+          <if test="map.recType!=null">        
+           rec_type=#{map.recType},
+          </if>
+          <if test="map.createDate!=null">        
+           create_date=#{map.createDate},
+          </if>
+          <if test="map.updateDate!=null">        
+           update_date=#{map.updateDate},
+          </if>
+          <if test="map.creatorId!=null">        
+           creator_id=#{map.creatorId},
+          </if>
+          <if test="map.pressHandle!=null">        
+           press_handle=#{map.pressHandle},
+          </if>
+          <if test="map.recCount!=null">        
+           rec_count=#{map.recCount},
+          </if>
+          <if test="map.logFlag!=null">        
+           log_flag=#{map.logFlag},
+          </if>
+          <if test="map.doTime!=null">        
+           do_time=#{map.doTime},
+          </if>
+          <if test="map.doStatus!=null">        
+           do_status=#{map.doStatus},
+          </if>
+          <if test="map.reportLeader!=null">        
+           report_leader=#{map.reportLeader},
+          </if>
+          <if test="map.doDepartment!=null">        
+           do_department=#{map.doDepartment},
+          </if>
+        </trim>
+        WHERE
+       id = #{ map.id }
+	</update>
+   <select id="queryExport" resultType="RecForm">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_recform
+        <include refid="Query_condition" />    
+    </select>
+    <select id="queryUnfinished" parameterType="java.util.Map" resultType="RecForm">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_recform
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+
+			<if test="map.status!=null">
+				AND status <![CDATA[<>]]> #{map.status}
+			</if>
+			AND deadline IS NOT NULL AND   HOUR(NOW())+2>HOUR(deadline)
+        </trim>
+        ORDER BY create_date desc
+    </select>
+    
+    
+ 	<select id="queryRemind" parameterType="java.util.Map" resultType="RecForm">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_recform
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+
+				AND status <![CDATA[<>]]> #{map.status}
+				AND deadline <![CDATA[<]]> #{map.remindTime}
+						
+        </trim>
+        ORDER BY create_date desc
+    </select>    
+
+     <insert id="insertMap" >
+        INSERT INTO t_oa_recform (
+             	id,
+			 	dep_id,
+			 	dep_name,
+			 	no,
+				doc_no,			 	
+			 	title,
+			 	content,
+			 	remark,
+			 	charge_man_id,
+			 	charge_man,
+			 	contractor_id,
+			 	contractor,
+			 	draft_advice,
+			 	submit_advice,
+			 	year,
+			 	month,
+			 	quarter,
+			 	progress,
+			 	status,
+			 	secret_class,
+			 	deadline,
+			 	receiver_id,
+			 	receiver,
+			 	rec_type,
+			 	create_date,
+			 	update_date,
+			 	creator_id,
+			 	press_handle,
+			 	rec_count,
+			 	log_flag,
+			 	do_time,
+			 	do_status,
+			 	report_leader,
+			 	do_department,
+        ) VALUES (
+              	#{map.id},
+		    	#{map.depId},
+		    	#{map.depName},
+		    	#{map.no},
+				#{map.docNo},		    	
+		    	#{map.title},
+		    	#{map.content},
+		    	#{map.remark},
+		    	#{map.chargeManId},
+		    	#{map.chargeMan},
+		    	#{map.contractorId},
+		    	#{map.contractor},
+		    	#{map.draftAdvice},
+		    	#{map.submitAdvice},
+		    	#{map.year},
+		    	#{map.month},
+		    	#{map.quarter},
+		    	#{map.progress},
+		    	#{map.status},
+		    	#{map.secretClass},
+		    	#{map.deadline},
+		    	#{map.receiverId},
+		    	#{map.receiver},
+		    	#{map.recType},
+		    	#{map.createDate},
+		    	#{map.updateDate},
+		    	#{map.creatorId},
+		    	#{map.pressHandle},
+		    	#{map.recCount},
+		    	#{map.logFlag},
+		    	#{map.doTime},
+		    	#{map.doStatus},
+		    	#{map.reportLeader},
+		    	#{map.doDepartment},
+        )
+    </insert>
+
+
+  	<update id="updateNull" parameterType="RecForm">
+        UPDATE t_oa_recform
+        <trim prefix="SET" suffixOverrides=","> 
+			    dep_id=#{depId},
+			    dep_name=#{depName},
+			    no=#{no},
+			    doc_no=#{docNo},
+			    title=#{title},
+			    content=#{content},
+			    remark=#{remark},
+			    charge_man_id=#{chargeManId},
+			    charge_man=#{chargeMan},
+			    contractor_id=#{contractorId},
+			    contractor=#{contractor},
+			    draft_advice=#{draftAdvice},
+			    submit_advice=#{submitAdvice},
+			    year=#{year},
+			    month=#{month},
+			    quarter=#{quarter},
+			    progress=#{progress},
+			    status=#{status},
+			    secret_class=#{secretClass},
+			    deadline=#{deadline},
+			    receiver_id=#{receiverId},
+			    receiver=#{receiver},
+			    rec_type=#{recType},
+			    create_date=#{createDate},
+			    update_date=#{updateDate},
+			    creator_id=#{creatorId},
+			    press_handle=#{pressHandle},
+			    rec_count=#{recCount},
+			    log_flag=#{logFlag},
+			    do_time=#{doTime},
+			    do_status=#{doStatus},
+			    report_leader=#{reportLeader},
+			    do_department=#{doDepartment},
+        </trim>
+        WHERE
+        id =#{id}
+    </update>
+
+   	<delete id="deleteById" parameterType="java.lang.Integer">
+        DELETE FROM t_oa_recform
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            AND id=#{id}
+        </trim>
+    </delete>
+
+
+ 	<delete id="deleteByCondition" parameterType="java.util.Map">
+        DELETE FROM  t_oa_recform 
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="map.id!=null">
+                AND id = #{map.id}
+            </if>				        
+			<if test="map.depId!=null">
+				AND dep_id = #{map.depId}
+			</if>				
+			<if test="map.depName!=null">
+				AND dep_name = #{map.depName}
+			</if>				
+			<if test="map.no!=null">
+				AND no = #{map.no}
+			</if>
+			<if test="map.docNo!=null">
+				AND doc_no = #{map.docNo}
+			</if>							
+			<if test="map.title!=null">
+				AND title = #{map.title}
+			</if>				
+			<if test="map.content!=null">
+				AND content = #{map.content}
+			</if>				
+			<if test="map.remark!=null">
+				AND remark = #{map.remark}
+			</if>				
+			<if test="map.chargeManId!=null">
+				AND charge_man_id = #{map.chargeManId}
+			</if>				
+			<if test="map.chargeMan!=null">
+				AND charge_man = #{map.chargeMan}
+			</if>				
+			<if test="map.contractorId!=null">
+				AND contractor_id = #{map.contractorId}
+			</if>				
+			<if test="map.contractor!=null">
+				AND contractor = #{map.contractor}
+			</if>				
+			<if test="map.draftAdvice!=null">
+				AND draft_advice = #{map.draftAdvice}
+			</if>				
+			<if test="map.submitAdvice!=null">
+				AND submit_advice = #{map.submitAdvice}
+			</if>				
+			<if test="map.year!=null">
+				AND year = #{map.year}
+			</if>				
+			<if test="map.month!=null">
+				AND month = #{map.month}
+			</if>				
+			<if test="map.quarter!=null">
+				AND quarter = #{map.quarter}
+			</if>				
+			<if test="map.progress!=null">
+				AND progress = #{map.progress}
+			</if>				
+			<if test="map.status!=null">
+				AND status = #{map.status}
+			</if>				
+			<if test="map.secretClass!=null">
+				AND secret_class = #{map.secretClass}
+			</if>				
+			<if test="map.deadline!=null">
+				AND deadline = #{map.deadline}
+			</if>				
+			<if test="map.receiverId!=null">
+				AND receiver_id = #{map.receiverId}
+			</if>				
+			<if test="map.receiver!=null">
+				AND receiver = #{map.receiver}
+			</if>				
+			<if test="map.recType!=null">
+				AND rec_type = #{map.recType}
+			</if>				
+			<if test="map.createDate!=null">
+				AND create_date = #{map.createDate}
+			</if>				
+			<if test="map.updateDate!=null">
+				AND update_date = #{map.updateDate}
+			</if>				
+			<if test="map.creatorId!=null">
+				AND creator_id = #{map.creatorId}
+			</if>				
+			<if test="map.pressHandle!=null">
+				AND press_handle = #{map.pressHandle}
+			</if>				
+			<if test="map.recCount!=null">
+				AND rec_count = #{map.recCount}
+			</if>				
+			<if test="map.logFlag!=null">
+				AND log_flag = #{map.logFlag}
+			</if>				
+			<if test="map.doTime!=null">
+				AND do_time = #{map.doTime}
+			</if>				
+			<if test="map.doStatus!=null">
+				AND do_status = #{map.doStatus}
+			</if>				
+			<if test="map.reportLeader!=null">
+				AND report_leader = #{map.reportLeader}
+			</if>				
+			<if test="map.doDepartment!=null">
+				AND do_department = #{map.doDepartment}
+			</if>				
+        </trim>
+    </delete>
+
+    <delete id="deleteByProperty" parameterType="java.util.Map">
+        DELETE FROM t_oa_recform WHERE
+        ${property}=#{value}
+    </delete>
+
+    <select id="fetch" parameterType="java.lang.Integer" resultType="RecForm">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_recform
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            AND id =#{id}
+        </trim>
+    </select>
+
+    <select id="findOne" parameterType="java.util.Map" resultType="RecForm">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_recform WHERE
+        ${property}=#{value} 
+        LIMIT 0,1
+    </select>
+
+    <select id="findList" parameterType="java.util.Map" resultType="RecForm">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_recform WHERE
+       	${property} =#{value}
+    </select>
+
+    <select id="findAll" resultType="RecForm">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_recform
+    </select>
+
+    <select id="queryPage" resultType="RecForm">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_recform
+        <include refid="Query_condition" />    
+        <if test="condition.sort != null">
+			order by ${condition.sort}
+		</if>
+        <if test="offset != null">
+            limit ${offset}, ${rows}
+        </if>
+    </select>
+
+    <select id="like" parameterType="java.util.Map" resultType="RecForm">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_recform
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+			<if test="id!=null">
+				AND id like '%#{id}%'
+			</if>
+			<if test="depId!=null">
+				AND dep_id Like '%$ {condition.depId}%'
+			</if>
+			<if test="depName!=null">
+				AND dep_name Like '%$ {condition.depName}%'
+			</if>
+			<if test="no!=null">
+				AND no Like '%$ {condition.no}%'
+			</if>
+			<if test="docNo!=null">
+				AND doc_no Like '%$ {condition.docNo}%'
+			</if>			
+			<if test="title!=null">
+				AND title Like '%$ {condition.title}%'
+			</if>
+			<if test="content!=null">
+				AND content Like '%$ {condition.content}%'
+			</if>
+			<if test="remark!=null">
+				AND remark Like '%$ {condition.remark}%'
+			</if>
+			<if test="chargeManId!=null">
+				AND charge_man_id Like '%$ {condition.chargeManId}%'
+			</if>
+			<if test="chargeMan!=null">
+				AND charge_man Like '%$ {condition.chargeMan}%'
+			</if>
+			<if test="contractorId!=null">
+				AND contractor_id Like '%$ {condition.contractorId}%'
+			</if>
+			<if test="contractor!=null">
+				AND contractor Like '%$ {condition.contractor}%'
+			</if>
+			<if test="draftAdvice!=null">
+				AND draft_advice Like '%$ {condition.draftAdvice}%'
+			</if>
+			<if test="submitAdvice!=null">
+				AND submit_advice Like '%$ {condition.submitAdvice}%'
+			</if>
+			<if test="year!=null">
+				AND year Like '%$ {condition.year}%'
+			</if>
+			<if test="month!=null">
+				AND month Like '%$ {condition.month}%'
+			</if>
+			<if test="quarter!=null">
+				AND quarter Like '%$ {condition.quarter}%'
+			</if>
+			<if test="progress!=null">
+				AND progress Like '%$ {condition.progress}%'
+			</if>
+			<if test="status!=null">
+				AND status Like '%$ {condition.status}%'
+			</if>
+			<if test="secretClass!=null">
+				AND secret_class Like '%$ {condition.secretClass}%'
+			</if>
+			<if test="deadline!=null">
+				AND deadline Like '%$ {condition.deadline}%'
+			</if>
+			<if test="receiverId!=null">
+				AND receiver_id Like '%$ {condition.receiverId}%'
+			</if>
+			<if test="receiver!=null">
+				AND receiver Like '%$ {condition.receiver}%'
+			</if>
+			<if test="recType!=null">
+				AND rec_type Like '%$ {condition.recType}%'
+			</if>
+			<if test="createDate!=null">
+				AND create_date Like '%$ {condition.createDate}%'
+			</if>
+			<if test="updateDate!=null">
+				AND update_date Like '%$ {condition.updateDate}%'
+			</if>
+			<if test="creatorId!=null">
+				AND creator_id Like '%$ {condition.creatorId}%'
+			</if>
+			<if test="pressHandle!=null">
+				AND press_handle Like '%$ {condition.pressHandle}%'
+			</if>
+			<if test="recCount!=null">
+				AND rec_count Like '%$ {condition.recCount}%'
+			</if>
+			<if test="logFlag!=null">
+				AND log_flag Like '%$ {condition.logFlag}%'
+			</if>
+			<if test="doTime!=null">
+				AND do_time Like '%$ {condition.doTime}%'
+			</if>
+			<if test="doStatus!=null">
+				AND do_status Like '%$ {condition.doStatus}%'
+			</if>
+			<if test="reportLeader!=null">
+				AND report_leader Like '%$ {condition.reportLeader}%'
+			</if>
+			<if test="doDepartment!=null">
+				AND do_department Like '%$ {condition.doDepartment}%'
+			</if>
+        </trim>
+    </select>
+
+ <select id="findnoSearch"   resultType="RecForm" parameterType="java.lang.String" >
+     SELECT SUBSTRING(NO,2,50) as no FROM t_oa_recform WHERE
+           NO  Like CONCAT(#{no},'%')
+          ORDER BY create_date DESC LIMIT 0,1
+    </select>
+
+ 	<select id="queryList" parameterType="java.util.Map" resultType="RecForm">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_recform
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="map.id!=null">
+                AND id = #{map.id}
+            </if>
+			<if test="map.depId!=null">
+				AND dep_id = #{map.depId}
+			</if>
+			<if test="map.depName!=null">
+				AND dep_name = #{map.depName}
+			</if>
+			<if test="map.no!=null">
+				AND no = #{map.no}
+			</if>
+			<if test="map.docNo!=null">
+				AND doc_no = #{map.docNo}
+			</if>			
+			<if test="map.title!=null">
+				AND title = #{map.title}
+			</if>
+			<if test="map.content!=null">
+				AND content = #{map.content}
+			</if>
+			<if test="map.remark!=null">
+				AND remark = #{map.remark}
+			</if>
+			<if test="map.chargeManId!=null">
+				AND charge_man_id = #{map.chargeManId}
+			</if>
+			<if test="map.chargeMan!=null">
+				AND charge_man = #{map.chargeMan}
+			</if>
+			<if test="map.contractorId!=null">
+				AND contractor_id = #{map.contractorId}
+			</if>
+			<if test="map.contractor!=null">
+				AND contractor = #{map.contractor}
+			</if>
+			<if test="map.draftAdvice!=null">
+				AND draft_advice = #{map.draftAdvice}
+			</if>
+			<if test="map.submitAdvice!=null">
+				AND submit_advice = #{map.submitAdvice}
+			</if>
+			<if test="map.year!=null">
+				AND year = #{map.year}
+			</if>
+			<if test="map.month!=null">
+				AND month = #{map.month}
+			</if>
+			<if test="map.quarter!=null">
+				AND quarter = #{map.quarter}
+			</if>
+			<if test="map.progress!=null">
+				AND progress = #{map.progress}
+			</if>
+			<if test="map.status!=null">
+				AND status = #{map.status}
+			</if>
+			<if test="map.secretClass!=null">
+				AND secret_class = #{map.secretClass}
+			</if>
+			<if test="map.deadline!=null">
+				AND deadline = #{map.deadline}
+			</if>
+			<if test="map.receiverId!=null">
+				AND receiver_id = #{map.receiverId}
+			</if>
+			<if test="map.receiver!=null">
+				AND receiver = #{map.receiver}
+			</if>
+			<if test="map.recType!=null">
+				AND rec_type = #{map.recType}
+			</if>
+			<if test="map.createDate!=null">
+				AND create_date = #{map.createDate}
+			</if>
+			<if test="map.updateDate!=null">
+				AND update_date = #{map.updateDate}
+			</if>
+			<if test="map.creatorId!=null">
+				AND creator_id = #{map.creatorId}
+			</if>
+			<if test="map.pressHandle!=null">
+				AND press_handle = #{map.pressHandle}
+			</if>
+			<if test="map.recCount!=null">
+				AND rec_count = #{map.recCount}
+			</if>
+			<if test="map.logFlag!=null">
+				AND log_flag = #{map.logFlag}
+			</if>
+			<if test="map.doTime!=null">
+				AND do_time = #{map.doTime}
+			</if>
+			<if test="map.doStatus!=null">
+				AND do_status = #{map.doStatus}
+			</if>
+			<if test="map.reportLeader!=null">
+				AND report_leader = #{map.reportLeader}
+			</if>
+			<if test="map.doDepartment!=null">
+				AND do_department = #{map.doDepartment}
+			</if>
+        </trim>
+        ORDER BY ${orderBy} ${sortBy}
+    </select>
+
+   	<select id="queryOne" parameterType="java.util.Map" resultType="RecForm">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_recform
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="map.id!=null">
+                AND id = #{map.id}
+            </if>
+			<if test="map.depId!=null">
+				AND dep_id = #{map.depId}
+			</if>
+			<if test="map.depName!=null">
+				AND dep_name = #{map.depName}
+			</if>
+			<if test="map.no!=null">
+				AND no = #{map.no}
+			</if>
+			<if test="map.docNo!=null">
+				AND doc_no = #{map.docNo}
+			</if>			
+			<if test="map.title!=null">
+				AND title = #{map.title}
+			</if>
+			<if test="map.content!=null">
+				AND content = #{map.content}
+			</if>
+			<if test="map.remark!=null">
+				AND remark = #{map.remark}
+			</if>
+			<if test="map.chargeManId!=null">
+				AND charge_man_id = #{map.chargeManId}
+			</if>
+			<if test="map.chargeMan!=null">
+				AND charge_man = #{map.chargeMan}
+			</if>
+			<if test="map.contractorId!=null">
+				AND contractor_id = #{map.contractorId}
+			</if>
+			<if test="map.contractor!=null">
+				AND contractor = #{map.contractor}
+			</if>
+			<if test="map.draftAdvice!=null">
+				AND draft_advice = #{map.draftAdvice}
+			</if>
+			<if test="map.submitAdvice!=null">
+				AND submit_advice = #{map.submitAdvice}
+			</if>
+			<if test="map.year!=null">
+				AND year = #{map.year}
+			</if>
+			<if test="map.month!=null">
+				AND month = #{map.month}
+			</if>
+			<if test="map.quarter!=null">
+				AND quarter = #{map.quarter}
+			</if>
+			<if test="map.progress!=null">
+				AND progress = #{map.progress}
+			</if>
+			<if test="map.status!=null">
+				AND status = #{map.status}
+			</if>
+			<if test="map.secretClass!=null">
+				AND secret_class = #{map.secretClass}
+			</if>
+			<if test="map.deadline!=null">
+				AND deadline = #{map.deadline}
+			</if>
+			<if test="map.receiverId!=null">
+				AND receiver_id = #{map.receiverId}
+			</if>
+			<if test="map.receiver!=null">
+				AND receiver = #{map.receiver}
+			</if>
+			<if test="map.recType!=null">
+				AND rec_type = #{map.recType}
+			</if>
+			<if test="map.createDate!=null">
+				AND create_date = #{map.createDate}
+			</if>
+			<if test="map.updateDate!=null">
+				AND update_date = #{map.updateDate}
+			</if>
+			<if test="map.creatorId!=null">
+				AND creator_id = #{map.creatorId}
+			</if>
+			<if test="map.pressHandle!=null">
+				AND press_handle = #{map.pressHandle}
+			</if>
+			<if test="map.recCount!=null">
+				AND rec_count = #{map.recCount}
+			</if>
+			<if test="map.logFlag!=null">
+				AND log_flag = #{map.logFlag}
+			</if>
+			<if test="map.doTime!=null">
+				AND do_time = #{map.doTime}
+			</if>
+			<if test="map.doStatus!=null">
+				AND do_status = #{map.doStatus}
+			</if>
+			<if test="map.reportLeader!=null">
+				AND report_leader = #{map.reportLeader}
+			</if>
+			<if test="map.doDepartment!=null">
+				AND do_department = #{map.doDepartment}
+			</if>
+        </trim>
+        limit 0,1
+    </select>
+
+  	<select id="count" resultType="java.lang.Integer">
+        SELECT count(id) FROM t_oa_recform
+        <include refid="Query_condition" />
+    </select>
+
+	<select id="selectMaxId" resultType="java.lang.Integer">
+	    SELECT
+	    MAX(id)
+	    FROM t_oa_recform
+	</select>
+
+    <select id="queryByCreateDate" parameterType="java.util.Map" resultType="RecForm">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_oa_recform
+        <include refid="Query_condition" />
+        <if test="condition.sort != null">
+			order by ${condition.sort}, status desc
+		</if>
+        <if test="offset != null">
+            limit ${offset}, ${rows}
+        </if>          
+    </select>
+
+   	<update id="cancelDeadline" parameterType="java.lang.String">
+        UPDATE t_oa_recform
+        SET deadline=null
+        WHERE
+        id =#{id}
+    </update>
+
+</mapper>
+

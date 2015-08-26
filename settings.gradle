@@ -1,0 +1,8 @@
+rootProject.name = 'eva'
+
+// 三个子项目
+// 其中 business 依赖 common
+// web 依赖前两者
+include 'eva-common'
+include 'eva-business'
+include 'eva-web'
