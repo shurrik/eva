@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("justify","hu",{block:"Sorkizárt",center:"K?zépre",left:"Balra",right:"Jobbra"});

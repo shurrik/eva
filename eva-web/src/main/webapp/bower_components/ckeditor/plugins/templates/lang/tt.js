@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("templates","tt",{button:"Шаблоннар",emptyListMsg:"(Шаблоннар билгел?нм?г?н)",insertOption:"?леге эчт?лекне алмаштыру",options:"Шаблон ?злекл?ре",selectPromptMsg:"Please select the template to open in the editor",title:"Эчт?лек шаблоннары"});

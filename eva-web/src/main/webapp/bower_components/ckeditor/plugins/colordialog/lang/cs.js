@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("colordialog","cs",{clear:"Vy?istit",highlight:"Zvyraznit",options:"Nastavení barvy",selected:"Vybráno",title:"Vyběr barvy"});

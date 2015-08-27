@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("justify","el",{block:"Πλ?ρη? Στο?χιση",center:"Στο Κ?ντρο",left:"Στο?χιση Αριστερ?",right:"Στο?χιση Δεξι?"});

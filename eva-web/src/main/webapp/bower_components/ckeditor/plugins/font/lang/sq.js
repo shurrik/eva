@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("font","sq",{fontSize:{label:"Madh?sia",voiceLabel:"Madh?sia e Shkronj?s",panelTitle:"Madh?sia e Shkronj?s"},label:"Shkronja",panelTitle:"Emri i Shkronj?s",voiceLabel:"Shkronja"});

@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("smiley","de",{options:"Smiley Optionen",title:"Smiley ausw?hlen",toolbar:"Smiley"});

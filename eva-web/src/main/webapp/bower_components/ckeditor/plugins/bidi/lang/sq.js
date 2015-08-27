@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("bidi","sq",{ltr:"Drejtimi i tekstit nga e majta n? t? djatht?",rtl:"Drejtimi i tekstit nga e djathta n? t? majt?"});

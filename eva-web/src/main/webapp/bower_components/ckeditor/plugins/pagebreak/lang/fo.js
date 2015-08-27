@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("pagebreak","fo",{alt:"Síeuskift",toolbar:"Ger síeuskift"});

@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("find","zh",{find:"寻找",findOptions:"寻找选项",findWhat:"寻找目标：",matchCase:"大小写须相符",matchCyclic:"循环搜寻",matchWord:"全字拼写须相符",notFoundMsg:"找不到指定的文字。",replace:"取代",replaceAll:"全部取代",replaceSuccessMsg:"已取代  %1 个指定项目。",replaceWith:"取代成：",title:"寻找及取代"});

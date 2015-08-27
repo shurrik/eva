@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("bidi","lt",{ltr:"Tekstas i? kair?s ? de?in?",rtl:"Tekstas i? de?in?s ? kair?"});

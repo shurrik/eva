@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("save","sk",{toolbar:"Ulo?i?"});

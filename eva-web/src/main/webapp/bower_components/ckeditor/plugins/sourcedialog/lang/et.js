@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("sourcedialog","et",{toolbar:"L?htekood",title:"L?htekood"});

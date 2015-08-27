@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("templates","uk",{button:"Шаблони",emptyListMsg:"(Не знайдено жодного шаблону)",insertOption:"Зам?нити поточний вм?ст",options:"Опц?? шаблону",selectPromptMsg:"Обер?ть, будь ласка, шаблон для в?дкриття в редактор?<br>(поточний зм?ст буде втрачено):",title:"Шаблони зм?сту"});

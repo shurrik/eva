@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("colordialog","de",{clear:"Entfernen",highlight:"Hervorheben",options:"Farbeoptionen",selected:"Ausgew?hlte Farbe",title:"Farbe w?hlen"});

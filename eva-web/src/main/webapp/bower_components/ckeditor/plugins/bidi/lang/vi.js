@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("bidi","vi",{ltr:"V?n b?n h??ng t? trái sang ph?i",rtl:"V?n b?n h??ng t? ph?i sang trái"});

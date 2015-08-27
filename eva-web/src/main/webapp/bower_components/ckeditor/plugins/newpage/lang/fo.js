@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("newpage","fo",{toolbar:"Nyggj síea"});

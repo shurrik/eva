@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("font","lt",{fontSize:{label:"?rifto dydis",voiceLabel:"?rifto dydis",panelTitle:"?rifto dydis"},label:"?riftas",panelTitle:"?riftas",voiceLabel:"?riftas"});

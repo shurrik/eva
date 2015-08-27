@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("templates","mn",{button:"Загварууд",emptyListMsg:"(Загвар тодорхойлогдоог?й байна)",insertOption:"Одоогийн агууллагыг дарж бичих",options:"Template Options",selectPromptMsg:"Загварыг нээж editor-р?? сонгож оруулна уу<br />(Одоогийн агууллагыг устаж магадг?й):",title:"Загварын агуулга"});

@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("smiley","lt",{options:"?ypsen?li? nustatymai",title:"?terpti veidel?",toolbar:"Veideliai"});

@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("bidi","sv",{ltr:"Text riktning fr?n v?nster till h?ger",rtl:"Text riktning fr?n h?ger till v?nster"});

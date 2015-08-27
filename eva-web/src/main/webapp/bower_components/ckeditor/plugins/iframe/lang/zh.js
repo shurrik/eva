@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("iframe","zh",{border:"显示框架框线",noUrl:"请输入 iframe URL",scrolling:"启用卷轴列",title:"IFrame 属性",toolbar:"IFrame"});

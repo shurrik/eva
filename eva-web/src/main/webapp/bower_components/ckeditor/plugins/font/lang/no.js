@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("font","no",{fontSize:{label:"St?rrelse",voiceLabel:"Font St?rrelse",panelTitle:"St?rrelse"},label:"Skrift",panelTitle:"Skrift",voiceLabel:"Font"});

@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("templates","sk",{button:"?ablóny",emptyListMsg:"(?iadne ?ablóny nedefinované)",insertOption:"Nahradi? aktuálny obsah",options:"Mo?nosti ?ablóny",selectPromptMsg:"Prosím vyberte ?ablónu na otvorenie v editore",title:"?ablóny obsahu"});

@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("templates","tr",{button:"?ablonlar",emptyListMsg:"(Belirli bir ?ablon se?ilmedi)",insertOption:"Mevcut i?erik ile de?i?tir",options:"?ablon Se?enekleri",selectPromptMsg:"Düzenleyicide a?mak i?in lütfen bir ?ablon se?in.<br>(hali haz?rdaki i?erik kaybolacakt?r.):",title:"??erik ?ablonlar?"});

@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("templates","is",{button:"Sniemát",emptyListMsg:"(Ekkert sniemát er skilgreint!)",insertOption:"Skipta út raunverulegu innihaldi",options:"Template Options",selectPromptMsg:"Veldu sniemát til ae opna í ritlinum.<br>(Núverandi innihald víkur fyrir tví!):",title:"Innihaldssniemát"});

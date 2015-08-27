@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("colordialog","tt",{clear:"Бушату",highlight:"Билгел??",options:"Т?с к?йл??л?ре",selected:"Сайланган т?сл?р",title:"Т?с сайлау"});

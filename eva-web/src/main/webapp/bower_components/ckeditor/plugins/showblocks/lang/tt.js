@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("showblocks","tt",{toolbar:"Блокларны к?рс?т?"});

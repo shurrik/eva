@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("preview","bs",{preview:"Prika?i"});

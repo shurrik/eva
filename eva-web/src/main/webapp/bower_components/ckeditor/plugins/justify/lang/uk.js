@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("justify","uk",{block:"По ширин?",center:"По центру",left:"По л?вому краю",right:"По правому краю"});

@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("smiley","el",{options:"Επιλογ?? Φατσο?λων",title:"Εισ?γετε μια Φατσο?λα",toolbar:"Φατσο?λα"});

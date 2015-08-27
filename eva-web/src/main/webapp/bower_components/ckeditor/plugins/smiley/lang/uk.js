@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("smiley","uk",{options:"Опц?? смайлик?в",title:"Вставити смайлик",toolbar:"Смайлик"});

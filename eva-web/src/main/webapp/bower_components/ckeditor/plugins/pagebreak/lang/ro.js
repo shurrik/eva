@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("pagebreak","ro",{alt:"Page Break",toolbar:"Insereaz? separator de pagin? (Page Break)"});

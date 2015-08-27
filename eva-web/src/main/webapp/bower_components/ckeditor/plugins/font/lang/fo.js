@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("font","fo",{fontSize:{label:"Skriftst?dd",voiceLabel:"Skriftst?dd",panelTitle:"Skriftst?dd"},label:"Skrift",panelTitle:"Skrift",voiceLabel:"Skrift"});

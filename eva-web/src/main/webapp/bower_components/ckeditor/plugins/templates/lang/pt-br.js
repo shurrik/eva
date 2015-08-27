@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("templates","pt-br",{button:"Modelos de layout",emptyListMsg:"(N?o foram definidos modelos de layout)",insertOption:"Substituir o conteúdo atual",options:"Op??es de Template",selectPromptMsg:"Selecione um modelo de layout para ser aberto no editor<br>(o conteúdo atual será perdido):",title:"Modelo de layout de conteúdo"});

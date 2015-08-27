@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("justify","fo",{block:"Javnir tekstkantar",center:"Miesett",left:"Vinstrasett",right:"H?grasett"});

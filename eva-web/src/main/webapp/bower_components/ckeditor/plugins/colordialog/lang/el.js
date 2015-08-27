@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("colordialog","el",{clear:"Εκκαθ?ριση",highlight:"Σ?μανση",options:"Επιλογ?? Χρωμ?των",selected:"Επιλεγμ?νο Χρ?μα",title:"Επιλογ? χρ?ματο?"});

@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("colordialog","pl",{clear:"Wyczy??",highlight:"Zaznacz",options:"Opcje koloru",selected:"Wybrany",title:"Wybierz kolor"});

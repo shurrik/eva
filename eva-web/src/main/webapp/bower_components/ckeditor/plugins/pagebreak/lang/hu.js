@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("pagebreak","hu",{alt:"Oldalt?rés",toolbar:"Oldalt?rés beillesztése"});

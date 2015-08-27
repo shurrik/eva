@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("templates","ro",{button:"Template-uri (?abloane)",emptyListMsg:"(Niciun template (?ablon) definit)",insertOption:"?nlocuie?te cuprinsul actual",options:"Op?iuni ?abloane",selectPromptMsg:"V? rug?m selecta?i template-ul (?ablonul) ce se va deschide ?n editor<br>(con?inutul actual va fi pierdut):",title:"Template-uri (?abloane) de con?inut"});

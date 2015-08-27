@@ -48,13 +48,13 @@ eclipse {
     }
 }*/
 
-sourceSets {
-    main {
-        java {
-            srcDir 'src/main/resources'
-        }
-    }
-}
+//sourceSets {
+//    main {
+//        java {
+//            srcDir 'src/main/resources'
+//        }
+//    }
+//}
 
 dependencies {
 

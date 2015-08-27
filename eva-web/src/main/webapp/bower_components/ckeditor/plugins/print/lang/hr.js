@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("print","hr",{toolbar:"Ispi?i"});

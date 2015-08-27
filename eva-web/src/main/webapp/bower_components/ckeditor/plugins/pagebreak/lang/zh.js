@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("pagebreak","zh",{alt:"换页",toolbar:"插入换页符号以便列印"});

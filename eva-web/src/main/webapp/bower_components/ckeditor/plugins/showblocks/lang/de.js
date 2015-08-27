@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("showblocks","de",{toolbar:"Bl?cke anzeigen"});

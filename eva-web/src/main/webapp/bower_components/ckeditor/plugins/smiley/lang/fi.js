@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("smiley","fi",{options:"Hymi?n ominaisuudet",title:"Lis?? hymi?",toolbar:"Hymi?"});

@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("colordialog","sv",{clear:"Rensa",highlight:"Markera",options:"F?rgalternativ",selected:"Vald f?rg",title:"V?lj f?rg"});

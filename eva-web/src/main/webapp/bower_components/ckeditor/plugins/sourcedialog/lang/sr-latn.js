@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("sourcedialog","sr-latn",{toolbar:"K?d",title:"K?d"});

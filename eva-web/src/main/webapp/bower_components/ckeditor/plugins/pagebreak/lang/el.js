@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("pagebreak","el",{alt:"Αλλαγ? Σελ?δα?",toolbar:"Εισαγωγ? Τ?λου? Σελ?δα? για Εκτ?πωση"});

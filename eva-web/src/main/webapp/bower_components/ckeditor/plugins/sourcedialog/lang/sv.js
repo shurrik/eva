@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("sourcedialog","sv",{toolbar:"K?lla",title:"K?lla"});

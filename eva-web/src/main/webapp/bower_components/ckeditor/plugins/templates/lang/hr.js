@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("templates","hr",{button:"Predlo?ci",emptyListMsg:"(Nema definiranih predlo?aka)",insertOption:"Zamijeni trenutne sadr?aje",options:"Opcije predlo?aka",selectPromptMsg:"Molimo odaberite predlo?ak koji ?elite otvoriti<br>(stvarni sadr?aj ?e biti izgubljen):",title:"Predlo?ci sadr?aja"});

@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("colordialog","fi",{clear:"Poista",highlight:"Korostus",options:"V?rin ominaisuudet",selected:"Valittu",title:"Valitse v?ri"});

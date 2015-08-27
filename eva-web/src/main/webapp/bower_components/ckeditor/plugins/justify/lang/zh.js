@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("justify","zh",{block:"左右对齐",center:"置中",left:"靠左对齐",right:"靠右对齐"});

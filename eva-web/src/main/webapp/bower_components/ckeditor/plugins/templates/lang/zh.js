@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("templates","zh",{button:"范本",emptyListMsg:"(尚未定义任何范本)",insertOption:"替代实际内容",options:"范本选项",selectPromptMsg:"请选择要在编辑器中开启的范本。",title:"内容范本"});

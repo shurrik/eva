@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("sourcedialog","vi",{toolbar:"M? HTML",title:"M? HTML"});

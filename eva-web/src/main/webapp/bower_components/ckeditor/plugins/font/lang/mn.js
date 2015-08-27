@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("font","mn",{fontSize:{label:"Хэмжээ",voiceLabel:"?сгийн хэмжээ",panelTitle:"?сгийн хэмжээ"},label:"?сгийн хэлбэр",panelTitle:"?гсийн хэлбэрийн нэр",voiceLabel:"?гсийн хэлбэр"});

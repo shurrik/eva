@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("templates","sr",{button:"Обрасци",emptyListMsg:"(Нема дефинисаних образаца)",insertOption:"Replace actual contents",options:"Template Options",selectPromptMsg:"Молимо Вас да одаберете образац ко?и ?е бити приме?ен на страницу (тренутни садржа? ?е бити обрисан):",title:"Обрасци за садржа?"});

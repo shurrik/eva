@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("templates","fo",{button:"Skabelónir",emptyListMsg:"(Ongar skabelónir t?kar)",insertOption:"Yvirskriva núverandi innihald",options:"M?guleikar fyri Template",selectPromptMsg:"Vinarliga vel ta skabelón, ie skal opnast í tekstviegeranum<br>(Hetta yvirskrivar núverandi innihald):",title:"Innihaldsskabelónir"});

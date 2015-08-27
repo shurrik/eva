@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("pagebreak","uk",{alt:"Розрив Стор?нки",toolbar:"Вставити розрив стор?нки"});

@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("font","vi",{fontSize:{label:"C? ch?",voiceLabel:"Kích c? ph?ng",panelTitle:"C? ch?"},label:"Ph?ng",panelTitle:"Ph?ng",voiceLabel:"Ph?ng"});

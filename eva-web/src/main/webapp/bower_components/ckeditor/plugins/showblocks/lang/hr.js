@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("showblocks","hr",{toolbar:"Prika?i blokove"});

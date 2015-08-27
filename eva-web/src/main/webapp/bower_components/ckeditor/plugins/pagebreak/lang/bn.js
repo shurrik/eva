@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("pagebreak","bn",{alt:"Page Break",toolbar:"??? ?????"});

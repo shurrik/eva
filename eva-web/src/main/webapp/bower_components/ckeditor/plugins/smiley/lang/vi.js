@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("smiley","vi",{options:"Tùy ch?n hình  bi?u l? c?m xúc",title:"Chèn hình bi?u l? c?m xúc (m?t c??i)",toolbar:"Hình bi?u l? c?m xúc (m?t c??i)"});

@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("colordialog","uk",{clear:"Очистити",highlight:"Кол?р, на який вказу? курсор",options:"Опц?? кольор?в",selected:"Обраний кол?р",title:"Обрати кол?р"});

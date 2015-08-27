@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("justify","vi",{block:"Canh ??u",center:"Canh gi?a",left:"Canh trái",right:"Canh ph?i"});

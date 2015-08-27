@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("templates","cs",{button:"?ablony",emptyListMsg:"(Není definována ?ádná ?ablona)",insertOption:"Nahradit aktuální obsah",options:"Nastavení ?ablon",selectPromptMsg:"Prosím zvolte ?ablonu pro otev?ení v editoru<br>(aktuální obsah editoru bude ztracen):",title:"?ablony obsahu"});

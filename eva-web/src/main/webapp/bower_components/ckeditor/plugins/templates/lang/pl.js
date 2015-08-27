@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("templates","pl",{button:"Szablony",emptyListMsg:"(Brak zdefiniowanych szablonów)",insertOption:"Zast?p obecn? zawarto??",options:"Opcje szablonów",selectPromptMsg:"Wybierz szablon do otwarcia w edytorze<br>(obecna zawarto?? okna edytora zostanie utracona):",title:"Szablony zawarto?ci"});

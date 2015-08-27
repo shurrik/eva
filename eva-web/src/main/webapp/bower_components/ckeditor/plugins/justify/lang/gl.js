@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("justify","gl",{block:"Xustificado",center:"Centrado",left:"Ali?ar á esquerda",right:"Ali?ar á dereita"});

@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("selectall","sk",{toolbar:"Vybra? v?etko"});

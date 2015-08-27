@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("templates","sv",{button:"Sidmallar",emptyListMsg:"(Ingen mall ?r vald)",insertOption:"Ers?tt aktuellt inneh?ll",options:"Inst?llningar f?r mall",selectPromptMsg:"Var god v?lj en mall att anv?nda med editorn<br>(allt nuvarande inneh?ll raderas):",title:"Sidmallar"});

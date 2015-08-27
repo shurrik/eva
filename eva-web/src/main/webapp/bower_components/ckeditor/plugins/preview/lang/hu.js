@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("preview","hu",{preview:"El?nézet"});

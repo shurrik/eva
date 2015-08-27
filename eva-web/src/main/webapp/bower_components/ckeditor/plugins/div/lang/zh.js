@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("div","zh",{IdInputLabel:"ID",advisoryTitleInputLabel:"标题",cssClassInputLabel:"样式表类别",edit:"编辑 Div",inlineStyleInputLabel:"行内样式",langDirLTRLabel:"由左至右 (LTR)",langDirLabel:"语言方向",langDirRTLLabel:"由右至左 (RTL)",languageCodeInputLabel:"语言码",remove:"移除 Div",styleSelectLabel:"样式",title:"建立 Div 容器",toolbar:"建立 Div 容器"});

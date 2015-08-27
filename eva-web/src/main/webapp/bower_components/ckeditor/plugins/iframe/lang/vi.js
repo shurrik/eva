@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("iframe","vi",{border:"Hi?n th? vi?n khung",noUrl:"Vui lòng nh?p ??a ch? iframe",scrolling:"Kích ho?t thanh cu?n",title:"Thu?c tính iframe",toolbar:"Iframe"});

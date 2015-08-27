@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("pagebreak","tt",{alt:"Бит б?лгече",toolbar:"Бастыру ?чен бит б?лгечен ?ст??"});

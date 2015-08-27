@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("colordialog","sq",{clear:"Pastro",highlight:"Thekso",options:"P?rzgjedhjet e Ngjyrave",selected:"Ngjyra e P?rzgjedhur",title:"P?rzgjidh nj? ngjyr?"});

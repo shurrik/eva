@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("font","lv",{fontSize:{label:"Izmērs",voiceLabel:"Fonta izme?s",panelTitle:"Izmērs"},label:"?rifts",panelTitle:"?rifts",voiceLabel:"Fonts"});

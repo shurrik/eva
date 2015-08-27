@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("mathjax","zh",{title:"以 TeX 表示数学",button:"数学",dialogInput:"请输入 TeX",docUrl:"http://en.wikibooks.org/wiki/LaTeX/Mathematics",docLabel:"TeX 说明文件",loading:"载入中…",pathName:"数学"});

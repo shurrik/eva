@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("font","ro",{fontSize:{label:"M?rime",voiceLabel:"Font Size",panelTitle:"M?rime"},label:"Font",panelTitle:"Font",voiceLabel:"Font"});

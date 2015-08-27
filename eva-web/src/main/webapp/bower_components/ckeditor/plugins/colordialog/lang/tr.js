@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("colordialog","tr",{clear:"Temizle",highlight:"??aretle",options:"Renk Se?enekleri",selected:"Se?ilmi?",title:"Renk se?"});

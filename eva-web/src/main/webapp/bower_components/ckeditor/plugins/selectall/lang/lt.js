@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("selectall","lt",{toolbar:"Pa?ym?ti visk?"});

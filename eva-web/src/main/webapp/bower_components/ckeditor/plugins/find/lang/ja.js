@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("find","ja",{find:"検索",findOptions:"検索オプション",findWhat:"検索する文字列:",matchCase:"大文字と小文字を区别する",matchCyclic:"末尾に逹したら先头に戻る",matchWord:"単语単位で探す",notFoundMsg:"指定された文字列は见つかりませんでした。",replace:"置换",replaceAll:"すべて置换",replaceSuccessMsg:"%1 个置换しました。",replaceWith:"置换後の文字列:",title:"検索と置换"});

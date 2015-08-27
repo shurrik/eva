@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("font","sr-latn",{fontSize:{label:"Veli?ina fonta",voiceLabel:"Font Size",panelTitle:"Veli?ina fonta"},label:"Font",panelTitle:"Font",voiceLabel:"Font"});

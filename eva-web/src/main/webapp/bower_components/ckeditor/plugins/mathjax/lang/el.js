@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("mathjax","el",{title:"Μαθηματικ? με τη γλ?σσα TeX",button:"Μαθηματικ?",dialogInput:"Γρ?ψτε κ?δικα TeX εδ?",docUrl:"http://en.wikibooks.org/wiki/LaTeX/Mathematics",docLabel:"Τεκμηρ?ωση TeX",loading:"γ?νεται φ?ρτωση...",pathName:"μαθηματικ?"});

@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("selectall","sq",{toolbar:"P?rzgjidh t? Gjitha"});

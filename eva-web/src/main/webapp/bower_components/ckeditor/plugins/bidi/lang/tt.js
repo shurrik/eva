@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("bidi","tt",{ltr:"Сулдан у?га язылыш",rtl:"У?нан сулга язылыш"});

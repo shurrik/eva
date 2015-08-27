@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("sourcedialog","pl",{toolbar:"?ród?o dokumentu",title:"?ród?o dokumentu"});

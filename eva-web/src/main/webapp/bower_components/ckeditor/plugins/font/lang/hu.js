@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("font","hu",{fontSize:{label:"Méret",voiceLabel:"Bet?méret",panelTitle:"Méret"},label:"Bet?típus",panelTitle:"Bet?típus",voiceLabel:"Bet?típus"});

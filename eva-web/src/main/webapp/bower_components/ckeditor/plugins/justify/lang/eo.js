@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("justify","eo",{block:"?israndigi Amba?flanke",center:"Centrigi",left:"?israndigi maldekstren",right:"?israndigi dekstren"});

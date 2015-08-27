@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("smiley","fr-ca",{options:"Options d'émotic?nes",title:"Insérer un émotic?ne",toolbar:"émotic?ne"});

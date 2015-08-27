@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("colordialog","ja",{clear:"クリア",highlight:"ハイライト",options:"カラーオプション",selected:"选択された色",title:"色选択"});

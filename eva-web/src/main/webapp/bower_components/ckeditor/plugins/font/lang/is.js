@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("font","is",{fontSize:{label:"Leturst?re ",voiceLabel:"Font Size",panelTitle:"Leturst?re "},label:"Leturgere ",panelTitle:"Leturgere ",voiceLabel:"Leturgere "});

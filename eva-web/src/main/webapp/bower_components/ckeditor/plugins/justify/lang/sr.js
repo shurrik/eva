@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("justify","sr",{block:"Обострано равна?е",center:"Центриран текст",left:"Лево равна?е",right:"Десно равна?е"});

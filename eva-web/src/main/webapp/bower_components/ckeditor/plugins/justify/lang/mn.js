@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("justify","mn",{block:"Тэгшлэх",center:"Голлуулах",left:"З??н талд тулгах",right:"Баруун талд тулгах"});

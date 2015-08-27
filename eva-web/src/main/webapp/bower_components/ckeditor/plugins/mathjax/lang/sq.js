@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("mathjax","sq",{title:"Matematik? n? TeX",button:"Matematik?",dialogInput:"Shkruani TeX-in tuaj k?tu",docUrl:"http://en.wikibooks.org/wiki/LaTeX/Mathematics",docLabel:"Tex dokumentimi",loading:"duke u hapur...",pathName:"matematik?"});

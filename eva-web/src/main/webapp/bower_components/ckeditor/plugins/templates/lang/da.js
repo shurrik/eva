@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("templates","da",{button:"Skabeloner",emptyListMsg:"(Der er ikke defineret nogen skabelon)",insertOption:"Erstat det faktiske indhold",options:"Skabelon muligheder",selectPromptMsg:"V?lg den skabelon, som skal ?bnes i editoren (nuv?rende indhold vil blive overskrevet):",title:"Indholdsskabeloner"});

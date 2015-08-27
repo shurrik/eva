@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("image2","zh",{alt:"替代文字",btnUpload:"传送至伺服器",captioned:"已加标题之图片",captionPlaceholder:"Caption",infoTab:"影像资讯",lockRatio:"固定比例",menu:"影像属性",pathName:"图片",pathNameCaption:"标题",resetSize:"重设大小",resizer:"拖曳以改变大小",title:"影像属性",uploadTab:"上传",urlMissing:"遗失图片来源之 URL "});

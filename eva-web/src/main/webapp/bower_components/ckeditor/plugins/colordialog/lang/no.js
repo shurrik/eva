@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("colordialog","no",{clear:"T?m",highlight:"Merk",options:"Alternativer for farge",selected:"Valgt",title:"Velg farge"});

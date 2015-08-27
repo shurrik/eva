@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("smiley","tt",{options:"Смайл к?йл??л?ре",title:"Смайл ?ст??",toolbar:"Смайл"});

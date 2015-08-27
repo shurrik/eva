@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("templates","lt",{button:"?ablonai",emptyListMsg:"(?ablon? s?ra?as tu??ias)",insertOption:"Pakeisti dabartin? turin? pasirinktu ?ablonu",options:"Template Options",selectPromptMsg:"Pasirinkite norim? ?ablon?<br>(<b>D?mesio!</b> esamas turinys bus prarastas):",title:"Turinio ?ablonai"});

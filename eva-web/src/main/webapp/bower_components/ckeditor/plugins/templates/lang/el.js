@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("templates","el",{button:"Πρ?τυπα",emptyListMsg:"(Δεν ?χουν καθοριστε? πρ?τυπα)",insertOption:"Αντικατ?σταση υπ?ρχοντων περιεχομ?νων",options:"Επιλογ?? Προτ?που",selectPromptMsg:"Παρακαλ? επιλ?ξτε πρ?τυπο για εισαγωγ? στο πρ?γραμμα",title:"Πρ?τυπα Περιεχομ?νου"});

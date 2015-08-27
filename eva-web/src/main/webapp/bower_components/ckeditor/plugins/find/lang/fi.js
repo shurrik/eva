@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("find","fi",{find:"Etsi",findOptions:"Hakuasetukset",findWhat:"Etsi mit?:",matchCase:"Sama kirjainkoko",matchCyclic:"Kierr? ymp?ri",matchWord:"Koko sana",notFoundMsg:"Etsitty? teksti? ei l?ytynyt.",replace:"Korvaa",replaceAll:"Korvaa kaikki",replaceSuccessMsg:"%1 esiintym?(?) korvattu.",replaceWith:"Korvaa t?ll?:",title:"Etsi ja korvaa"});

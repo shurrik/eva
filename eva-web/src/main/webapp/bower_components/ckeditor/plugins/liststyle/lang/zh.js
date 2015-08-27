@@ -1,0 +1,2 @@
+﻿CKEDITOR.plugins.setLang("liststyle","zh",{armenian:"亚美尼亚数字",bulletedTitle:"项目符号清单属性",circle:"圆圈",decimal:"小数点 (1, 2, 3, etc.)",decimalLeadingZero:"前缀 0 十位数字 (01, 02, 03, 等)",disc:"圆点",georgian:"乔治王时代数字 (an, ban, gan, 等)",lowerAlpha:"小写字母 (a, b, c, d, e 等)",lowerGreek:"小写希腊字母 (alpha, beta, gamma, 等)",lowerRoman:"小写罗马数字 (i, ii, iii, iv, v 等)",none:"无",notset:"<未设定>",numberedTitle:"编号清单属性",square:"方块",start:"开始",type:"类型",upperAlpha:"大写字母 (A, B, C, D, E 等)",upperRoman:"大写罗马数字 (I, II, III, IV, V 等)",
+validateStartNumber:"清单起始号码须为一完整数字。"});

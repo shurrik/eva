@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("templates","ja",{button:"テンプレート",emptyListMsg:"(テンプレートが定义されていません)",insertOption:"现在のエディタの内容と置き换えます",options:"テンプレートオプション",selectPromptMsg:"エディターで使用するテンプレートを选択してください。<br>(现在のエディタの内容は失われます):",title:"内容テンプレート"});

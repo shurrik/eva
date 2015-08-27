@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("mathjax","pl",{title:"Wzory matematyczne w TeX",button:"Wzory matematyczne",dialogInput:"Wpisz wyra?enie w TeX",docUrl:"http://en.wikibooks.org/wiki/LaTeX/Mathematics",docLabel:"Dokumentacja TeX",loading:"?adowanie...",pathName:"matematyka"});

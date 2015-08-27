@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("justify","is",{block:"Jafna báeum megin",center:"Mieja texta",left:"Vinstrij?fnun",right:"H?grij?fnun"});

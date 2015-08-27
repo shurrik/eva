@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("find","uk",{find:"Пошук",findOptions:"Параметри Пошуку",findWhat:"Шукати:",matchCase:"Враховувати рег?стр",matchCyclic:"Цикл?чна зам?на",matchWord:"Зб?г ц?лих сл?в",notFoundMsg:"Вказаний текст не знайдено.",replace:"Зам?на",replaceAll:"Зам?нити все",replaceSuccessMsg:"%1 сп?впад?нь(ня) зам?нено.",replaceWith:"Зам?нити на:",title:"Знайти ? зам?нити"});

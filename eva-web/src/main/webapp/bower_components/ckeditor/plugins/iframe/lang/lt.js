@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("iframe","lt",{border:"Rodyti r?mel?",noUrl:"Nurodykite iframe nuorod?",scrolling:"?jungti slankiklius",title:"IFrame nustatymai",toolbar:"IFrame"});

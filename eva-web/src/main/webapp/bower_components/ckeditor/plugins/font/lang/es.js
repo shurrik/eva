@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("font","es",{fontSize:{label:"Tama?o",voiceLabel:"Tama?o de fuente",panelTitle:"Tama?o"},label:"Fuente",panelTitle:"Fuente",voiceLabel:"Fuente"});

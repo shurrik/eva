@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("iframe","et",{border:"Raami ??rise n?itamine",noUrl:"Vali iframe URLi liik",scrolling:"Kerimisribade lubamine",title:"IFrame omadused",toolbar:"IFrame"});

@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("selectall","uk",{toolbar:"Вид?лити все"});

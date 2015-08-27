@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("smiley","fo",{options:"M?guleikar fyri Smiley",title:"Vel Smiley",toolbar:"Smiley"});

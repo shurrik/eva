@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("iframe","tr",{border:"?erceve s?n?rlar?n? g?ster",noUrl:"Lütfen IFrame k?prü (URL) ba?lant?s?n? yaz?n",scrolling:"Kayd?rma ?ubuklar?n? aktif et",title:"IFrame ?zellikleri",toolbar:"IFrame"});

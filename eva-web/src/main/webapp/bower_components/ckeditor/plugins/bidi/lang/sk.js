@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang("bidi","sk",{ltr:"Smer textu z?ava doprava",rtl:"Smer textu sprava do?ava"});

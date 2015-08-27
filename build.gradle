@@ -268,15 +268,15 @@ subprojects { subproj ->
             libraries.'mysql',
 
             // ebean
-            libraries.'ebean',
-            libraries.'avaje-agentloader',
-            libraries.'avaje-ebeanorm-agent',
-
-            libraries.'persistence-api',
+//            libraries.'ebean',
+//            libraries.'avaje-agentloader',
+//            libraries.'avaje-ebeanorm-agent',
+//
+//            libraries.'persistence-api',
             //libraries.'validation-api',
             libraries.'jta',
 
-            libraries.'hibernate-validator',
+//            libraries.'hibernate-validator',
 
             libraries.'spring-jdbc',
             libraries.'spring-tx',
@@ -299,7 +299,7 @@ subprojects { subproj ->
 
             // Cache
             //
-            libraries.'ehcache',
+//            libraries.'ehcache',
             // Apache
             //
             libraries.'commons-dbcp',
@@ -308,47 +308,56 @@ subprojects { subproj ->
             libraries.'commons-lang3',
             libraries.'commons-digester3',
 
-            libraries.'commons-fileupload',
-            libraries.'velocity',
+//            libraries.'commons-fileupload',
+//            libraries.'velocity',
             libraries.'ant',
 
-            libraries.'lucene-core',
-            libraries.'lucene-analyzers-common',
-            libraries.'lucene-analyzers-smartcn',
-            libraries.'lucene-queries',
-            libraries.'lucene-queryparser',
-            libraries.'lucene-highlighter',
+//            libraries.'lucene-core',
+//            libraries.'lucene-analyzers-common',
+//            libraries.'lucene-analyzers-smartcn',
+//            libraries.'lucene-queries',
+//            libraries.'lucene-queryparser',
+//            libraries.'lucene-highlighter',
 
             //libraries.'poi',
             libraries.'jxls-core',
             //libraries.'jxls-reader',
 
-            libraries.'httpclient',
-            libraries.'httpmime',
+//            libraries.'httpclient',
+//            libraries.'httpmime',
 
             // JSON
             //
             libraries.'jackson-databind',
+            libraries.'jackson-mapper-asl',
+            libraries.'jackson-core-asl',
+            libraries.'jackson-annotations',
+            libraries.'jackson-core',
+            libraries.'jackson-module-jaxb-annotations',
+            libraries.'jackson-jaxrs',
+            libraries.'json-lib',
 
             //mybatis
             libraries.'mybatis',
             libraries.'mybatis-spring',
             libraries.'plexus-utils',
             libraries.'freemarker',
-            libraries.'jackson-mapper-asl',
-            libraries.'jackson-core-asl',
-            libraries.'json-lib',
             libraries.'jxl',
             libraries.'docx4j',
             libraries.'druid',
-                // Other
+
+            //mybatis
+            libraries.'jersey-spring3',
+            libraries.'jersey-media-json-jackson',
+            libraries.'jersey-media-multipart',
+            libraries.'jersey-entity-filtering',
             //
-            libraries.'guava',
-            libraries.'joda-time',
-            libraries.'xstream',
-            libraries.'mail',
-            libraries.'snakeyaml',
-            libraries.'jpinyin'
+//            libraries.'guava',
+//            libraries.'joda-time',
+//            libraries.'xstream',
+//            libraries.'mail',
+//            libraries.'snakeyaml',
+//            libraries.'jpinyin'
         )
 
         //
