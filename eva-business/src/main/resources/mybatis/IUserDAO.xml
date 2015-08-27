@@ -43,7 +43,7 @@
         </trim>            
    </sql>
     <insert id="insert" parameterType="User">
-        INSERT INTO t_oa_user (
+        INSERT INTO t_eva_user (
 	        id,
 		    user_name,
 		    real_name,
@@ -68,7 +68,7 @@
 
     <!-- 更新 -->
    	<update id="update" parameterType="User">
-        UPDATE t_oa_user
+        UPDATE t_eva_user
         <trim prefix="SET" suffixOverrides=",">
           <if test="userName!=null">
            user_name=#{userName},
@@ -100,7 +100,7 @@
     </update>
 
    	<update id="updateMap">
-        UPDATE t_oa_user
+        UPDATE t_eva_user
         <trim prefix="SET" suffixOverrides=",">
           <if test="map.userName!=null">        
            user_name=#{map.userName},
@@ -133,7 +133,7 @@
 
 
      <insert id="insertMap" >
-        INSERT INTO t_oa_user (
+        INSERT INTO t_eva_user (
              	id,
 			 	user_name,
 			 	real_name,
@@ -158,7 +158,7 @@
 
 
   	<update id="updateNull" parameterType="User">
-        UPDATE t_oa_user
+        UPDATE t_eva_user
         <trim prefix="SET" suffixOverrides=","> 
 			    user_name=#{userName},
 			    real_name=#{realName},
@@ -174,7 +174,7 @@
     </update>
 
    	<delete id="deleteById" parameterType="java.lang.Integer">
-        DELETE FROM t_oa_user
+        DELETE FROM t_eva_user
         <trim prefix="WHERE" prefixOverrides="AND | OR">
             AND id=#{id}
         </trim>
@@ -182,7 +182,7 @@
 
 
  	<delete id="deleteByCondition" parameterType="java.util.Map">
-        DELETE FROM  t_oa_user 
+        DELETE FROM  t_eva_user 
         <trim prefix="WHERE" prefixOverrides="AND | OR">
 				<if test="id!=null">
 					AND id =#{id},
@@ -215,14 +215,14 @@
     </delete>
 
     <delete id="deleteByProperty" parameterType="java.util.Map">
-        DELETE FROM t_oa_user WHERE
+        DELETE FROM t_eva_user WHERE
         ${column}=#{value}
     </delete>
 
     <select id="fetch" parameterType="java.lang.Integer" resultType="User">
         SELECT
         <include refid="Base_Column_List" />
-        FROM t_oa_user
+        FROM t_eva_user
         <trim prefix="WHERE" prefixOverrides="AND | OR">
             AND id =#{id}
         </trim>
@@ -231,7 +231,7 @@
     <select id="findOne" parameterType="java.util.Map" resultType="User">
         SELECT
         <include refid="Base_Column_List" />
-        FROM t_oa_user WHERE
+        FROM t_eva_user WHERE
         ${property}=#{value} 
         LIMIT 0,1
     </select>
@@ -239,20 +239,20 @@
     <select id="findList" parameterType="java.util.Map" resultType="User">
         SELECT
         <include refid="Base_Column_List" />
-        FROM t_oa_user WHERE
+        FROM t_eva_user WHERE
        	${column} =#{value}
     </select>
 
     <select id="findAll" resultType="User">
         SELECT
         <include refid="Base_Column_List" />
-        FROM t_oa_user
+        FROM t_eva_user
     </select>
 
     <select id="queryPage" resultType="User">
         SELECT
         <include refid="Base_Column_List" />
-        FROM t_oa_user
+        FROM t_eva_user
          <include refid="Query_condition" />       
         <if test="condition.sort != null">
 			order by ${condition.sort}
@@ -265,7 +265,7 @@
     <select id="like" parameterType="java.util.Map" resultType="User">
         SELECT
         <include refid="Base_Column_List" />
-        FROM t_oa_user
+        FROM t_eva_user
         <trim prefix="WHERE" prefixOverrides="AND | OR">
 			<if test="id!=null">
 				AND id like '%#{id}%'
@@ -301,7 +301,7 @@
  	<select id="queryList" parameterType="java.util.Map" resultType="User">
         SELECT
         <include refid="Base_Column_List" />
-        FROM t_oa_user
+        FROM t_eva_user
         <trim prefix="WHERE" prefixOverrides="AND | OR">
             <if test="id!=null">
                 AND id =#{id}
@@ -337,7 +337,7 @@
    	<select id="queryOne" parameterType="java.util.Map" resultType="User">
         SELECT
         <include refid="Base_Column_List" />
-        FROM t_oa_user
+        FROM t_eva_user
         <trim prefix="WHERE" prefixOverrides="AND | OR">
             <if test="id!=null">
                 AND id =#{id}
@@ -371,14 +371,14 @@
     </select>
 
   	<select id="count" resultType="java.lang.Integer">
-        SELECT count(id) FROM t_oa_user
+        SELECT count(id) FROM t_eva_user
           <include refid="Query_condition" />
     </select>
 
 	<select id="selectMaxId" resultType="java.lang.Integer">
 	    SELECT
 	    MAX(id)
-	    FROM t_oa_user
+	    FROM t_eva_user
 	</select>
 
 </mapper>

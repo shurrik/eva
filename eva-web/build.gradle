@@ -28,14 +28,14 @@ eclipse {
 //
 // 这儿如果不设置的话，idea 编译时只会默认获取 resources 目录
 //
-//sourceSets {
-//    main {
-//
-//        resources {
-//            srcDirs = ['src/main/resources', 'src/main/resources-dev']
-//        }
-//    }
-//}
+sourceSets {
+    main {
+
+        resources {
+            srcDirs = ['src/main/resources', 'src/main/resources-dev']
+        }
+    }
+}
 
 /*sourceSets {
     main {
