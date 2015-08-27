@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.eden.common.service.IBaseService;
+import com.eden.common.utils.IdGenerator;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.util.StringUtils;
 
@@ -23,8 +24,10 @@ import com.eden.common.utils.CharacterCaseUtils;
  */
 public abstract class AbstractBaseService<D extends IBaseDAO,T extends BaseDomain> implements IBaseService<D,T>, IDaoAware<D,T>{
     @Override
-    public void add(T entity) {
+    public T add(T entity) {
+        entity.setId(IdGenerator.createNewId());
         getDao().insert(entity);
+        return entity;
     }
 
     @Override

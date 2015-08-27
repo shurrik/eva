@@ -12,9 +12,9 @@ function ($rootScope, $state, $stateParams) {
     // GLOBAL APP SCOPE
     // set below basic information
     $rootScope.app = {
-        name: 'Clip-Two', // name of your project
-        author: 'ClipTheme', // author's name or company name
-        description: 'Angular Bootstrap Admin Template', // brief description
+        name: 'EVA', // name of your project
+        author: 'Shurrik', // author's name or company name
+        description: '分析可视化系统', // brief description
         version: '1.0', // current version
         year: ((new Date()).getFullYear()), // automatic current year (for copyright information)
         isMobile: (function () {// true if the browser is a mobile device
@@ -34,8 +34,8 @@ function ($rootScope, $state, $stateParams) {
         }
     };
     $rootScope.user = {
-        name: 'Peter',
-        job: 'ng-Dev',
+        name: 'Shurrik',
+        job: 'Javaer',
         picture: 'app/img/user/02.jpg'
     };
 }]);

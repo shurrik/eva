@@ -24,7 +24,7 @@ public interface IBaseService<D extends IBaseDAO,T extends BaseDomain> {
      *
      * @param entity
      */
-    public void add(T entity);
+    public T add(T entity);
 
     /**
      * 修改一条数据

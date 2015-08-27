@@ -1,5 +1,5 @@
 ﻿{
-  "groups" : [{
+  "groups":[{
     "id" : 1,
     "text": "status1"
   },
@@ -15,4 +15,4 @@
     "id" : 4,
     "text": "admin"
   }]
-}
+};
