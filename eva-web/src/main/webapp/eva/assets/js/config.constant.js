@@ -29,6 +29,7 @@ app.constant('JS_REQUIRES', {
 
         //*** Controllers
         'dashboardCtrl': 'assets/js/controllers/dashboardCtrl.js',
+        'homeCtrl': 'assets/js/controllers/homeCtrl.js',
         'iconsCtrl': 'assets/js/controllers/iconsCtrl.js',
         'vAccordionCtrl': 'assets/js/controllers/vAccordionCtrl.js',
         'ckeditorCtrl': 'assets/js/controllers/ckeditorCtrl.js',

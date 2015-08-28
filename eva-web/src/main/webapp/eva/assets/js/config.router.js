@@ -37,10 +37,26 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
         url: "/dashboard",
         templateUrl: "assets/views/dashboard.html",
         resolve: loadSequence('jquery-sparkline', 'dashboardCtrl'),
-        title: 'Dashboard1',
+        title: 'Dashboard',
         ncyBreadcrumb: {
             label: 'Dashboard'
         }
+    }).state('app.home', {
+        url: "/home",
+        templateUrl: "assets/views/home.html",
+        resolve: loadSequence('jquery-sparkline', 'homeCtrl'),
+        title: 'home',
+        ncyBreadcrumb: {
+            label: 'home'
+        }
+    //}).state('app.home', {
+    //    url: "/home",
+    //    templateUrl: "assets/views/home.html",
+    //    resolve: loadSequence('jquery-sparkline', 'homeCtrl'),
+    //    title: '主页',
+    //    ncyBreadcrumb: {
+    //        label: '主页'
+    //    }
     }).state('app.ui', {
         url: '/ui',
         template: '<div ui-view class="fade-in-up"></div>',
