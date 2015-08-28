@@ -42,22 +42,27 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
             label: 'Dashboard'
         }
     }).state('app.report', {
-        url: "/report",
-        templateUrl: "assets/views/report.html",
-        resolve: loadSequence('jquery-sparkline', 'reportCtrl'),
+        url: '/report',
+        template: '<div ui-view class="fade-in-up"></div>',
         title: '报表',
         ncyBreadcrumb: {
             label: '报表'
         }
-    }).state('app.reportdetail', {
-        //url: "/{reportId:[0-9]{1,4}}",
-        //url: "/detail",
-        url: "/reportdetail/{reportId:[0-9]{1,4}}",
-        templateUrl: "assets/views/report-detail.html",
-        resolve: loadSequence('jquery-sparkline', 'reportDetailCtrl'),
-        title: '报表明细',
+    }).state('app.report.list', {
+        url: "/list",
+        templateUrl: "assets/views/report/list.html",
+        resolve: loadSequence('jquery-sparkline', 'reportCtrl'),
+        title: '列表',
         ncyBreadcrumb: {
-            label: '报表明细'
+            label: '列表'
+        }
+    }).state('app.report.detail', {
+        url: "/detail/{reportId:[0-9]{1,4}}",
+        templateUrl: "assets/views/report/detail.html",
+        resolve: loadSequence('jquery-sparkline', 'reportCtrl'),
+        title: '明细',
+        ncyBreadcrumb: {
+            label: '明细'
         }
     }).state('app.ui', {
         url: '/ui',

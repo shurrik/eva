@@ -31,7 +31,7 @@ app.controller('ReportCtrl', ["$scope","$http","$aside", function ($scope,$http,
     };
 }]);
 
-//app.controller('ReportDetailCtrl', ["$scope","$http","$aside", function ($scope,$http,$aside) {
-//
-//alert(123123);
-//}]);
+app.controller('ReportDetailCtrl', ["$scope","$stateParams", function ($scope,$stateParams) {
+    alert($stateParams.reportId);
+}]);
+
