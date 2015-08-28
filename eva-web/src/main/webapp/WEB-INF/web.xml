@@ -125,7 +125,7 @@
 	
 	
   <welcome-file-list>
-    <welcome-file>install.do</welcome-file>
-    <welcome-file>index.html</welcome-file>
+    <!--<welcome-file>install.do</welcome-file>-->
+    <welcome-file>home</welcome-file>
   </welcome-file-list>
 </web-app>

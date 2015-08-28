@@ -212,7 +212,7 @@ public class InstallAction extends WebApplicationObjectSupport{
 		}
 		else
 		{
-			return "redirect:/index";
+			return "redirect:/index.html";
 		}
 	}
 

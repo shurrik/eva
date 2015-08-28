@@ -53,16 +53,17 @@
 
 	<!-- HTTP安全配置 -->
 	<http auto-config="true" access-denied-page="/login">
-		<intercept-url pattern="/installok" access="IS_AUTHENTICATED_ANONYMOUSLY" />	
-		<intercept-url pattern="/index.html" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-		<intercept-url pattern="/install.do" access="IS_AUTHENTICATED_ANONYMOUSLY" />	
+		<intercept-url pattern="/installok" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/install.do" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<intercept-url pattern="/install/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />	
 		<intercept-url pattern="/login*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<intercept-url pattern="/resources/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />		
-		<intercept-url pattern="/**/*css" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/**/*.css" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<intercept-url pattern="/**/*.js" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<intercept-url pattern="/**/*.jpg" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<intercept-url pattern="/**/*.png" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/**/*.ico" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+
 		<intercept-url pattern="**" access="ROLE_ADMIN"/>	
 		<form-login login-page="/login" default-target-url="/"
 			authentication-failure-url="/login" />
