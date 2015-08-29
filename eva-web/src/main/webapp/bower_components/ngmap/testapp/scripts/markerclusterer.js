@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @name MarkerClustererPlus for Google Maps V3
  * @version 2.1.2 [May 28, 2014]
  * @author Gary Little

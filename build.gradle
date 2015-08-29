@@ -188,9 +188,9 @@ subprojects { subproj ->
 
     repositories {
         mavenCentral()
-        // maven {url "http://maven.oschina.net/content/groups/public/"}
+         maven {url "http://maven.oschina.net/content/groups/public/"}
 //        maven {url "http://repos.someok.com/release"}
-        maven {url "http://192.168.1.152:8081/nexus/content/groups/public/"}
+//        maven {url "http://192.168.1.152:8081/nexus/content/groups/public/"}
     }
 
     jar {
