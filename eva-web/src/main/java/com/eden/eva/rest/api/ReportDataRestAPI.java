@@ -20,6 +20,7 @@ public class ReportDataRestAPI extends BaseRestAPI{
     @Autowired
     private IReportDataService reportDataService;
 
+//
     @POST
 	@Path("/getbyperoid")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -28,4 +29,15 @@ public class ReportDataRestAPI extends BaseRestAPI{
 		List<ReportData> list = reportDataService.findAll();
 		return  list;
 	}
+
+
+//	@POST
+//	@Path("/getbyperoid")
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public ChartData getByPeroid(){
+//		List<ReportData> list = reportDataService.findAll();
+//		ChartData chartData = chartDataFacade.getChartData(list);
+//		return  chartData;
+//	}
 }

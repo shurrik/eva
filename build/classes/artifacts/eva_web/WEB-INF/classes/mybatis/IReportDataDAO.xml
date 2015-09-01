@@ -7,8 +7,8 @@
       id,
 	  rep_id repId,
 	  period_id periodId,
-	  key key,
-	  val val,
+	  rep_key repKey,
+	  rep_val repVal,
 	  create_date createDate
     </sql>
     
@@ -20,11 +20,11 @@
               <if test="condition.periodId!=null">
 			  	AND period_id Like '%${condition.periodId}%'
 			  </if>
-              <if test="condition.key!=null">
-			  	AND key Like '%${condition.key}%'
+              <if test="condition.repKey!=null">
+			  	AND rep_key Like '%${condition.repKey}%'
 			  </if>
-              <if test="condition.val!=null">
-			  	AND val Like '%${condition.val}%'
+              <if test="condition.repVal!=null">
+			  	AND rep_val Like '%${condition.repVal}%'
 			  </if>
               <if test="condition.createDate!=null">
 			  	AND create_date Like '%${condition.createDate}%'
@@ -37,15 +37,15 @@
 	        id,
 		    rep_id,
 		    period_id,
-		    key,
-		    val,
+		    rep_key,
+		    rep_val,
 		    create_date
         ) VALUES (
          	#{id},
        		#{repId},
        		#{periodId},
-       		#{key},
-       		#{val},
+       		#{repKey},
+       		#{repVal},
        		#{createDate}
         )
     </insert>
@@ -60,11 +60,11 @@
           <if test="periodId!=null">
            period_id=#{periodId},
           </if>
-          <if test="key!=null">
-           key=#{key},
+          <if test="repKey!=null">
+           rep_key=#{repKey},
           </if>
-          <if test="val!=null">
-           val=#{val},
+          <if test="repVal!=null">
+           rep_val=#{repVal},
           </if>
           <if test="createDate!=null">
            create_date=#{createDate},
@@ -83,11 +83,11 @@
           <if test="map.periodId!=null">        
            period_id=#{map.periodId},
           </if>
-          <if test="map.key!=null">        
-           key=#{map.key},
+          <if test="map.repKey!=null">        
+           rep_key=#{map.repKey},
           </if>
-          <if test="map.val!=null">        
-           val=#{map.val},
+          <if test="map.repVal!=null">        
+           rep_val=#{map.repVal},
           </if>
           <if test="map.createDate!=null">        
            create_date=#{map.createDate},
@@ -103,15 +103,15 @@
              	id,
 			 	rep_id,
 			 	period_id,
-			 	key,
-			 	val,
+			 	rep_key,
+			 	rep_val,
 			 	create_date,
         ) VALUES (
               	#{map.id},
 		    	#{map.repId},
 		    	#{map.periodId},
-		    	#{map.key},
-		    	#{map.val},
+		    	#{map.repKey},
+		    	#{map.repVal},
 		    	#{map.createDate},
         )
     </insert>
@@ -122,8 +122,8 @@
         <trim prefix="SET" suffixOverrides=","> 
 			    rep_id=#{repId},
 			    period_id=#{periodId},
-			    key=#{key},
-			    val=#{val},
+			    rep_key=#{repKey},
+			    rep_val=#{repVal},
 			    create_date=#{createDate},
         </trim>
         WHERE
@@ -150,11 +150,11 @@
 			<if test="map.periodId!=null">
 				AND period_id = #{map.periodId}
 			</if>				
-			<if test="map.key!=null">
-				AND key = #{map.key}
+			<if test="map.repKey!=null">
+				AND rep_key = #{map.repKey}
 			</if>				
-			<if test="map.val!=null">
-				AND val = #{map.val}
+			<if test="map.repVal!=null">
+				AND rep_val = #{map.repVal}
 			</if>				
 			<if test="map.createDate!=null">
 				AND create_date = #{map.createDate}
@@ -224,11 +224,11 @@
 			<if test="periodId!=null">
 				AND period_id Like '%$ {condition.periodId}%'
 			</if>
-			<if test="key!=null">
-				AND key Like '%$ {condition.key}%'
+			<if test="repKey!=null">
+				AND rep_key Like '%$ {condition.repKey}%'
 			</if>
-			<if test="val!=null">
-				AND val Like '%$ {condition.val}%'
+			<if test="repVal!=null">
+				AND rep_val Like '%$ {condition.repVal}%'
 			</if>
 			<if test="createDate!=null">
 				AND create_date Like '%$ {condition.createDate}%'
@@ -251,11 +251,11 @@
 			<if test="map.periodId!=null">
 				AND period_id = #{map.periodId}
 			</if>
-			<if test="map.key!=null">
-				AND key = #{map.key}
+			<if test="map.repKey!=null">
+				AND rep_key = #{map.repKey}
 			</if>
-			<if test="map.val!=null">
-				AND val = #{map.val}
+			<if test="map.repVal!=null">
+				AND rep_val = #{map.repVal}
 			</if>
 			<if test="map.createDate!=null">
 				AND create_date = #{map.createDate}
@@ -278,11 +278,11 @@
 			<if test="map.periodId!=null">
 				AND period_id = #{map.periodId}
 			</if>
-			<if test="map.key!=null">
-				AND key = #{map.key}
+			<if test="map.repKey!=null">
+				AND rep_key = #{map.repKey}
 			</if>
-			<if test="map.val!=null">
-				AND val = #{map.val}
+			<if test="map.repVal!=null">
+				AND rep_val = #{map.repVal}
 			</if>
 			<if test="map.createDate!=null">
 				AND create_date = #{map.createDate}

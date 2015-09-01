@@ -6,8 +6,8 @@ import java.util.Date;
 public class ReportData extends BaseDomain{
 	private String repId; //报表Id
 	private String periodId; //报表周期Id
-	private String key; //键
-	private Integer val; //值
+	private String repKey; //键
+	private Integer repVal; //值
 	private Date createDate; //创建时间
 
 	public String getRepId() {
@@ -22,17 +22,17 @@ public class ReportData extends BaseDomain{
 	public void setPeriodId(String periodId) {
 		this.periodId = periodId;
 	}
-	public String getKey() {
-		return key;
+	public String getRepKey() {
+		return repKey;
 	}
-	public void setKey(String key) {
-		this.key = key;
+	public void setRepKey(String repKey) {
+		this.repKey = repKey;
 	}
-	public Integer getVal() {
-		return val;
+	public Integer getRepVal() {
+		return repVal;
 	}
-	public void setVal(Integer val) {
-		this.val = val;
+	public void setRepVal(Integer repVal) {
+		this.repVal = repVal;
 	}
 	public Date getCreateDate() {
 		return createDate;
