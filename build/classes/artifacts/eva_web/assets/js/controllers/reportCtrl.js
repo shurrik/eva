@@ -41,12 +41,9 @@ app.controller('ReportDetailCtrl', ["$scope","$stateParams","$http", function ($
         //alert($scope.month);
 
 
-        var myData = {};
+        var myData = { year : $scope.year, month : $scope.month};
         var res = [];
         $http.post('/rest/reportdata/getbyperoid',myData).success(function(response){
-            console.log(response);
-            //res = response;
-
             var labels = [];
             var datas = [];
             for(var i in response)
