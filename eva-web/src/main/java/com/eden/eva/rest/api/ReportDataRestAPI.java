@@ -1,5 +1,6 @@
 package com.eden.eva.rest.api;
 
+import com.eden.eva.facade.IIndexFacade;
 import com.eden.eva.model.ReportData;
 import com.eden.eva.model.ReportPeriod;
 import com.eden.eva.service.IReportDataService;
@@ -24,6 +25,8 @@ public class ReportDataRestAPI extends BaseRestAPI{
     private IReportDataService reportDataService;
 	@Autowired
 	private IReportPeriodService reportPeriodService;
+	@Autowired
+	private IIndexFacade indexFacade;
 
 //
     @POST
@@ -45,6 +48,9 @@ public class ReportDataRestAPI extends BaseRestAPI{
 		{
 			list = reportDataService.findList("periodId",reportPeriod.getId());
 		}
+
+		String sql = indexFacade.createIndexSql("1");
+		System.out.println(sql);
 
 //		List<ReportData> list = reportDataService.findAll();
 		return  list;

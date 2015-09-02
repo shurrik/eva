@@ -1,3 +1,0 @@
-mysql -h 192.168.1.108 -u root -p
-use oa;
-source c:/oa.sql;

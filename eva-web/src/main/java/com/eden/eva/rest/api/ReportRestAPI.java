@@ -1,5 +1,6 @@
 package com.eden.eva.rest.api;
 
+import com.eden.eva.facade.IIndexFacade;
 import com.eden.eva.model.Report;
 import com.eden.eva.model.ReportData;
 import com.eden.eva.service.IReportDataService;
