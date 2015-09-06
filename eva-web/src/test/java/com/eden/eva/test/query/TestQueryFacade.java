@@ -16,6 +16,7 @@ public class TestQueryFacade extends TestBase{
     @Test
     public void testCreateSql() throws Exception
     {
+        System.out.println("===========================start£º");
         String sql = queryFacade.createSql("1");
         System.out.println(sql);
     }
