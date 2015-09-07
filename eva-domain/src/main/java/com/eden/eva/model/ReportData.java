@@ -1,5 +1,6 @@
 package com.eden.eva.model;
 import com.eden.common.domain.BaseDomain;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -7,7 +8,7 @@ public class ReportData extends BaseDomain{
 	private String repId; //报表Id
 	private String periodId; //报表周期Id
 	private String repKey; //键
-	private Integer repVal; //值
+	private BigDecimal repVal; //值
 	private Date createDate; //创建时间
 
 	public String getRepId() {
@@ -28,10 +29,10 @@ public class ReportData extends BaseDomain{
 	public void setRepKey(String repKey) {
 		this.repKey = repKey;
 	}
-	public Integer getRepVal() {
+	public BigDecimal getRepVal() {
 		return repVal;
 	}
-	public void setRepVal(Integer repVal) {
+	public void setRepVal(BigDecimal repVal) {
 		this.repVal = repVal;
 	}
 	public Date getCreateDate() {

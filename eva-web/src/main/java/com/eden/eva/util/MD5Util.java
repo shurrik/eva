@@ -1,10 +1,7 @@
 package com.eden.eva.util;
 
-import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
-import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 
 public class MD5Util {
 //	  @SuppressWarnings("restriction")

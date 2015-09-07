@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>陕西省民政办公系统</title>
+<title>EVA</title>
 <!-- bootstrap - css -->
 <link href="${wwwroot}/resources/BJUI/themes/css/bootstrap.css" rel="stylesheet">
 <!-- core - css -->

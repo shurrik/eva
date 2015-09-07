@@ -1,6 +1,7 @@
 
 package com.eden.eva.service.impl;
 import com.eden.common.utils.IdGenerator;
+import com.eden.eva.service.IUserService;
 import com.eden.eva.dao.IUserDAO;
 import com.eden.eva.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,6 @@ import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.eden.common.service.impl.AbstractPageService;
-import com.eden.eva.service.IUserService;
 
 
 @SuppressWarnings("unchecked")

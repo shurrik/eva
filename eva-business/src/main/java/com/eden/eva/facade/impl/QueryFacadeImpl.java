@@ -1,9 +1,12 @@
 package com.eden.eva.facade.impl;
 
-import com.eden.eva.dao.IQueryJoinDAO;
+import com.eden.eva.model.QueryJoin;
+import com.eden.eva.model.QuerySelect;
+import com.eden.eva.model.QueryTable;
+import com.eden.eva.model.QueryWhere;
+import com.eden.eva.service.*;
 import com.eden.eva.facade.IQueryFacade;
 import com.eden.eva.model.*;
-import com.eden.eva.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

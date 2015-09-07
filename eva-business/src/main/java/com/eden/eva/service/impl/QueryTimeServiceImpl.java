@@ -1,9 +1,9 @@
 
 package com.eden.eva.service.impl;
+import com.eden.eva.dao.IQueryTimeDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.eden.common.service.impl.AbstractPageService;
-import com.eden.eva.dao.IQueryTimeDAO;
 import com.eden.eva.model.QueryTime;
 import com.eden.eva.service.IQueryTimeService;
 

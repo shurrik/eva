@@ -1,6 +1,6 @@
 package com.eden.eva.model;
 import com.eden.common.domain.BaseDomain;
-import java.math.BigDecimal;
+
 import java.util.Date;
 
 public class Report extends BaseDomain{

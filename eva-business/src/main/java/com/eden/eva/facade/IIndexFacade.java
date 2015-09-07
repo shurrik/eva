@@ -5,5 +5,5 @@ package com.eden.eva.facade;
  */
 public interface IIndexFacade {
 
-    String createIndexSql(String queryId);
+    public String createIndexSql(String queryId);
 }

@@ -22,6 +22,7 @@ dependencies {
 
         project(':eva-common'),
         project(':eva-domain'),
+        project(':eva-jdbc'),
 
     )
 

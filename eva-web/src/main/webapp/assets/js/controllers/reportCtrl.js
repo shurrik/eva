@@ -33,17 +33,21 @@ app.controller('ReportCtrl', ["$scope","$http","$aside", function ($scope,$http,
 
 app.controller('ReportDetailCtrl', ["$scope","$stateParams","$http", function ($scope,$stateParams,$http) {
     //alert($stateParams.reportId);
+    $scope.repId = $stateParams.reportId;
     $scope.year;
     $scope.month;
+
     $scope.reportData;
+
     $scope.queryReport = function(){
         //alert($scope.year);
         //alert($scope.month);
 
 
-        var myData = { year : $scope.year, month : $scope.month};
+        var myData = { repId:$scope.repId,year : $scope.year, month : $scope.month};
         var res = [];
-        $http.post('/rest/reportdata/getbyperoid',myData).success(function(response){
+        //$http.post('/rest/reportdata/getbyperoid',myData).success(function(response){
+        $http.post('/rest/reportdata/preview',myData).success(function(response){
             var labels = [];
             var datas = [];
             for(var i in response)

@@ -1,10 +1,11 @@
 package com.eden.eva.rest.api;
 
+import com.eden.eva.facade.IReportDataFacade;
+import com.eden.eva.model.*;
 import com.eden.eva.facade.IIndexFacade;
-import com.eden.eva.model.ReportData;
-import com.eden.eva.model.ReportPeriod;
-import com.eden.eva.service.IReportDataService;
-import com.eden.eva.service.IReportPeriodService;
+import com.eden.eva.jdbc.service.JdbcSqlService;
+import com.eden.eva.service.*;
+import com.eden.eva.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.ws.rs.Consumes;
@@ -27,15 +28,21 @@ public class ReportDataRestAPI extends BaseRestAPI{
 	private IReportPeriodService reportPeriodService;
 	@Autowired
 	private IIndexFacade indexFacade;
+	@Autowired
+	private IDatabaseService databaseService;
+	@Autowired
+	private IReportService reportService;
+	@Autowired
+	private IQueryService queryService;
+	@Autowired
+	private IReportDataFacade reportDataFacade;
 
-//
-    @POST
+
+	@POST
 	@Path("/getbyperoid")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<ReportData> getByPeroid(Map<String,Object> map){
-//		Integer year = (Integer) map.get("year");
-//		Integer month = (Integer) map.get("month");
 
 		ReportPeriod reportPeriod = null;
 		if(map.get("year")!=null&& map.get("month")!=null)
@@ -49,21 +56,60 @@ public class ReportDataRestAPI extends BaseRestAPI{
 			list = reportDataService.findList("periodId",reportPeriod.getId());
 		}
 
-		String sql = indexFacade.createIndexSql("1");
-		System.out.println(sql);
-
-//		List<ReportData> list = reportDataService.findAll();
 		return  list;
 	}
 
+	@POST
+	@Path("/preview")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Map<String, Object>> preview(Map<String,Object> param) throws Exception {
 
-//	@POST
+
+
+
+		String repId = (String) param.get("repId");
+
+		reportDataFacade.addByMonth(repId);
+		Report report = reportService.fetch(repId);
+
+
+		Query query = queryService.findOne("repId", repId);
+
+		Database db = databaseService.fetch(query.getDbId());
+
+		JdbcSqlService sqlService = JdbcSqlService.newInstance(db);
+		String sql = indexFacade.createIndexSql(query.getId());
+		List<Map<String, Object>> list  = sqlService.queryForList(sql);
+
+
+		return  list;
+	}
+
+//    @POST
 //	@Path("/getbyperoid")
 //	@Consumes(MediaType.APPLICATION_JSON)
 //	@Produces(MediaType.APPLICATION_JSON)
-//	public ChartData getByPeroid(){
-//		List<ReportData> list = reportDataService.findAll();
-//		ChartData chartData = chartDataFacade.getChartData(list);
-//		return  chartData;
+//	public List<ReportData> getByPeroid(Map<String,Object> map){
+//
+//		ReportPeriod reportPeriod = null;
+//		if(map.get("year")!=null&& map.get("month")!=null)
+//		{
+//			reportPeriod = reportPeriodService.queryOne(map);
+//		}
+//
+//		List<ReportData> list = null;
+//		if(reportPeriod!=null)
+//		{
+//			list = reportDataService.findList("periodId",reportPeriod.getId());
+//		}
+//
+//		String sql = indexFacade.createIndexSql("1");
+//		System.out.println(sql);
+//
+//		return  list;
 //	}
+
+
+
 }

@@ -69,6 +69,7 @@ dependencies {
         project(':eva-common'),
         project(':eva-business'),
         project(':eva-domain'),
+        project(':eva-jdbc'),
 
 
         //'xpp3:xpp3:1.1.4c',

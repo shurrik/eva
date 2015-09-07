@@ -1,6 +1,6 @@
 apply plugin: 'maven'
 
-// 注意：不要定义这个，如果定义的不正确，否则依赖可能会出问�?
+// 注意：不要定义这个，如果定义的不正确，否则依赖可能会出问�?
 // group = 'cn.anytech.enterprise'
 
 // jar包的名字

@@ -1,12 +1,12 @@
 package com.eden.eva.model;
 import com.eden.common.domain.BaseDomain;
-import java.math.BigDecimal;
+
 import java.util.Date;
 
 public class ReportPeriod extends BaseDomain{
 	private String repId; //报表Id
 	private Integer year; //年份
-	private String month; //月份
+	private Integer month; //月份
 	private Date startDate; //开始时间
 	private Date endDate; //结束时间
 	private Date createDate; //创建时间
@@ -24,10 +24,10 @@ public class ReportPeriod extends BaseDomain{
 	public void setYear(Integer year) {
 		this.year = year;
 	}
-	public String getMonth() {
+	public Integer getMonth() {
 		return month;
 	}
-	public void setMonth(String month) {
+	public void setMonth(Integer month) {
 		this.month = month;
 	}
 	public Date getStartDate() {
