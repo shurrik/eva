@@ -10,6 +10,7 @@ import com.eden.eva.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -18,6 +19,8 @@ import java.util.List;
 @SuppressWarnings("unchecked")
 @Service("QueryFacadeImpl")
 public class QueryFacadeImpl implements IQueryFacade{
+
+    private static final int LIMIT = 1000;
     @Autowired
     private IQueryService queryService;
     @Autowired
@@ -30,7 +33,7 @@ public class QueryFacadeImpl implements IQueryFacade{
     private IQueryWhereService queryWhereService;
 
     @Override
-    public String createSql(String qryId) {
+    public String createSql(String qryId,Date startDate,Date endDate,boolean preview) {
 
         List<QuerySelect> selects = querySelectService.findList("qryId",qryId);
         List<QueryTable> tables = queryTableService.findList("qryId",qryId);
@@ -42,6 +45,14 @@ public class QueryFacadeImpl implements IQueryFacade{
         String whereSql = this.createWhere(wheres);
 
         String sql = selectSql + tableSql + joinSql + whereSql;
+        if(preview)
+        {
+            sql+=this.createPreviewLimit();
+        }
+        else
+        {
+            sql+=this.createPreviewLimit();
+        }
         return sql;
     }
 
@@ -106,6 +117,14 @@ public class QueryFacadeImpl implements IQueryFacade{
     {
         StringBuffer sb  = new StringBuffer();
         sb.append(" WHERE 1=1 ");
+        String sql =sb.toString();
+        return sql;
+    }
+
+    private String createPreviewLimit()
+    {
+        StringBuffer sb  = new StringBuffer();
+        sb.append(" limit 0,"+LIMIT+" ");
         String sql =sb.toString();
         return sql;
     }

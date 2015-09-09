@@ -7,6 +7,8 @@ import com.eden.eva.service.IIndexService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 /**
  * Created by shurrik on 2015/9/2.
  */
@@ -19,12 +21,26 @@ public class IndexFacadeImpl implements IIndexFacade {
     private IIndexService indexService;
 
     @Override
-    public String createIndexSql(String qryId) {
+    public String createIndexSql(String qryId,Date startDate,Date endDate) {
         Index index = indexService.findOne("qryId", qryId);
 //        String querySql = queryFacade.createSql(qryId);
 
         String selectSql = this.createSelect(index);
-        String fromSql = this.createFrom(index);
+        String fromSql = this.createFrom(index,startDate,endDate,false);
+        String groupSql = this.createGroup(index);
+
+        String sql = selectSql+fromSql+groupSql;
+
+        return sql;
+    }
+
+    @Override
+    public String createIndexSqlPreview(String qryId) {
+        Index index = indexService.findOne("qryId", qryId);
+//        String querySql = queryFacade.createSql(qryId);
+
+        String selectSql = this.createSelect(index);
+        String fromSql = this.createFrom(index,null,null,true);
         String groupSql = this.createGroup(index);
 
         String sql = selectSql+fromSql+groupSql;
@@ -44,10 +60,10 @@ public class IndexFacadeImpl implements IIndexFacade {
         return sql;
     }
 
-    private String createFrom(Index index)
+    private String createFrom(Index index,Date startDate,Date endDate,boolean preview)
     {
         StringBuffer sb = new StringBuffer();
-        sb.append(" FROM ( "+queryFacade.createSql(index.getQryId())+" ) datatable");
+        sb.append(" FROM ( "+queryFacade.createSql(index.getQryId(),startDate,endDate,preview)+" ) datatable");
         String sql = sb.toString();
         return sql;
     }

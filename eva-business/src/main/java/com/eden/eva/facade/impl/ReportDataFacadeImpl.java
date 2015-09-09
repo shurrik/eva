@@ -35,20 +35,22 @@ public class ReportDataFacadeImpl implements IReportDataFacade{
     private IQueryService queryService;
 
     @Override
-    public void addByMonth(String repId) throws Exception {
-        Report report = reportService.fetch(repId);
+    public void addByLastMonth(String repId) throws Exception {
 
+        Date[] startAndEndDate = DateUtils.getStartAndEndDateForLastMonth();
+        Date startDate = startAndEndDate[0];
+        Date endDate = startAndEndDate[1];
+
+//        Report report = reportService.fetch(repId);
 
         Query query = queryService.findOne("repId", repId);
-
         Database db = databaseService.fetch(query.getDbId());
 
         JdbcSqlService sqlService = JdbcSqlService.newInstance(db);
-        String sql = indexFacade.createIndexSql(query.getId());
+        String sql = indexFacade.createIndexSql(query.getId(),startDate,endDate);
         List<Map<String, Object>> list  = sqlService.queryForList(sql);
 
-
-        ReportPeriod reportPeriod = this.createReportPeriod(repId);
+        ReportPeriod reportPeriod = this.createReportPeriod(repId,startDate,endDate);
 
         for(Map<String, Object> item:list)
         {
@@ -59,15 +61,14 @@ public class ReportDataFacadeImpl implements IReportDataFacade{
         }
     }
 
-    private ReportPeriod createReportPeriod(String repId)
+    private ReportPeriod createReportPeriod(String repId,Date startDate,Date endDate)
     {
         ReportPeriod reportPeriod = new ReportPeriod();
         reportPeriod.setRepId(repId);
-        reportPeriod.setYear(DateUtils.getYear());
-        reportPeriod.setMonth(DateUtils.getMonth());
-        Date[] dates = DateUtils.getStartAndEndDateForToday();
-        reportPeriod.setStartDate(dates[0]);
-        reportPeriod.setEndDate(dates[1]);
+        reportPeriod.setYear(DateUtils.getYear(startDate));
+        reportPeriod.setMonth(DateUtils.getMonth(startDate));
+        reportPeriod.setStartDate(startDate);
+        reportPeriod.setEndDate(endDate);
         return reportPeriodService.add(reportPeriod);
     }
 

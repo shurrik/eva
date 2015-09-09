@@ -5,7 +5,6 @@ import com.eden.eva.model.*;
 import com.eden.eva.facade.IIndexFacade;
 import com.eden.eva.jdbc.service.JdbcSqlService;
 import com.eden.eva.service.*;
-import com.eden.eva.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.ws.rs.Consumes;
@@ -30,8 +29,6 @@ public class ReportDataRestAPI extends BaseRestAPI{
 	private IIndexFacade indexFacade;
 	@Autowired
 	private IDatabaseService databaseService;
-	@Autowired
-	private IReportService reportService;
 	@Autowired
 	private IQueryService queryService;
 	@Autowired
@@ -65,21 +62,14 @@ public class ReportDataRestAPI extends BaseRestAPI{
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Map<String, Object>> preview(Map<String,Object> param) throws Exception {
 
-
-
-
 		String repId = (String) param.get("repId");
 
-		reportDataFacade.addByMonth(repId);
-		Report report = reportService.fetch(repId);
-
+		reportDataFacade.addByLastMonth(repId);
 
 		Query query = queryService.findOne("repId", repId);
-
 		Database db = databaseService.fetch(query.getDbId());
-
 		JdbcSqlService sqlService = JdbcSqlService.newInstance(db);
-		String sql = indexFacade.createIndexSql(query.getId());
+		String sql = indexFacade.createIndexSqlPreview(query.getId());
 		List<Map<String, Object>> list  = sqlService.queryForList(sql);
 
 

@@ -5,5 +5,5 @@ package com.eden.eva.facade;
  */
 public interface IReportDataFacade {
 
-    public void addByMonth(String repId) throws Exception;
+    public void addByLastMonth(String repId) throws Exception;
 }
