@@ -64,6 +64,22 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
         ncyBreadcrumb: {
             label: '明细'
         }
+    }).state('app.admin', {
+        url: '/admin',
+        template: '<div ui-view class="fade-in-up"></div>',
+        title: '管理',
+        ncyBreadcrumb: {
+            label: '管理'
+        }
+    }).state('app.admin.databaselist', {
+        url: "/databaselist",
+        templateUrl: "assets/views/database/list.html",
+        //resolve: loadSequence('jquery-sparkline', 'databaseCtrl'),
+        resolve: loadSequence('ngTable', 'databaseCtrl'),
+        title: '数据库',
+        ncyBreadcrumb: {
+            label: '数据库'
+        }
     }).state('app.ui', {
         url: '/ui',
         template: '<div ui-view class="fade-in-up"></div>',

@@ -30,6 +30,7 @@ app.constant('JS_REQUIRES', {
         //*** Controllers
         'dashboardCtrl': 'assets/js/controllers/dashboardCtrl.js',
         'reportCtrl': 'assets/js/controllers/reportCtrl.js',
+        'databaseCtrl': 'assets/js/controllers/bussiness/databaseCtrl.js',
         'reportDetailCtrl': 'assets/js/controllers/reportDetailCtrl.js',
         'iconsCtrl': 'assets/js/controllers/iconsCtrl.js',
         'vAccordionCtrl': 'assets/js/controllers/vAccordionCtrl.js',

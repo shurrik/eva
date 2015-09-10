@@ -19,7 +19,7 @@ import java.util.Map;
  * Created by shurrik on 2015/8/27.
  */
 @Path("/reportdata")
-public class ReportDataRestAPI extends BaseRestAPI{
+public class ReportDataRestAPI extends BaseRestAPI<IReportDataService>{
 
     @Autowired
     private IReportDataService reportDataService;
@@ -74,6 +74,11 @@ public class ReportDataRestAPI extends BaseRestAPI{
 
 
 		return  list;
+	}
+
+	@Override
+	protected IReportDataService getMainService() {
+		return reportDataService;
 	}
 
 //    @POST

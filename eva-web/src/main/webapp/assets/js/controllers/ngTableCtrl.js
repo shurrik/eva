@@ -312,6 +312,7 @@ app.controller('ngTableCtrl6', ["$scope", "$filter", "ngTableParams", function (
         "ac": true,
         "dl": false
     }];
+
     $scope.tableParams = new ngTableParams({
         page: 1,
         count: 10

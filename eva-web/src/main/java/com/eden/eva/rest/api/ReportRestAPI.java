@@ -1,6 +1,7 @@
 package com.eden.eva.rest.api;
 
 import com.eden.eva.model.Report;
+import com.eden.eva.service.IDatabaseService;
 import com.eden.eva.service.IReportService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -15,7 +16,7 @@ import java.util.List;
  * Created by shurrik on 2015/8/28.
  */
 @Path("/report")
-public class ReportRestAPI extends BaseRestAPI{
+public class ReportRestAPI extends BaseRestAPI<IReportService>{
 
     @Autowired
     private IReportService reportService;
@@ -27,5 +28,10 @@ public class ReportRestAPI extends BaseRestAPI{
     public List<Report> getALL(){
         List<Report> list = reportService.findAll();
         return  list;
+    }
+
+    @Override
+    protected IReportService getMainService() {
+        return reportService;
     }
 }
