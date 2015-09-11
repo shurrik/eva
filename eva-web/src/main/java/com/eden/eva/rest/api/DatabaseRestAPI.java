@@ -5,6 +5,8 @@ import com.eden.eva.model.Database;
 import com.eden.eva.service.IDatabaseService;
 
 import com.eden.eva.util.PageParam;
+import com.eden.install.util.StringUtil;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.ws.rs.Consumes;
@@ -26,7 +28,7 @@ public class DatabaseRestAPI extends BaseRestAPI<IDatabaseService>{
     private IDatabaseService databaseService;
 
     @POST
-    @Path("/findall")
+    @Path("/list")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public BizData4Page<Database> findAll(Map<String,Object> map){
@@ -36,6 +38,45 @@ public class DatabaseRestAPI extends BaseRestAPI<IDatabaseService>{
         BizData4Page<Database> pageCtx = doPage(conditions, pageParam);
 //        List<Database> list = databaseService.findAll();
         return  pageCtx;
+    }
+
+    @POST
+    @Path("/edit")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Database save(Map<String,Object> map){
+
+        String editId = (String) map.get("editId");
+        Database database = databaseService.fetch(editId);
+        return database;
+    }
+
+    @POST
+    @Path("/save")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+//    public Database save(Map<String,Object> map){
+    public Database save(Database database){
+
+        if(StringUtils.isBlank(database.getId()))
+        {
+            databaseService.add(database);
+        }
+        else
+        {
+            databaseService.update(database);
+        }
+        return database;
+    }
+
+    @POST
+    @Path("/delete")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public void delete(Map<String,Object> map){
+
+        String editId = (String) map.get("editId");
+        databaseService.deleteById(editId);
     }
 
     protected Map getQueryMap(Map<String,Object> map) {

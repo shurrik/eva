@@ -1,3 +1,4 @@
+<div ng-controller="databaseCtrl">
 <!-- start: PAGE TITLE -->
 <section id="page-title">
     <div class="row">
@@ -14,45 +15,57 @@
 <div class="container-fluid container-fullw">
     <div class="row">
         <div class="col-md-12">
-            <!--<h5 class="over-title margin-bottom-15">Inline <span class="text-bold">edit example</span></h5>-->
-            <!-- /// controller:  'ngTableCtrl6' -  localtion: assets/js/controllers/ngTableCtrl.js /// -->
-            <div ng-controller="DatabaseCtrl">
-                <!--<div class="row margin-bottom-10">-->
-                    <!--<div class="col-md-12">-->
-                        <!--<button ng-click="tableParams.sorting({})" class="btn btn-default pull-right">-->
-                            <!--Clear sorting-->
-                        <!--</button>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<strong>Sorting:</strong> {{tableParams.sorting()|json}}-->
-                <div class="table-responsive">
+            <input type=button class="btn btn-green  btn-sm"  value="新增"
+                   ng-click="add()">
+            <div>
+                 <div class="table-responsive">
                     <table ng-table="tableParams" class="table">
                         <tbody ng-repeat="p in $data">
                         <tr id="tr{{p.id}}" ng-class-odd="'odd'" ng-class-even="'even'">
                             <td class="rowTd" data-title="'ID'"  sortable="'id'">{{p.id}}</td>
                             <td class="rowTd" data-title="'dbServer'"  sortable="'dbServer'">{{p.dbServer}}</td>
                             <td class="rowTd" data-title="'dbPort'"  sortable="'dbPort'">{{p.dbPort}}</td>
-
-                            <!--<td class="rowTd" data-title="'Firstname'"   sortable="'fn'">{{p.fn}}</td>-->
-                            <!--<td class="rowTd" data-title="'Lastname'"    sortable="'ln'">{{p.ln}}</td>-->
-                            <!--<td class="rowTd" data-title="'Description'" sortable="'dc'">{{p.dc}}</td>-->
-                            <!--<td class="rowTd" data-title="'Email'"       sortable="'em'">{{p.em}}</td>-->
-                            <!--<td class="rowTd" data-title="'Phone'"       sortable="'ph'">{{p.ph}}</td>-->
-                            <!--<td class="rowTd" >-->
-                                <!--<div class="pull-right margin-right-10">-->
-                                    <!--<input type=button class="btn btn-primary btn-o btn-sm" id="editRowBtn{{p.id}}" value="edit"-->
-                                           <!--ng-click="setEditId(p.id)">-->
-                                <!--</div>-->
-                            <!--</td>-->
+                            <td class="rowTd" >
+                                <div class="pull-right margin-right-10">
+                                <input type=button class="btn btn-primary  btn-sm" id="editRowBtn{{p.id}}" value="编辑"
+                                       ng-click="setEditId(p.id)">
+                                <input type=button class="btn btn-red  btn-sm"  value="删除"
+                                       ng-click="delEditId(p.id)">
+                                 </div>
+                            </td>
                         </tr>
-                        <!--<tr ng-show="editId===p.id" ng-if="editId===p.id">-->
-                            <!--<td colspan="7" ng-include src="'assets/views/editRow.html'"></td>-->
-                        <!--</tr>-->
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+<script type="text/ng-template" id="edit.html">
+    <div class="modal-header">
+        <h3 class="modal-title">编辑</h3>
+    </div>
+    <div class="modal-body">
+        <div class="panel ">
+            <div class="panel-body">
+                <form role="form">
+                    <input type="hidden"  ng-model="database.id" value="{{database.id}}">
+                    <div class="form-group">
+                        <label for="dbServer">
+                            dbServer
+                        </label>
+                        <input type="text" class="form-control" id="dbServer" ng-model="database.dbServer" value="{{database.dbServer}}">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok($event)">确定</button>
+        <button class="btn btn-primary" ng-click="cancel($event)">取消</button>
+    </div>
+</script>
 </div>
 <!-- end: INLINE EDIT EXAMPLE -->
