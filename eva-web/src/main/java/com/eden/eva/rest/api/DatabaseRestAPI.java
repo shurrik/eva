@@ -31,13 +31,24 @@ public class DatabaseRestAPI extends BaseRestAPI<IDatabaseService>{
     @Path("/list")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public BizData4Page<Database> findAll(Map<String,Object> map){
+//    public BizData4Page<Database> findAll(Map<String,Object> map){
+//
+//        Map<String, Object> conditions = getQueryMap(map);
+//        PageParam pageParam = getPageParam(map);
+//        BizData4Page<Database> pageCtx = doPage(conditions, pageParam);
+////        List<Database> list = databaseService.findAll();
+//        return  pageCtx;
+//    }
 
-        Map<String, Object> conditions = getQueryMap(map);
-        PageParam pageParam = getPageParam(map);
-        BizData4Page<Database> pageCtx = doPage(conditions, pageParam);
-//        List<Database> list = databaseService.findAll();
-        return  pageCtx;
+    public List<Database> findAll(Map<String,Object> map){
+
+//        Map<String, Object> conditions = getQueryMap(map);
+//        PageParam pageParam = getPageParam(map);
+//        BizData4Page<Database> pageCtx = doPage(conditions, pageParam);
+////        List<Database> list = databaseService.findAll();
+//        return  pageCtx;
+        List<Database> list = databaseService.findAll();
+        return list;
     }
 
     @POST
