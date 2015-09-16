@@ -2,7 +2,7 @@
 /**
  *  database
  */
-app.controller('databaseCtrl', ["$scope","$http","$aside","$filter", "ngTableParams", function ($scope,$http,$aside,$filter, ngTableParams) {
+app.controller('databaseCtrl', ["$scope","$http","$aside","$filter", "ngTableParams","SweetAlert", function ($scope,$http,$aside,$filter,ngTableParams,SweetAlert) {
     var myData = {};
     $scope.pageCtx = {};
 
@@ -10,7 +10,6 @@ app.controller('databaseCtrl', ["$scope","$http","$aside","$filter", "ngTablePar
     $scope.data = [];
     $scope.listPromise = null;
     $scope.list = function () {
-
         $http.post('/rest/database/list',myData).success(function(data){
             $scope.data = data;
             $scope.tableParams.reload();
@@ -31,31 +30,47 @@ app.controller('databaseCtrl', ["$scope","$http","$aside","$filter", "ngTablePar
     $scope.list();
 
     $scope.delEditId = function (pid) {
-        $http.post('/rest/database/delete',{'editId':pid}).success(function(response){
-            //alert('删除成功！');
-            $scope.list();
+        SweetAlert.swal({
+            title: "确定删除?",
+            text: "数据删除后将无法恢复",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "确定",
+            cancelButtonText: "取消",
+            closeOnConfirm: true,
+            closeOnCancel: true
+        }, function (isConfirm) {
+            if (isConfirm) {
+                $http.post('/rest/database/delete',{'editId':pid}).success(function(response){
+                    $scope.list();
+                    //SweetAlert.swal("Deleted!", "Event has been deleted.", "success");
+                });
+            } else {
+                //SweetAlert.swal("Cancelled", "Event is safe :)", "error");
+            }
         });
+
+        //$http.post('/rest/database/delete',{'editId':pid}).success(function(response){
+        //    $scope.list();
+        //});
     }
 
     $scope.setEditId = function (pid) {
-        //editId = pid;
-        var s = $scope;
-        console.log(s);
         $aside.open({
             templateUrl: 'edit.html',
             placement: 'right',
             size: 'big',
             backdrop: true,
-            controller: function ($scope,$modalInstance,$location) {
+            controller: function ($scope,$modalInstance,$state) {
                 $http.post('/rest/database/edit',{'editId':pid}).success(function(response){
                     $scope.database = response;
                 });
                 $scope.ok = function (e) {
                     $http.post('/rest/database/save',$scope.database).success(function(response){
-                        //alert('保存成功！');
-
                         $modalInstance.close();
                         e.stopPropagation();
+                        $state.transitionTo($state.current, null, {'reload':true});
                     });;
                 };
                 $scope.cancel = function (e) {
@@ -72,13 +87,12 @@ app.controller('databaseCtrl', ["$scope","$http","$aside","$filter", "ngTablePar
             placement: 'right',
             size: 'big',
             backdrop: true,
-            controller: function ($scope, $modalInstance) {
+            controller: function ($scope, $modalInstance,$state) {
                 $scope.ok = function (e) {
                     $http.post('/rest/database/save',$scope.database).success(function(response){
-                        //alert('保存成功！');
-                        //$scope.list();
                         $modalInstance.close();
                         e.stopPropagation();
+                        $state.transitionTo($state.current, null, {'reload':true});
                     });
                 };
                 $scope.cancel = function (e) {
