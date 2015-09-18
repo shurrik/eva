@@ -15,8 +15,19 @@
 <div class="container-fluid container-fullw">
     <div class="row">
         <div class="col-md-12">
-            <input type=button class="btn btn-green  btn-sm"  value="新增"
-                   ng-click="add()">
+            <form role="form" class="form-inline">
+                <div class="form-group">
+                    dbServer：<input type="text"  class="form-control" ng-model="queryMap.dbServer">
+                </div>
+                <button class="btn btn-primary" type="button" ng-click="query()">
+                    查询
+                </button>
+                <button class="btn btn-green" type="button" ng-click="add()">
+                    新增
+                </button>
+            </form>
+        </div>
+        <div class="col-md-12">
             <div>
                  <div class="table-responsive">
                     <table ng-table="tableParams" class="table">
@@ -37,14 +48,9 @@
                         </tbody>
                     </table>
                 </div>
-                <div>
+                <div class="pull-right">
                     <pagination total-items="records" ng-model="queryMap.pageCurrent" max-size="10" class="pagination-sm" boundary-links="true" rotate="false"
                                 items-per-page="queryMap.pageSize" ng-change="pageChanged()" previous-text="上一页" next-text="下一页" first-text="首页" last-text="末页"></pagination>
-                    <!--<pagination boundary-links="true" total-items="TotalProducts"-->
-                    <!--items-per-page="PageSize" ng-change="pageChanged()"-->
-                    <!--ng-model="CurrentPageNumber" class="pagination-lg"-->
-                    <!--previous-text="Prev" next-text="Next" first-text="First"-->
-                    <!--last-text="Last"></pagination>-->
                 </div>
             </div>
 

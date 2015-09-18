@@ -11,6 +11,12 @@ app.controller('databaseCtrl', ["$scope","$http","$aside","$filter", "ngTablePar
     $scope.tableParams = {};
     $scope.data = [];
     $scope.listPromise = null;
+
+    $scope.query = function () {
+        $scope.queryMap.pageCurrent = 1;
+        $scope.list();
+    };
+
     $scope.list = function () {
         $http.post('/rest/database/list',$scope.queryMap).success(function(res){
             $scope.records = res.records; //total rows count
@@ -31,7 +37,7 @@ app.controller('databaseCtrl', ["$scope","$http","$aside","$filter", "ngTablePar
         }
     });
 
-    $scope.list();
+    $scope.query();
 
     $scope.pageChanged = function () {
         $scope.list();
@@ -51,7 +57,7 @@ app.controller('databaseCtrl', ["$scope","$http","$aside","$filter", "ngTablePar
         }, function (isConfirm) {
             if (isConfirm) {
                 $http.post('/rest/database/delete',{'editId':pid}).success(function(response){
-                    $scope.list();
+                    $scope.query();
                 });
             }
         });
