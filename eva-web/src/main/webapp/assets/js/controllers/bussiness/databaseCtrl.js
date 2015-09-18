@@ -23,11 +23,32 @@ app.controller('databaseCtrl', ["$scope","$http","$aside","$filter", "ngTablePar
         counts: [],
         total: $scope.data.length, // length of data
         getData: function ($defer, params) {
-            $defer.resolve($scope.data.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+            var orderedData = params.sorting() ? $filter('orderBy')($scope.data, params.orderBy()) : $scope.data;
+            $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+            //$defer.resolve($scope.data.slice((params.page() - 1) * params.count(), params.page() * params.count()));
         }
     });
 
     $scope.list();
+
+    //$scope.totalItems = 64;
+    //$scope.currentPage = 4;
+
+    //$scope.setPage = function (pageNo) {
+    //    alert(1);
+    //    console.log(pageNo);
+    //    $scope.currentPage = pageNo;
+    //};
+
+    $scope.pageChanged = function () {
+        alert($scope.bigCurrentPage);
+        console.log('Page changed to: ' + $scope.currentPage);
+        //$log.log('Page changed to: ' + $scope.currentPage);
+    };
+
+    $scope.maxSize = 5;
+    $scope.bigTotalItems = 175;
+    $scope.bigCurrentPage = 1;
 
     $scope.delEditId = function (pid) {
         SweetAlert.swal({
@@ -44,16 +65,10 @@ app.controller('databaseCtrl', ["$scope","$http","$aside","$filter", "ngTablePar
             if (isConfirm) {
                 $http.post('/rest/database/delete',{'editId':pid}).success(function(response){
                     $scope.list();
-                    //SweetAlert.swal("Deleted!", "Event has been deleted.", "success");
                 });
-            } else {
-                //SweetAlert.swal("Cancelled", "Event is safe :)", "error");
             }
         });
 
-        //$http.post('/rest/database/delete',{'editId':pid}).success(function(response){
-        //    $scope.list();
-        //});
     }
 
     $scope.setEditId = function (pid) {
