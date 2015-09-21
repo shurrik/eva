@@ -1,4 +1,4 @@
-<div ng-controller="databaseCtrl">
+<div ng-controller="queryselectCtrl">
 <!-- start: PAGE TITLE -->
 <section id="page-title">
     <div class="row">
@@ -16,15 +16,11 @@
     <div class="row">
         <div class="col-md-12">
             <form role="form" class="form-inline">
-                <div class="form-group">地址：<input type="text"  class="form-control" ng-model="queryMap.dbServer"></div>						    			
-                <div class="form-group">端口：<input type="text"  class="form-control" ng-model="queryMap.dbPort"></div>						    			
-                <div class="form-group">数据库类型：<input type="text"  class="form-control" ng-model="queryMap.dbType"></div>						    			
-                <div class="form-group">数据库版本：<input type="text"  class="form-control" ng-model="queryMap.dbVersion"></div>						    			
-                <div class="form-group">数据库：<input type="text"  class="form-control" ng-model="queryMap.dbName"></div>						    			
-                <div class="form-group">表空间：<input type="text"  class="form-control" ng-model="queryMap.tableSpace"></div>						    			
-                <div class="form-group">用户名：<input type="text"  class="form-control" ng-model="queryMap.dbUser"></div>						    			
-                <div class="form-group">密码：<input type="text"  class="form-control" ng-model="queryMap.dbPw"></div>						    			
-                <div class="form-group">备注：<input type="text"  class="form-control" ng-model="queryMap.remark"></div>						    			
+                <div class="form-group">queryID：<input type="text"  class="form-control" ng-model="queryMap.qryId"></div>						    			
+                <div class="form-group">表名：<input type="text"  class="form-control" ng-model="queryMap.tbName"></div>						    			
+                <div class="form-group">随机别名：<input type="text"  class="form-control" ng-model="queryMap.alias"></div>						    			
+                <div class="form-group">列：<input type="text"  class="form-control" ng-model="queryMap.col"></div>						    			
+                <div class="form-group">注释：<input type="text"  class="form-control" ng-model="queryMap.remark"></div>						    			
                 <div class="form-group">创建人ID：<input type="text"  class="form-control" ng-model="queryMap.createrId"></div>						    			
                 <div class="form-group">创建人名：<input type="text"  class="form-control" ng-model="queryMap.createrName"></div>						    			
                 <div class="form-group">更新人ID：<input type="text"  class="form-control" ng-model="queryMap.updaterId"></div>						    			
@@ -41,15 +37,11 @@
                     <table ng-table="tableParams" class="table">
                         <tbody ng-repeat="p in $data">
                         <tr id="tr{{p.id}}" ng-class-odd="'odd'" ng-class-even="'even'">
-			                <td class="rowTd" data-title="'地址'"  sortable="'dbServer'">{{p.dbServer}}</td>						    			
-			                <td class="rowTd" data-title="'端口'"  sortable="'dbPort'">{{p.dbPort}}</td>						    			
-			                <td class="rowTd" data-title="'数据库类型'"  sortable="'dbType'">{{p.dbType}}</td>						    			
-			                <td class="rowTd" data-title="'数据库版本'"  sortable="'dbVersion'">{{p.dbVersion}}</td>						    			
-			                <td class="rowTd" data-title="'数据库'"  sortable="'dbName'">{{p.dbName}}</td>						    			
-			                <td class="rowTd" data-title="'表空间'"  sortable="'tableSpace'">{{p.tableSpace}}</td>						    			
-			                <td class="rowTd" data-title="'用户名'"  sortable="'dbUser'">{{p.dbUser}}</td>						    			
-			                <td class="rowTd" data-title="'密码'"  sortable="'dbPw'">{{p.dbPw}}</td>						    			
-			                <td class="rowTd" data-title="'备注'"  sortable="'remark'">{{p.remark}}</td>						    			
+			                <td class="rowTd" data-title="'queryID'"  sortable="'qryId'">{{p.qryId}}</td>						    			
+			                <td class="rowTd" data-title="'表名'"  sortable="'tbName'">{{p.tbName}}</td>						    			
+			                <td class="rowTd" data-title="'随机别名'"  sortable="'alias'">{{p.alias}}</td>						    			
+			                <td class="rowTd" data-title="'列'"  sortable="'col'">{{p.col}}</td>						    			
+			                <td class="rowTd" data-title="'注释'"  sortable="'remark'">{{p.remark}}</td>						    			
 			                <td class="rowTd" data-title="'创建人ID'"  sortable="'createrId'">{{p.createrId}}</td>						    			
 			                <td class="rowTd" data-title="'创建人名'"  sortable="'createrName'">{{p.createrName}}</td>						    			
 			                <td class="rowTd" data-title="'更新人ID'"  sortable="'updaterId'">{{p.updaterId}}</td>						    			
@@ -87,66 +79,50 @@
         <div class="panel ">
             <div class="panel-body">
                 <form role="form">
-                    <input type="hidden"  ng-model="database.id" value="{{database.id}}">
+                    <input type="hidden"  ng-model="querySelect.id" value="{{querySelect.id}}">
                     <div class="form-group">
-                        <label for="dbServer">地址</label>
-                        <input type="text" class="form-control" id="dbServer" ng-model="database.dbServer" value="{{database.dbServer}}">
+                        <label for="qryId">queryID</label>
+                        <input type="text" class="form-control" id="qryId" ng-model="querySelect.qryId" value="{{querySelect.qryId}}">
                     </div>			                						    			
                     <div class="form-group">
-                        <label for="dbPort">端口</label>
-                        <input type="text" class="form-control" id="dbPort" ng-model="database.dbPort" value="{{database.dbPort}}">
+                        <label for="tbName">表名</label>
+                        <input type="text" class="form-control" id="tbName" ng-model="querySelect.tbName" value="{{querySelect.tbName}}">
                     </div>			                						    			
                     <div class="form-group">
-                        <label for="dbType">数据库类型</label>
-                        <input type="text" class="form-control" id="dbType" ng-model="database.dbType" value="{{database.dbType}}">
+                        <label for="alias">随机别名</label>
+                        <input type="text" class="form-control" id="alias" ng-model="querySelect.alias" value="{{querySelect.alias}}">
                     </div>			                						    			
                     <div class="form-group">
-                        <label for="dbVersion">数据库版本</label>
-                        <input type="text" class="form-control" id="dbVersion" ng-model="database.dbVersion" value="{{database.dbVersion}}">
+                        <label for="col">列</label>
+                        <input type="text" class="form-control" id="col" ng-model="querySelect.col" value="{{querySelect.col}}">
                     </div>			                						    			
                     <div class="form-group">
-                        <label for="dbName">数据库</label>
-                        <input type="text" class="form-control" id="dbName" ng-model="database.dbName" value="{{database.dbName}}">
-                    </div>			                						    			
-                    <div class="form-group">
-                        <label for="tableSpace">表空间</label>
-                        <input type="text" class="form-control" id="tableSpace" ng-model="database.tableSpace" value="{{database.tableSpace}}">
-                    </div>			                						    			
-                    <div class="form-group">
-                        <label for="dbUser">用户名</label>
-                        <input type="text" class="form-control" id="dbUser" ng-model="database.dbUser" value="{{database.dbUser}}">
-                    </div>			                						    			
-                    <div class="form-group">
-                        <label for="dbPw">密码</label>
-                        <input type="text" class="form-control" id="dbPw" ng-model="database.dbPw" value="{{database.dbPw}}">
-                    </div>			                						    			
-                    <div class="form-group">
-                        <label for="remark">备注</label>
-                        <input type="text" class="form-control" id="remark" ng-model="database.remark" value="{{database.remark}}">
+                        <label for="remark">注释</label>
+                        <input type="text" class="form-control" id="remark" ng-model="querySelect.remark" value="{{querySelect.remark}}">
                     </div>			                						    			
                     <div class="form-group">
                         <label for="createrId">创建人ID</label>
-                        <input type="text" class="form-control" id="createrId" ng-model="database.createrId" value="{{database.createrId}}">
+                        <input type="text" class="form-control" id="createrId" ng-model="querySelect.createrId" value="{{querySelect.createrId}}">
                     </div>			                						    			
                     <div class="form-group">
                         <label for="createrName">创建人名</label>
-                        <input type="text" class="form-control" id="createrName" ng-model="database.createrName" value="{{database.createrName}}">
+                        <input type="text" class="form-control" id="createrName" ng-model="querySelect.createrName" value="{{querySelect.createrName}}">
                     </div>			                						    			
                     <div class="form-group">
                         <label for="updaterId">更新人ID</label>
-                        <input type="text" class="form-control" id="updaterId" ng-model="database.updaterId" value="{{database.updaterId}}">
+                        <input type="text" class="form-control" id="updaterId" ng-model="querySelect.updaterId" value="{{querySelect.updaterId}}">
                     </div>			                						    			
                     <div class="form-group">
                         <label for="updaterName">更新人名</label>
-                        <input type="text" class="form-control" id="updaterName" ng-model="database.updaterName" value="{{database.updaterName}}">
+                        <input type="text" class="form-control" id="updaterName" ng-model="querySelect.updaterName" value="{{querySelect.updaterName}}">
                     </div>			                						    			
                     <div class="form-group">
                         <label for="createDate">创建时间</label>
-                        <input type="text" class="form-control" id="createDate" ng-model="database.createDate" value="{{database.createDate}}">
+                        <input type="text" class="form-control" id="createDate" ng-model="querySelect.createDate" value="{{querySelect.createDate}}">
                     </div>			                						    			
                     <div class="form-group">
                         <label for="updateDate">更新时间</label>
-                        <input type="text" class="form-control" id="updateDate" ng-model="database.updateDate" value="{{database.updateDate}}">
+                        <input type="text" class="form-control" id="updateDate" ng-model="querySelect.updateDate" value="{{querySelect.updateDate}}">
                     </div>			                						    			
                 </form>
             </div>

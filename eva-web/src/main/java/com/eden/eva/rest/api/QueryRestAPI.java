@@ -2,8 +2,8 @@
 package com.eden.eva.rest.api;
 
 import com.eden.common.domain.view.BizData4Page;
-import com.eden.eva.model.Database;
-import com.eden.eva.service.IDatabaseService;
+import com.eden.eva.model.Query;
+import com.eden.eva.service.IQueryService;
 import com.eden.eva.util.PageParam;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,21 +19,21 @@ import java.util.Map;
 /**
  * Created by shurrik on 2015/9/21.
  */
-@Path("/database")
-public class DatabaseRestAPI extends BaseRestAPI<IDatabaseService>{
+@Path("/query")
+public class QueryRestAPI extends BaseRestAPI<IQueryService>{
 
     @Autowired
-    private IDatabaseService databaseService;
+    private IQueryService queryService;
 
     @POST
     @Path("/list")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public BizData4Page<Database> list(Map<String,Object> map){
+    public BizData4Page<Query> list(Map<String,Object> map){
 
         Map<String, Object> conditions = getQueryMap(map);
         PageParam pageParam = getPageParam(map);
-        BizData4Page<Database> pageCtx = doPage(conditions, pageParam);
+        BizData4Page<Query> pageCtx = doPage(conditions, pageParam);
         return  pageCtx;
     }
 
@@ -41,28 +41,28 @@ public class DatabaseRestAPI extends BaseRestAPI<IDatabaseService>{
     @Path("/edit")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Database save(Map<String,Object> map){
+    public Query save(Map<String,Object> map){
 
         String editId = (String) map.get("editId");
-        Database database = databaseService.fetch(editId);
-        return database;
+        Query query = queryService.fetch(editId);
+        return query;
     }
 
     @POST
     @Path("/save")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Database save(Database database){
+    public Query save(Query query){
 
-        if(StringUtils.isBlank(database.getId()))
+        if(StringUtils.isBlank(query.getId()))
         {
-            databaseService.add(database);
+            queryService.add(query);
         }
         else
         {
-            databaseService.update(database);
+            queryService.update(query);
         }
-        return database;
+        return query;
     }
 
     @POST
@@ -72,20 +72,13 @@ public class DatabaseRestAPI extends BaseRestAPI<IDatabaseService>{
     public void delete(Map<String,Object> map){
 
         String editId = (String) map.get("editId");
-        databaseService.deleteById(editId);
+        queryService.deleteById(editId);
     }
 
     protected Map getQueryMap(Map<String,Object> map) {
         Map<String, Object> conditions = new HashMap();
-		conditions.put("dbServer", (String)map.get("dbServer"));	
-		conditions.put("dbPort", (String)map.get("dbPort"));	
-		conditions.put("dbType", (String)map.get("dbType"));	
-		conditions.put("dbVersion", (String)map.get("dbVersion"));	
-		conditions.put("dbName", (String)map.get("dbName"));	
-		conditions.put("tableSpace", (String)map.get("tableSpace"));	
-		conditions.put("dbUser", (String)map.get("dbUser"));	
-		conditions.put("dbPw", (String)map.get("dbPw"));	
-		conditions.put("remark", (String)map.get("remark"));	
+		conditions.put("dbId", (String)map.get("dbId"));	
+		conditions.put("repId", (String)map.get("repId"));	
 		conditions.put("createrId", (String)map.get("createrId"));	
 		conditions.put("createrName", (String)map.get("createrName"));	
 		conditions.put("updaterId", (String)map.get("updaterId"));	
@@ -97,7 +90,7 @@ public class DatabaseRestAPI extends BaseRestAPI<IDatabaseService>{
     }
 
     @Override
-    protected IDatabaseService getMainService() {
-        return databaseService;
+    protected IQueryService getMainService() {
+        return queryService;
     }
 }

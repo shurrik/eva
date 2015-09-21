@@ -80,6 +80,82 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
         ncyBreadcrumb: {
             label: '数据库'
         }
+    }).state('app.admin.indexlist', {
+        url: "/indexlist",
+        templateUrl: "assets/views/index/list.html",
+        //resolve: loadSequence('jquery-sparkline', 'databaseCtrl'),
+        resolve: loadSequence('ngTable', 'indexCtrl'),
+        title: '指标',
+        ncyBreadcrumb: {
+            label: '指标'
+        }
+    }).state('app.admin.querylist', {
+        url: "/querylist",
+        templateUrl: "assets/views/query/list.html",
+        //resolve: loadSequence('jquery-sparkline', 'databaseCtrl'),
+        resolve: loadSequence('ngTable', 'queryCtrl'),
+        title: '查询',
+        ncyBreadcrumb: {
+            label: '查询'
+        }
+    }).state('app.admin.queryjoinlist', {
+        url: "/queryjoinlist",
+        templateUrl: "assets/views/queryjoin/list.html",
+        //resolve: loadSequence('jquery-sparkline', 'databaseCtrl'),
+        resolve: loadSequence('ngTable', 'queryjoinCtrl'),
+        title: '查询连接',
+        ncyBreadcrumb: {
+            label: '查询连接'
+        }
+    }).state('app.admin.queryselectlist', {
+        url: "/queryselectlist",
+        templateUrl: "assets/views/queryselect/list.html",
+        //resolve: loadSequence('jquery-sparkline', 'databaseCtrl'),
+        resolve: loadSequence('ngTable', 'queryselectCtrl'),
+        title: '查询选择',
+        ncyBreadcrumb: {
+            label: '查询选择'
+        }
+    }).state('app.admin.querytablelist', {
+        url: "/querytablelist",
+        templateUrl: "assets/views/querytable/list.html",
+        resolve: loadSequence('ngTable', 'querytableCtrl'),
+        title: '查询表',
+        ncyBreadcrumb: {
+            label: '查询表'
+        }
+    }).state('app.admin.querytimelist', {
+        url: "/querytimelist",
+        templateUrl: "assets/views/querytime/list.html",
+        resolve: loadSequence('ngTable', 'querytimeCtrl'),
+        title: '查询周期',
+        ncyBreadcrumb: {
+            label: '查询周期'
+        }
+    }).state('app.admin.querywherelist', {
+        url: "/querywherelist",
+        templateUrl: "assets/views/querywhere/list.html",
+        resolve: loadSequence('ngTable', 'querywhereCtrl'),
+        title: '查询条件',
+        ncyBreadcrumb: {
+            label: '查询条件'
+        }
+    }).state('app.admin.reportdatalist', {
+        url: "/reportdatalist",
+        templateUrl: "assets/views/reportdata/list.html",
+        resolve: loadSequence('ngTable', 'reportdataCtrl'),
+        title: '报表数据',
+        ncyBreadcrumb: {
+            label: '报表数据'
+        }
+    }).state('app.admin.reportperiodlist', {
+        url: "/reportperiodlist",
+        templateUrl: "assets/views/reportperiod/list.html",
+        resolve: loadSequence('ngTable', 'reportperiodCtrl'),
+        title: '报表周期',
+        ncyBreadcrumb: {
+            label: '报表周期'
+        }
     }).state('app.ui', {
         url: '/ui',
         template: '<div ui-view class="fade-in-up"></div>',

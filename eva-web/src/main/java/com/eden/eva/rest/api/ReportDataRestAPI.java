@@ -80,31 +80,4 @@ public class ReportDataRestAPI extends BaseRestAPI<IReportDataService>{
 	protected IReportDataService getMainService() {
 		return reportDataService;
 	}
-
-//    @POST
-//	@Path("/getbyperoid")
-//	@Consumes(MediaType.APPLICATION_JSON)
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public List<ReportData> getByPeroid(Map<String,Object> map){
-//
-//		ReportPeriod reportPeriod = null;
-//		if(map.get("year")!=null&& map.get("month")!=null)
-//		{
-//			reportPeriod = reportPeriodService.queryOne(map);
-//		}
-//
-//		List<ReportData> list = null;
-//		if(reportPeriod!=null)
-//		{
-//			list = reportDataService.findList("periodId",reportPeriod.getId());
-//		}
-//
-//		String sql = indexFacade.createIndexSql("1");
-//		System.out.println(sql);
-//
-//		return  list;
-//	}
-
-
-
 }

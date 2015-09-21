@@ -2,8 +2,8 @@
 package com.eden.eva.rest.api;
 
 import com.eden.common.domain.view.BizData4Page;
-import com.eden.eva.model.Database;
-import com.eden.eva.service.IDatabaseService;
+import com.eden.eva.model.ReportPeriod;
+import com.eden.eva.service.IReportPeriodService;
 import com.eden.eva.util.PageParam;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,21 +19,21 @@ import java.util.Map;
 /**
  * Created by shurrik on 2015/9/21.
  */
-@Path("/database")
-public class DatabaseRestAPI extends BaseRestAPI<IDatabaseService>{
+@Path("/reportperiod")
+public class ReportPeriodRestAPI extends BaseRestAPI<IReportPeriodService>{
 
     @Autowired
-    private IDatabaseService databaseService;
+    private IReportPeriodService reportPeriodService;
 
     @POST
     @Path("/list")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public BizData4Page<Database> list(Map<String,Object> map){
+    public BizData4Page<ReportPeriod> list(Map<String,Object> map){
 
         Map<String, Object> conditions = getQueryMap(map);
         PageParam pageParam = getPageParam(map);
-        BizData4Page<Database> pageCtx = doPage(conditions, pageParam);
+        BizData4Page<ReportPeriod> pageCtx = doPage(conditions, pageParam);
         return  pageCtx;
     }
 
@@ -41,28 +41,28 @@ public class DatabaseRestAPI extends BaseRestAPI<IDatabaseService>{
     @Path("/edit")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Database save(Map<String,Object> map){
+    public ReportPeriod save(Map<String,Object> map){
 
         String editId = (String) map.get("editId");
-        Database database = databaseService.fetch(editId);
-        return database;
+        ReportPeriod reportPeriod = reportPeriodService.fetch(editId);
+        return reportPeriod;
     }
 
     @POST
     @Path("/save")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Database save(Database database){
+    public ReportPeriod save(ReportPeriod reportPeriod){
 
-        if(StringUtils.isBlank(database.getId()))
+        if(StringUtils.isBlank(reportPeriod.getId()))
         {
-            databaseService.add(database);
+            reportPeriodService.add(reportPeriod);
         }
         else
         {
-            databaseService.update(database);
+            reportPeriodService.update(reportPeriod);
         }
-        return database;
+        return reportPeriod;
     }
 
     @POST
@@ -72,24 +72,16 @@ public class DatabaseRestAPI extends BaseRestAPI<IDatabaseService>{
     public void delete(Map<String,Object> map){
 
         String editId = (String) map.get("editId");
-        databaseService.deleteById(editId);
+        reportPeriodService.deleteById(editId);
     }
 
     protected Map getQueryMap(Map<String,Object> map) {
         Map<String, Object> conditions = new HashMap();
-		conditions.put("dbServer", (String)map.get("dbServer"));	
-		conditions.put("dbPort", (String)map.get("dbPort"));	
-		conditions.put("dbType", (String)map.get("dbType"));	
-		conditions.put("dbVersion", (String)map.get("dbVersion"));	
-		conditions.put("dbName", (String)map.get("dbName"));	
-		conditions.put("tableSpace", (String)map.get("tableSpace"));	
-		conditions.put("dbUser", (String)map.get("dbUser"));	
-		conditions.put("dbPw", (String)map.get("dbPw"));	
-		conditions.put("remark", (String)map.get("remark"));	
-		conditions.put("createrId", (String)map.get("createrId"));	
-		conditions.put("createrName", (String)map.get("createrName"));	
-		conditions.put("updaterId", (String)map.get("updaterId"));	
-		conditions.put("updaterName", (String)map.get("updaterName"));	
+		conditions.put("repId", (String)map.get("repId"));	
+		conditions.put("year", (String)map.get("year"));	
+		conditions.put("month", (String)map.get("month"));	
+		conditions.put("startDate", (String)map.get("startDate"));	
+		conditions.put("endDate", (String)map.get("endDate"));	
 		conditions.put("createDate", (String)map.get("createDate"));	
 		conditions.put("updateDate", (String)map.get("updateDate"));	
         
@@ -97,7 +89,7 @@ public class DatabaseRestAPI extends BaseRestAPI<IDatabaseService>{
     }
 
     @Override
-    protected IDatabaseService getMainService() {
-        return databaseService;
+    protected IReportPeriodService getMainService() {
+        return reportPeriodService;
     }
 }

@@ -30,7 +30,18 @@ app.constant('JS_REQUIRES', {
         //*** Controllers
         'dashboardCtrl': 'assets/js/controllers/dashboardCtrl.js',
         'reportCtrl': 'assets/js/controllers/reportCtrl.js',
+        //biz
         'databaseCtrl': 'assets/js/controllers/bussiness/databaseCtrl.js',
+        'indexCtrl': 'assets/js/controllers/bussiness/indexCtrl.js',
+        'queryCtrl': 'assets/js/controllers/bussiness/queryCtrl.js',
+        'queryjoinCtrl': 'assets/js/controllers/bussiness/queryjoinCtrl.js',
+        'queryselectCtrl': 'assets/js/controllers/bussiness/queryselectCtrl.js',
+        'querytableCtrl': 'assets/js/controllers/bussiness/querytableCtrl.js',
+        'querytimeCtrl': 'assets/js/controllers/bussiness/querytimeCtrl.js',
+        'querywhereCtrl': 'assets/js/controllers/bussiness/querywhereCtrl.js',
+        'reportdataCtrl': 'assets/js/controllers/bussiness/reportdataCtrl.js',
+        'reportperiodCtrl': 'assets/js/controllers/bussiness/reportperiodCtrl.js',
+
         'reportDetailCtrl': 'assets/js/controllers/reportDetailCtrl.js',
         'iconsCtrl': 'assets/js/controllers/iconsCtrl.js',
         'vAccordionCtrl': 'assets/js/controllers/vAccordionCtrl.js',
