@@ -2,7 +2,7 @@
 /**
  * controller for User Profile Example
  */
-app.controller('ReportCtrl', ["$scope","$http","$aside", function ($scope,$http,$aside) {
+app.controller('ReportCtrl', ["$scope","$http","$aside","$state", function ($scope,$http,$aside,$state) {
 
     var myData = {};
     $scope.reports = [];
@@ -28,6 +28,10 @@ app.controller('ReportCtrl', ["$scope","$http","$aside", function ($scope,$http,
                 };
             }
         });
+    };
+
+    $scope.addReport = function(){
+        $state.transitionTo("app.report.create", null, {'reload':true});
     };
 }]);
 

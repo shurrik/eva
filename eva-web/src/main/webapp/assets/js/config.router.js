@@ -50,7 +50,7 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
         }
     }).state('app.report.list', {
         url: "/list",
-        templateUrl: "assets/views/report/list.html",
+        templateUrl: "assets/views/biz/report/list.html",
         resolve: loadSequence('jquery-sparkline', 'reportCtrl'),
         title: '列表',
         ncyBreadcrumb: {
@@ -58,12 +58,38 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
         }
     }).state('app.report.detail', {
         url: "/detail/{reportId:[0-9]{1,4}}",
-        templateUrl: "assets/views/report/detail.html",
+        templateUrl: "assets/views/biz/report/detail.html",
         resolve: loadSequence('jquery-sparkline', 'reportCtrl'),
         title: '明细',
         ncyBreadcrumb: {
             label: '明细'
         }
+    }).state('app.report.create', {
+        url: "/create",
+        templateUrl: "assets/views/biz/report/create.html",
+        //resolve: loadSequence('jquery-sparkline','xeditable', 'checklist-model', 'reportCreateCtrl'),
+        //resolve: loadSequence('xeditable', 'checklist-model', 'reportCreateCtrl'),
+        resolve: loadSequence('ui.select', 'monospaced.elastic', 'ui.mask', 'touchspin-plugin', 'reportCreateCtrl'),
+        title: '报表创建',
+        ncyBreadcrumb: {
+            label: '报表创建'
+        }
+    //}).state('app.form.xeditable', {
+    //    url: '/xeditable',
+    //    templateUrl: "assets/views/form_xeditable.html",
+    //    title: 'Angular X-Editable',
+    //    ncyBreadcrumb: {
+    //        label: 'X-Editable'
+    //    },
+    //    resolve: loadSequence('xeditable', 'checklist-model', 'xeditableCtrl')
+    //}).state('app.form.xeditable', {
+    //    url: '/xeditable',
+    //    templateUrl: "assets/views/form_xeditable.html",
+    //    title: 'Angular X-Editable',
+    //    ncyBreadcrumb: {
+    //        label: 'X-Editable'
+    //    },
+    //    resolve: loadSequence('xeditable', 'checklist-model', 'xeditableCtrl')
     }).state('app.admin', {
         url: '/admin',
         template: '<div ui-view class="fade-in-up"></div>',
@@ -73,7 +99,7 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
         }
     }).state('app.admin.databaselist', {
         url: "/databaselist",
-        templateUrl: "assets/views/database/list.html",
+        templateUrl: "assets/views/biz/admin/database/list.html",
         //resolve: loadSequence('jquery-sparkline', 'databaseCtrl'),
         resolve: loadSequence('ngTable', 'databaseCtrl'),
         title: '数据库',
@@ -82,7 +108,7 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
         }
     }).state('app.admin.indexlist', {
         url: "/indexlist",
-        templateUrl: "assets/views/index/list.html",
+        templateUrl: "assets/views/biz/admin/index/list.html",
         //resolve: loadSequence('jquery-sparkline', 'databaseCtrl'),
         resolve: loadSequence('ngTable', 'indexCtrl'),
         title: '指标',
@@ -91,7 +117,7 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
         }
     }).state('app.admin.querylist', {
         url: "/querylist",
-        templateUrl: "assets/views/query/list.html",
+        templateUrl: "assets/views/biz/admin/query/list.html",
         //resolve: loadSequence('jquery-sparkline', 'databaseCtrl'),
         resolve: loadSequence('ngTable', 'queryCtrl'),
         title: '查询',
@@ -100,7 +126,7 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
         }
     }).state('app.admin.queryjoinlist', {
         url: "/queryjoinlist",
-        templateUrl: "assets/views/queryjoin/list.html",
+        templateUrl: "assets/views/biz/admin/queryjoin/list.html",
         //resolve: loadSequence('jquery-sparkline', 'databaseCtrl'),
         resolve: loadSequence('ngTable', 'queryjoinCtrl'),
         title: '查询连接',
@@ -109,7 +135,7 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
         }
     }).state('app.admin.queryselectlist', {
         url: "/queryselectlist",
-        templateUrl: "assets/views/queryselect/list.html",
+        templateUrl: "assets/views/biz/admin/queryselect/list.html",
         //resolve: loadSequence('jquery-sparkline', 'databaseCtrl'),
         resolve: loadSequence('ngTable', 'queryselectCtrl'),
         title: '查询选择',
@@ -118,7 +144,7 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
         }
     }).state('app.admin.querytablelist', {
         url: "/querytablelist",
-        templateUrl: "assets/views/querytable/list.html",
+        templateUrl: "assets/views/biz/admin/querytable/list.html",
         resolve: loadSequence('ngTable', 'querytableCtrl'),
         title: '查询表',
         ncyBreadcrumb: {
@@ -126,7 +152,7 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
         }
     }).state('app.admin.querytimelist', {
         url: "/querytimelist",
-        templateUrl: "assets/views/querytime/list.html",
+        templateUrl: "assets/views/biz/admin/querytime/list.html",
         resolve: loadSequence('ngTable', 'querytimeCtrl'),
         title: '查询周期',
         ncyBreadcrumb: {
@@ -134,7 +160,7 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
         }
     }).state('app.admin.querywherelist', {
         url: "/querywherelist",
-        templateUrl: "assets/views/querywhere/list.html",
+        templateUrl: "assets/views/biz/admin/querywhere/list.html",
         resolve: loadSequence('ngTable', 'querywhereCtrl'),
         title: '查询条件',
         ncyBreadcrumb: {
@@ -142,7 +168,7 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
         }
     }).state('app.admin.reportdatalist', {
         url: "/reportdatalist",
-        templateUrl: "assets/views/reportdata/list.html",
+        templateUrl: "assets/views/biz/admin/reportdata/list.html",
         resolve: loadSequence('ngTable', 'reportdataCtrl'),
         title: '报表数据',
         ncyBreadcrumb: {
@@ -150,7 +176,7 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
         }
     }).state('app.admin.reportperiodlist', {
         url: "/reportperiodlist",
-        templateUrl: "assets/views/reportperiod/list.html",
+        templateUrl: "assets/views/biz/admin/reportperiod/list.html",
         resolve: loadSequence('ngTable', 'reportperiodCtrl'),
         title: '报表周期',
         ncyBreadcrumb: {

@@ -29,20 +29,22 @@ app.constant('JS_REQUIRES', {
 
         //*** Controllers
         'dashboardCtrl': 'assets/js/controllers/dashboardCtrl.js',
-        'reportCtrl': 'assets/js/controllers/reportCtrl.js',
-        //biz
-        'databaseCtrl': 'assets/js/controllers/bussiness/databaseCtrl.js',
-        'indexCtrl': 'assets/js/controllers/bussiness/indexCtrl.js',
-        'queryCtrl': 'assets/js/controllers/bussiness/queryCtrl.js',
-        'queryjoinCtrl': 'assets/js/controllers/bussiness/queryjoinCtrl.js',
-        'queryselectCtrl': 'assets/js/controllers/bussiness/queryselectCtrl.js',
-        'querytableCtrl': 'assets/js/controllers/bussiness/querytableCtrl.js',
-        'querytimeCtrl': 'assets/js/controllers/bussiness/querytimeCtrl.js',
-        'querywhereCtrl': 'assets/js/controllers/bussiness/querywhereCtrl.js',
-        'reportdataCtrl': 'assets/js/controllers/bussiness/reportdataCtrl.js',
-        'reportperiodCtrl': 'assets/js/controllers/bussiness/reportperiodCtrl.js',
 
-        'reportDetailCtrl': 'assets/js/controllers/reportDetailCtrl.js',
+        //biz
+        'databaseCtrl': 'assets/js/controllers/biz/admin/databaseCtrl.js',
+        'indexCtrl': 'assets/js/controllers/biz/admin/indexCtrl.js',
+        'queryCtrl': 'assets/js/controllers/biz/admin/queryCtrl.js',
+        'queryjoinCtrl': 'assets/js/controllers/biz/admin/queryjoinCtrl.js',
+        'queryselectCtrl': 'assets/js/controllers/biz/admin/queryselectCtrl.js',
+        'querytableCtrl': 'assets/js/controllers/biz/admin/querytableCtrl.js',
+        'querytimeCtrl': 'assets/js/controllers/biz/admin/querytimeCtrl.js',
+        'querywhereCtrl': 'assets/js/controllers/biz/admin/querywhereCtrl.js',
+        'reportdataCtrl': 'assets/js/controllers/biz/admin/reportdataCtrl.js',
+        'reportperiodCtrl': 'assets/js/controllers/biz/admin/reportperiodCtrl.js',
+
+        'reportCtrl': 'assets/js/controllers/biz/report/reportCtrl.js',
+        'reportDetailCtrl': 'assets/js/controllers/biz/report/reportDetailCtrl.js',
+        'reportCreateCtrl': 'assets/js/controllers/biz/report/reportCreateCtrl.js',
         'iconsCtrl': 'assets/js/controllers/iconsCtrl.js',
         'vAccordionCtrl': 'assets/js/controllers/vAccordionCtrl.js',
         'ckeditorCtrl': 'assets/js/controllers/ckeditorCtrl.js',

@@ -12,6 +12,15 @@
 <!-- end: PAGE TITLE -->
 <!-- start: FEATURED BOX LINKS -->
 <div class="container-fluid container-fullw bg-white" ng-controller="ReportCtrl">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="margin-bottom-30">
+                <button class="btn btn-primary btn-o btn-wide" ng-click="addReport()">
+                    <i class="ti-plus"></i>创建报表
+                </button>
+            </div>
+        </div>
+    </div>
     <div class="row" >
         <div class="col-sm-4" ng-repeat="report in reports ">
             <div class="panel panel-white no-radius text-center">
@@ -19,7 +28,7 @@
 
                     <h2 class="StepTitle">{{ report.name}}</h2>
                     <p class="text-small">
-                        婚姻数据
+                        {{ report.remark}}
                     </p>
                     <p class="links cl-effect-1">
                         <a ui-sref="app.report.detail({reportId:report.id})">

@@ -2,7 +2,9 @@
 package com.eden.eva.rest.api;
 
 import com.eden.common.domain.view.BizData4Page;
+import com.eden.eva.jdbc.service.JdbcSqlService;
 import com.eden.eva.model.Database;
+import com.eden.eva.model.Tableinfo;
 import com.eden.eva.service.IDatabaseService;
 import com.eden.eva.util.PageParam;
 import org.apache.commons.lang.StringUtils;
@@ -14,6 +16,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -73,6 +76,39 @@ public class DatabaseRestAPI extends BaseRestAPI<IDatabaseService>{
 
         String editId = (String) map.get("editId");
         databaseService.deleteById(editId);
+    }
+
+    @POST
+    @Path("/findall")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Database> findall(Map<String,Object> map){
+        return  databaseService.findAll();
+    }
+
+    @POST
+    @Path("/gettables")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<String> getTables(Map<String,Object> map) throws Exception {
+        String dbId = (String) map.get("dbId");
+        Database db = databaseService.fetch(dbId);
+        JdbcSqlService jdbcSqlService = JdbcSqlService.newInstance(db);
+        List<String> tableNames = jdbcSqlService.getTableNames();
+        return tableNames;
+    }
+
+    @POST
+    @Path("/getcols")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Tableinfo> getCols(Map<String,Object> map) throws Exception {
+        String dbId = (String) map.get("dbId");
+        String tbName = (String) map.get("tbName");
+        Database db = databaseService.fetch(dbId);
+        JdbcSqlService jdbcSqlService = JdbcSqlService.newInstance(db);
+        List<Tableinfo> cols = jdbcSqlService.find_tableInfo(tbName);
+        return cols;
     }
 
     protected Map getQueryMap(Map<String,Object> map) {
