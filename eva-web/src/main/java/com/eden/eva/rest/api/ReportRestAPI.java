@@ -94,18 +94,22 @@ public class ReportRestAPI extends BaseRestAPI<IReportService>{
 
 
         //queryjoin
-        List<Map> joins = (List<Map>) map.get("joins");
-        for(Map j:joins)
+        if(map.get("joins")!=null)
         {
-            QueryJoin join = new QueryJoin();
-            join.setQryId(query.getId());
-            join.setTbNameL((String) j.get("tbNameL"));
-            join.setTbNameR((String) j.get("tbNameR"));
-            join.setColL((String) j.get("colL"));
-            join.setColR((String) j.get("colR"));
-            queryJoinService.add(join);
+            List<Map> joins = (List<Map>) map.get("joins");
+            for(Map j:joins)
+            {
+                QueryJoin join = new QueryJoin();
+                join.setQryId(query.getId());
+                join.setTbNameL((String) j.get("tbNameL"));
+                join.setTbNameR((String) j.get("tbNameR"));
+                join.setColL((String) j.get("colL"));
+                join.setColR((String) j.get("colR"));
+                queryJoinService.add(join);
 
+            }
         }
+
         //querytime
         QueryTime queryTime = new QueryTime();
         queryTime.setQryId(query.getId());

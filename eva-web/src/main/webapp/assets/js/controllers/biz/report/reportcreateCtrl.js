@@ -139,7 +139,8 @@ app.controller('ReportCreateCtrl', ['$scope','$http','toaster','$filter','SweetA
                 confirmButtonColor: "#007AFF",
                 confirmButtonText: "返回",
             }, function () {
-                $state.transitionTo($state.current, null, {'reload':true});
+                //$state.transitionTo($state.current, null, {'reload':true});
+                $state.transitionTo('app.report.list', null, {'reload':true});
             });
         };
 
